@@ -15,4 +15,9 @@ typedef uint32_t uint32;
 typedef int64_t sint64;
 typedef uint64_t uint64;
 
+typedef uint8 boolean;
+
+#define TRUE    ((uint8)1u)
+#define FALSE   ((uint8)0u)
+
 #endif
