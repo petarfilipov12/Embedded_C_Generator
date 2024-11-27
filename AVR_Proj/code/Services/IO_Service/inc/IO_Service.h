@@ -15,7 +15,7 @@
 #define IO_Service_PIN_UNDEFINED        GPIO_PIN_UNDEFINED
 
 /*  Pin_data  */
-#define IO_Service_PIN_COUNT   1
+#define IO_Service_PIN_COUNT   2
 
 #define IO_Service_PIN_0_ID            0
 #define IO_Service_PIN_0_TYPE          IO_Service_PIN_OUTPUT

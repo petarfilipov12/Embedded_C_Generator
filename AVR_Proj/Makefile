@@ -1,5 +1,6 @@
 CC = avr-gcc
-CFLAGS = -mmcu=atmega328 -Wall -Os
+MCU = atmega328p
+CFLAGS = -mmcu=$(MCU) -Wall -Os
 
 PROGRAM_NAME = Proj1
 
@@ -31,4 +32,4 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 upload:
-	avrdude -c usbasp-clone -p m328 -U flash:w:$(BUILD_DIR)/$(PROGRAM_NAME).hex
+	avrdude -c usbasp-clone -p $(MCU) -U flash:w:$(BUILD_DIR)/$(PROGRAM_NAME).hex
