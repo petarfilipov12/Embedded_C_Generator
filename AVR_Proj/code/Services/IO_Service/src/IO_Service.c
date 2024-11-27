@@ -7,7 +7,8 @@ typedef struct{
 }PinCfg_t;
 
 PinCfg_t Pin_data[IO_Service_PIN_COUNT] = {
-    {IO_Service_PIN_0_ID, IO_Service_PIN_0_TYPE}
+    {IO_Service_PIN_0_ID, IO_Service_PIN_0_TYPE},
+    {IO_Service_PIN_1_ID, IO_Service_PIN_1_TYPE}
 };
 
 void IO_service_Init(void)
