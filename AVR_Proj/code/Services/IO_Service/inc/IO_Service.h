@@ -14,19 +14,19 @@
 
 #define IO_Service_PIN_UNDEFINED        GPIO_PIN_UNDEFINED
 
-/*  Pin_data  */
-#define IO_Service_PIN_COUNT   2
+/*  Start Pin_data  */
+#define IO_Service_PIN_0_ID             0
+#define IO_Service_PIN_0_TYPE           IO_Service_PIN_OUTPUT
 
-#define IO_Service_PIN_0_ID            0
-#define IO_Service_PIN_0_TYPE          IO_Service_PIN_OUTPUT
+#define IO_Service_PIN_1_ID             1
+#define IO_Service_PIN_1_TYPE           IO_Service_PIN_INPUT
 
-#define IO_Service_PIN_1_ID            1
-#define IO_Service_PIN_1_TYPE          IO_Service_PIN_INPUT
-
+#define IO_Service_PIN_COUNT            2
+/*  End Pin_data  */
 
 #define IO_Service_READ_PIN(pin_id)             GPIO_READ_PIN(pin_id)
-#define IO_Service_SET_PIN(pin_id)              GPIO_SET_PIN(pin_id)
-#define IO_Service_UNSET_PIN(pin_id)            GPIO_UNSET_PIN(pin_id)
+#define IO_Service_SET_PIN_HIGH(pin_id)         GPIO_SET_PIN_HIGH(pin_id)
+#define IO_Service_SET_PIN_LOW(pin_id)          GPIO_SET_PIN_LOW(pin_id)
 #define IO_Service_TOGGLE_PIN(pin_id)           GPIO_TOGGLE_PIN(pin_id) 
 
 #endif

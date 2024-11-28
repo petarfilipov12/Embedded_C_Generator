@@ -34,18 +34,18 @@ typedef enum{
     {&DDRB, &PORTB, &PINB, PB0},            \
     {&DDRD, &PORTD, &PIND, PD4}
 
-extern GPIO_sPinDataCfg_t asPinsCfg[eGPIO_count];
+extern GPIO_sPinDataCfg_t asGPIOPinsCfg[eGPIO_count];
 
-#define GPIO_SET_PIN_AS_INPUT(index)        (*asPinsCfg[index].ddr &= ~(1 << asPinsCfg[index].pin))
-#define GPIO_SET_PIN_PULL_UP(index)         (*asPinsCfg[index].port |= (1 << asPinsCfg[index].pin))
-#define GPIO_SET_PIN_PULL_DOWN(index)       (*asPinsCfg[index].port &= ~ (1 << asPinsCfg[index].pin))
-#define GPIO_READ_PIN(index)                ((*asPinsCfg[index].read_reg & (1 << asPinsCfg[index].pin)) >> asPinsCfg[index].pin)
+#define GPIO_SET_PIN_AS_INPUT(index)        (*asGPIOPinsCfg[index].ddr &= ~(1 << asGPIOPinsCfg[index].pin))
+#define GPIO_SET_PIN_PULL_UP(index)         (*asGPIOPinsCfg[index].port |= (1 << asGPIOPinsCfg[index].pin))
+#define GPIO_SET_PIN_PULL_DOWN(index)       (*asGPIOPinsCfg[index].port &= ~ (1 << asGPIOPinsCfg[index].pin))
+#define GPIO_READ_PIN(index)                ((*asGPIOPinsCfg[index].read_reg & (1 << asGPIOPinsCfg[index].pin)) >> asGPIOPinsCfg[index].pin)
 
-#define GPIO_SET_PIN_AS_OUTPUT(index)       (*asPinsCfg[index].ddr |= (1 << asPinsCfg[index].pin))
-#define GPIO_SET_PIN(index)                 (*asPinsCfg[index].port |= (1 << asPinsCfg[index].pin))
-#define GPIO_UNSET_PIN(index)               (*asPinsCfg[index].port &= ~(1 << asPinsCfg[index].pin))
-#define GPIO_TOGGLE_PIN(index)              (*asPinsCfg[index].port ^= (1 << asPinsCfg[index].pin))
+#define GPIO_SET_PIN_AS_OUTPUT(index)       (*asGPIOPinsCfg[index].ddr |= (1 << asGPIOPinsCfg[index].pin))
+#define GPIO_SET_PIN_HIGH(index)            (*asGPIOPinsCfg[index].port |= (1 << asGPIOPinsCfg[index].pin))
+#define GPIO_SET_PIN_LOW(index)             (*asGPIOPinsCfg[index].port &= ~(1 << asGPIOPinsCfg[index].pin))
+#define GPIO_TOGGLE_PIN(index)              (*asGPIOPinsCfg[index].port ^= (1 << asGPIOPinsCfg[index].pin))
 
-extern uint8 HAL_GPIO_Init_PIN(uint8 pin_id, GPIO_PinInputOutputType pin_type);
+extern Func_ReturnType HAL_GPIO_Init_PIN(uint8 pin_id, GPIO_PinInputOutputType pin_type);
 
 #endif

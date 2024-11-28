@@ -11,12 +11,12 @@ PinCfg_t Pin_data[IO_Service_PIN_COUNT] = {
     {IO_Service_PIN_1_ID, IO_Service_PIN_1_TYPE}
 };
 
-void IO_service_Init(void)
+void IO_Service_Init(void)
 {
     uint8 i = 0;
 
     for(i=0; i<IO_Service_PIN_COUNT; i++)
     {
-        HAL_GPIO_Init_PIN(Pin_data[i].pin_id, Pin_data[i].pin_type);
+        (void)HAL_GPIO_Init_PIN(Pin_data[i].pin_id, Pin_data[i].pin_type);
     }
 }

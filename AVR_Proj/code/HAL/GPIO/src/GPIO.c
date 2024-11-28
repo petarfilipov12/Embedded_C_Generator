@@ -1,10 +1,11 @@
+#include "Types.h"
 #include "GPIO.h"
 
-GPIO_sPinDataCfg_t asPinsCfg[eGPIO_count] = {GPIO_PinDataCfg_INIT};
+GPIO_sPinDataCfg_t asGPIOPinsCfg[eGPIO_count] = {GPIO_PinDataCfg_INIT};
 
-uint8 HAL_GPIO_Init_PIN(uint8 pin_id, GPIO_PinInputOutputType pin_type)
+Func_ReturnType HAL_GPIO_Init_PIN(uint8 pin_id, GPIO_PinInputOutputType pin_type)
 {
-    uint8 returnL = FALSE;
+    Func_ReturnType returnL = RET_OK;
 
     if(GPIO_PIN_INPUT == pin_type)
     {
@@ -18,6 +19,7 @@ uint8 HAL_GPIO_Init_PIN(uint8 pin_id, GPIO_PinInputOutputType pin_type)
     else
     {
         //Error should not be here
+        returnL = RET_NOT_OK;
     }
 
     return returnL;
