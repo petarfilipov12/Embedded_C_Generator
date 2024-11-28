@@ -13,10 +13,12 @@ PinCfg_t Pin_data[IO_Service_PIN_COUNT] = {
 
 void IO_Service_Init(void)
 {
+#if IO_Service_PIN_COUNT > 0    
     uint8 i = 0;
 
     for(i=0; i<IO_Service_PIN_COUNT; i++)
     {
         (void)HAL_GPIO_Init_PIN(Pin_data[i].pin_id, Pin_data[i].pin_type);
     }
+#endif
 }

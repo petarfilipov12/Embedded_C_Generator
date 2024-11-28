@@ -13,7 +13,8 @@
 #define OS_GetTaskCyclicRunnables(TaskName) TaskName##_CyclicRunnables
 
 #define Task_100ms_InitRunnables    \
-IO_Service_Init();
+IO_Service_Init();  \
+ADC_Service_Init();
 
 #define Task_100ms_CyclicRunnables   \
 CompLedIndicator_cyclic_100ms();

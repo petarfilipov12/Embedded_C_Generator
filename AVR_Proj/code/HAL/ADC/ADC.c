@@ -16,7 +16,7 @@ Func_ReturnType ADC_Start_Measurement(uint8 pin_id)
 {
     Func_ReturnType returnL = RET_BUSY;
 
-    if(ADC_IS_READY_TO_MEASURE())
+    if(ADC_IS_ADC_READY())
     {
         ADC_SET_PIN_TO_MEASURE(pin_id);
         ADC_START_MESUREMENT();
@@ -25,9 +25,4 @@ Func_ReturnType ADC_Start_Measurement(uint8 pin_id)
     }
 
     return returnL;
-}
-
-Func_ReturnType ADC_Read_Pin(uint8 pin_id, uint8* value)
-{
-    
 }

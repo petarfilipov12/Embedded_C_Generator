@@ -18,15 +18,18 @@
 
 #define ADC_START_MESUREMENT()      (ADCSRA |= (1 << ADSC))
 
-#define ADC_IS_READY_TO_MEASURE()   (!(ADCSRA & (1 << ADSC)))
+#define ADC_IS_ADC_READY()   (!(ADCSRA & (1 << ADSC)))
 
 #define ADC_SET_PIN_TO_MEASURE(pin_id)  (ADMUX &= 0xf0u);   \
                                         (ADMUX |= au8ADCPinsCfg[pin_id])
 
+#define ADC_READ(value)      (*value = ADCH)
+
 #define ADC_PIN_COUNT 1
 #define ADC_PinDataCfg_INIT \
-    ADC0
+    0u
 
 extern Func_ReturnType ADC_Enable_ADC(void);
+extern Func_ReturnType ADC_Start_Measurement(uint8 pin_id);
 
 #endif
