@@ -4,7 +4,6 @@
 #include <avr/io.h>
 
 #include "Types.h"
-#include "IO_Service.h"
 
 typedef uint8 GPIO_PinInputOutputType;
 #define GPIO_PIN_INPUT      0
@@ -23,18 +22,14 @@ typedef struct{
     uint8_t pin;
 }GPIO_sPinDataCfg_t;
 
-typedef enum{
-    eGPIO_PIN_0,
-    eGPIO_PIN_1,
-    eGPIO_count
-}GPIO_eGPIOPins;
+#define GPIO_PIN_COUNT  2
 
 #define GPIO_PinDataCfg_INIT                \
 /*     ddr, port, ,read_reg, pin    */      \
     {&DDRB, &PORTB, &PINB, PB0},            \
     {&DDRD, &PORTD, &PIND, PD4}
 
-extern GPIO_sPinDataCfg_t asGPIOPinsCfg[eGPIO_count];
+extern GPIO_sPinDataCfg_t asGPIOPinsCfg[GPIO_PIN_COUNT];
 
 #define GPIO_SET_PIN_AS_INPUT(index)        (*asGPIOPinsCfg[index].ddr &= ~(1 << asGPIOPinsCfg[index].pin))
 #define GPIO_SET_PIN_PULL_UP(index)         (*asGPIOPinsCfg[index].port |= (1 << asGPIOPinsCfg[index].pin))
@@ -46,6 +41,6 @@ extern GPIO_sPinDataCfg_t asGPIOPinsCfg[eGPIO_count];
 #define GPIO_SET_PIN_LOW(index)             (*asGPIOPinsCfg[index].port &= ~(1 << asGPIOPinsCfg[index].pin))
 #define GPIO_TOGGLE_PIN(index)              (*asGPIOPinsCfg[index].port ^= (1 << asGPIOPinsCfg[index].pin))
 
-extern Func_ReturnType HAL_GPIO_Init_PIN(uint8 pin_id, GPIO_PinInputOutputType pin_type);
+extern Func_ReturnType GPIO_Init_PIN(uint8 pin_id, GPIO_PinInputOutputType pin_type);
 
 #endif

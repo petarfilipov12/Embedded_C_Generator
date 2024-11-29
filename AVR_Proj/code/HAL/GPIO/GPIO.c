@@ -1,9 +1,9 @@
 #include "Types.h"
 #include "GPIO.h"
 
-GPIO_sPinDataCfg_t asGPIOPinsCfg[eGPIO_count] = {GPIO_PinDataCfg_INIT};
+GPIO_sPinDataCfg_t asGPIOPinsCfg[GPIO_PIN_COUNT] = {GPIO_PinDataCfg_INIT};
 
-Func_ReturnType HAL_GPIO_Init_PIN(uint8 pin_id, GPIO_PinInputOutputType pin_type)
+Func_ReturnType GPIO_Init_PIN(uint8 pin_id, GPIO_PinInputOutputType pin_type)
 {
     Func_ReturnType returnL = RET_OK;
 

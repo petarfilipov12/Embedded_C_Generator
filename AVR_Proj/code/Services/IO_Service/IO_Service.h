@@ -24,11 +24,9 @@
 
 #define IO_Service_PIN_COUNT            2
 
-#if IO_Service_PIN_COUNT > 0
-    #define IO_Service_READ_PIN(pin_id)             GPIO_READ_PIN(pin_id)
-    #define IO_Service_SET_PIN_HIGH(pin_id)         GPIO_SET_PIN_HIGH(pin_id)
-    #define IO_Service_SET_PIN_LOW(pin_id)          GPIO_SET_PIN_LOW(pin_id)
-    #define IO_Service_TOGGLE_PIN(pin_id)           GPIO_TOGGLE_PIN(pin_id)
-#endif 
+
+extern Func_ReturnType IO_Service_Read_Pin(uint8 pin_id, uint8* value);
+extern Func_ReturnType IO_Service_Set_Pin(uint8 pin_id, IO_Service_PinStateType pin_state);
+extern Func_ReturnType IO_Service_Toggle_Pin(uint8 pin_id);
 
 #endif
