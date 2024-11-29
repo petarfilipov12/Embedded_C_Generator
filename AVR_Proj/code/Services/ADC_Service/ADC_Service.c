@@ -8,7 +8,7 @@ void ADC_Service_Init(void)
     }
 }
 
-Func_ReturnType ADC_Read_Pin(uint8 pin_id, uint8* value)
+Func_ReturnType ADC_Service_Read_Pin(uint8 pin_id, uint8* value)
 {
     Func_ReturnType returnL = RET_BUSY;
 

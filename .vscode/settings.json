@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "gpio.h": "c"
+        "gpio.h": "c",
+        "cstdlib": "c",
+        "uart_service.h": "c"
     }
 }

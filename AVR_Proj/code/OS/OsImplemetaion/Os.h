@@ -14,9 +14,11 @@
 
 #define Task_100ms_InitRunnables    \
 IO_Service_Init();  \
-ADC_Service_Init();
+ADC_Service_Init(); \
+UART_Service_Init();
 
 #define Task_100ms_CyclicRunnables   \
-CompLedIndicator_cyclic_100ms();
+CompLedIndicator_cyclic_100ms();    \
+CompSensor_Cyclic_100ms();
 
 #endif
