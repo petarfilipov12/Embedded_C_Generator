@@ -27,7 +27,7 @@
 
 #define ADC_PIN_COUNT 1
 #define ADC_PinDataCfg_INIT \
-    0u
+    PC0
 
 extern Func_ReturnType ADC_Enable_ADC(void);
 extern Func_ReturnType ADC_Start_Measurement(uint8 pin_id);

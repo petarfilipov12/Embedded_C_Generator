@@ -6,6 +6,6 @@ void CompSensor_Cyclic_100ms(void)
 
     if(RET_OK == ADC_Service_Read_Pin(ADC_Service_PIN_0_ID, &sensor_val))
     {
-        UART_Service_Transmit(&sensor_val, sizeof(sensor_val));
+        PWM_Service_Set_Pin(PWM_Service_PIN_0_ID, sensor_val);
     }
 }

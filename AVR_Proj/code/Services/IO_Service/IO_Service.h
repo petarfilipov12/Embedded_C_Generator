@@ -20,9 +20,9 @@
 
 #define IO_Service_PIN_1_ID             1
 #define IO_Service_PIN_1_TYPE           IO_Service_PIN_INPUT
-/*  End Pin_data  */
 
 #define IO_Service_PIN_COUNT            2
+/*  End Pin_data  */
 
 
 extern Func_ReturnType IO_Service_Read_Pin(uint8 pin_id, uint8* value);

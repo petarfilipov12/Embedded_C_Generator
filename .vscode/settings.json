@@ -3,6 +3,8 @@
         "gpio.h": "c",
         "cstdlib": "c",
         "uart_service.h": "c",
-        "memory.h": "c"
+        "memory.h": "c",
+        "io.h": "c",
+        "iom328p.h": "c"
     }
 }
