@@ -4,8 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/lib/avr/include/**",
-                "${workspaceFolder}/AVR_Proj/code/HAL/UART"
+                "/usr/lib/avr/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

@@ -7,6 +7,8 @@
 #define BAUD                9600UL
 #define CALC_UBRR(baud)     (((F_CPU / (16 * baud)) - 1))
 
-extern void UART_Service_Transmit(uint8* data, uint8 data_length);
+#define UART_BUFFER_SIZE    200u
+
+extern Func_ReturnType UART_Service_Transmit(uint8* data, uint8 data_length);
 
 #endif

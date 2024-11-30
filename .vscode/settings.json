@@ -2,6 +2,7 @@
     "files.associations": {
         "gpio.h": "c",
         "cstdlib": "c",
-        "uart_service.h": "c"
+        "uart_service.h": "c",
+        "memory.h": "c"
     }
 }
