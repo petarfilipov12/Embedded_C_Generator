@@ -16,6 +16,7 @@
 #define Task_200ms_InitRunnables    \
 ADC_Service_Init(); \
 IO_Service_Init();  \
+GPT_Service_Init(); \
 PWM_Service_Init();
 
 #define Task_200ms_CyclicRunnables   \

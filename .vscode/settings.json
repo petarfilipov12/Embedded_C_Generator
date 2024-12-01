@@ -5,6 +5,7 @@
         "uart_service.h": "c",
         "memory.h": "c",
         "io.h": "c",
-        "iom328p.h": "c"
+        "iom328p.h": "c",
+        "gpt_service.h": "c"
     }
 }
