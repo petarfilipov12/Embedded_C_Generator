@@ -29,7 +29,8 @@ CompSensor_Cyclic_100ms();
 UART_Service_Init();
 
 #define Task_10ms_CyclicRunnables   \
-UART_Service_Cyclic();
+UART_Service_Cyclic();  \
+ADC_Service_Cyclic();
 /* End Task_10ms */
 
 #endif
