@@ -25,6 +25,8 @@ typedef uint8 Func_ReturnType;
 #define RET_OK                      ((uint8)0u)
 #define RET_NOT_OK                  ((uint8)1u)
 #define RET_BUSY                    ((uint8)2u)
+#define RET_PENDING                 ((uint8)6u)
+
 #define RET_QUEUE_IN_USE            ((uint8)3u)
 #define RET_QUEUE_NOT_ENOUGH_SPACE  ((uint8)4u)
 #define RET_QUEUE_EMPTY             ((uint8)5u)

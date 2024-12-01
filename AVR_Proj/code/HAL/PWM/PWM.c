@@ -11,10 +11,3 @@ Func_ReturnType PWM_Init_Pin(uint8 pin_id)
 
     return RET_OK;
 }
-
-Func_ReturnType PWM_Set_Pin(uint8 timer_id, uint8 duty_cycle)
-{
-    (void)GPT_Timer_Set_Compare_Value(timer_id, duty_cycle);
-
-    return RET_OK;
-}

@@ -4,6 +4,9 @@
 #include "Types.h"
 #include "ADC.h"
 
+#define ADC_Service_ADC_0_ID    0
+#define ADC_Service_ADC_COUNT   1
+
 #define ADC_Service_PIN_0_ID             0
 #define ADC_Service_PIN_COUNT            1
 

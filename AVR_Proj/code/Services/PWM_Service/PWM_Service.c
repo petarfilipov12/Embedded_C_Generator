@@ -26,7 +26,7 @@ Func_ReturnType PWM_Service_Set_Pin(uint8 pin_id, uint8 duty_cycle)
 
     if(RET_OK == PWM_Service_Pin_data[pin_id].status)
     {
-        ret = PWM_Set_Pin(PWM_Service_Pin_data[pin_id].timer_id, duty_cycle);
+        ret = GPT_Service_Set_Compare_Value(PWM_Service_Pin_data[pin_id].timer_id, duty_cycle);
     }
     
     return ret;

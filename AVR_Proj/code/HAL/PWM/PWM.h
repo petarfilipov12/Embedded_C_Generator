@@ -21,6 +21,5 @@ extern PWM_sPinDataCfg_t asPWMPinsCfg[PWM_PIN_COUNT];
 
 
 extern Func_ReturnType PWM_Init_Pin(uint8 pin_id);
-Func_ReturnType PWM_Set_Pin(uint8 timer_id, uint8 duty_cycle);
 
 #endif
