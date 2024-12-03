@@ -8,7 +8,7 @@ void CompLedIndicator_cyclic_100ms(void)
   if( (RET_OK == IO_Service_Read_Pin(IO_Service_PIN_1_ID, &pin_val)) && (IO_Service_PIN_HIGH != pin_val) )
   {
     IO_Service_Toggle_Pin(IO_Service_PIN_0_ID);
-    UART_Service_Transmit(&uart_data[0], (uint8)(sizeof(uart_data)/sizeof(uart_data[0])));
+    UART_Service_Transmit(UART_Service_UART_0_ID, &uart_data[0], (uint8)(sizeof(uart_data)/sizeof(uart_data[0])));
   }
   else
   {

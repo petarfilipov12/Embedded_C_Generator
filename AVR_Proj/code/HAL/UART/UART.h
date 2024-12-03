@@ -4,7 +4,7 @@
 #include <avr/io.h>
 #include "Types.h"
 
-extern void UART_Init(uint16 ubrr);
-extern void UART_putc(uint8 data);
+extern Func_ReturnType UART_Init(uint8 uart_id, uint16 ubrr);
+extern Func_ReturnType UART_putc(uint8 uart_id, uint8 data);
 
 #endif

@@ -28,6 +28,7 @@ typedef uint8 Func_ReturnType;
 #define RET_PENDING                 ((uint8)6u)
 #define RET_READY                   ((uint8)6u)
 
+#define RET_ADC_ERROR               ((uint8)7u)
 
 #define RET_QUEUE_IN_USE            ((uint8)3u)
 #define RET_QUEUE_NOT_ENOUGH_SPACE  ((uint8)4u)

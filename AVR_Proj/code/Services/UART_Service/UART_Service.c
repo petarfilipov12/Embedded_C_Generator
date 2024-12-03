@@ -1,34 +1,35 @@
 #include "UART_Service.h"
 #include "Queue.h"
 
-typedef struct UartQueue{
+typedef struct{
     Queue_t sUartQueue;
-    uint8 au8UartBuffer[UART_BUFFER_SIZE];
-    boolean in_use;
-}UartQueue_t;
+    uint8 au8UartBuffer[UART_Service_UART_BUFFER_SIZE];
+    Func_ReturnType status;
+}UART_Service_UartHwCfg_t;
 
-#define UART_Service_Queue_FREE      0
-#define UART_Service_Queue_IN_USE    1
-
-UartQueue_t gUartQueue;
+UART_Service_UartHwCfg_t UART_Service_UartHwCfg_data[UART_Service_UART_HW_COUNT];
 
 void UART_Service_Init(void)
 {
-    Queue_Init(&gUartQueue.sUartQueue, &gUartQueue.au8UartBuffer[0], UART_BUFFER_SIZE);
-    gUartQueue.in_use = UART_Service_Queue_FREE;
+    uint8 uart_id = 0;
 
-    UART_Init(CALC_UBRR(BAUD));
+    for(uart_id=0; uart_id<UART_Service_UART_HW_COUNT; uart_id++)
+    {
+        Queue_Init(&UART_Service_UartHwCfg_data[uart_id].sUartQueue, &UART_Service_UartHwCfg_data[uart_id].au8UartBuffer[0], UART_Service_UART_BUFFER_SIZE);
+        UART_Service_UartHwCfg_data[uart_id].status = UART_Init(uart_id, CALC_UBRR(BAUD));
+    }
 }
 
-Func_ReturnType UART_Service_Transmit(uint8* data, uint8 data_length)
+Func_ReturnType UART_Service_Transmit(uint8 uart_id, uint8* data, uint8 data_length)
 {
-    Func_ReturnType ret = RET_QUEUE_IN_USE;
+    Func_ReturnType ret = UART_Service_UartHwCfg_data[uart_id].status;
 
-    if(gUartQueue.in_use == UART_Service_Queue_FREE)
+    if(RET_OK == ret)
     {
-        gUartQueue.in_use = UART_Service_Queue_IN_USE;
-        ret = Queue_Put(&gUartQueue.sUartQueue, &data[0], data_length);
-        gUartQueue.in_use = UART_Service_Queue_FREE;
+        UART_Service_UartHwCfg_data[uart_id].status = RET_BUSY;
+        ret = Queue_Put(&UART_Service_UartHwCfg_data[uart_id].sUartQueue, &data[0], data_length);
+        UART_Service_UartHwCfg_data[uart_id].status = ret;
+
     }
 
     return ret;
@@ -36,16 +37,16 @@ Func_ReturnType UART_Service_Transmit(uint8* data, uint8 data_length)
 
 void UART_Service_Cyclic(void)
 {
+    uint8 uart_id = 0;
     uint8 value = 0;
-    Func_ReturnType ret = RET_NOT_OK;
 
-    if(Queue_IsEmpty(&gUartQueue.sUartQueue) != TRUE)
+    for(uart_id=0; uart_id<UART_Service_UART_HW_COUNT; uart_id++)
     {
-        ret = Queue_Pop(&gUartQueue.sUartQueue, &value);
-
-        if(ret == RET_OK)
+        if( (RET_NOT_OK != UART_Service_UartHwCfg_data[uart_id].status)
+            && (TRUE != Queue_IsEmpty(&UART_Service_UartHwCfg_data[uart_id].sUartQueue)) 
+            && (RET_OK == Queue_Pop(&UART_Service_UartHwCfg_data[uart_id].sUartQueue, &value)) )
         {
-            UART_putc(value);
+            UART_putc(uart_id, value);
         }
     }
 }
