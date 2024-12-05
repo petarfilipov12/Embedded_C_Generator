@@ -1,5 +1,12 @@
 #include "LedIndicator.h"
 
+void CompLedIndicator_Init(void)
+{
+  uint8 uart_data[4] = {'I', 'N', 'I', 'T'};
+
+  UART_Service_Transmit(UART_Service_UART_0_ID, &uart_data[0], (uint8)(sizeof(uart_data)/sizeof(uart_data[0])));
+}
+
 void CompLedIndicator_cyclic_100ms(void)
 {
   uint8 pin_val = 0;

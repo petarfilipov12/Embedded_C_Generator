@@ -33,3 +33,6 @@ clean:
 
 upload:
 	avrdude -c usbasp-clone -p $(MCU) -U flash:w:$(BUILD_DIR)/$(PROGRAM_NAME).hex
+
+fuse_read:
+	avrdude -c usbasp-clone -p $(MCU) -U lfuse:r:-:h -U hfuse:r:-:h -U efuse:r:-:h
