@@ -28,8 +28,6 @@ void CompLedIndicator_cyclic_100ms(void)
   }
 
   ret = UART_Service_Read(UART_Service_UART_0_ID, &uart_rx_data[0], &uart_rx_data_length);
-  // temp = '0' + ret;
-  // UART_Service_Transmit(UART_Service_UART_0_ID, &temp, 1);
   if(RET_OK == ret)
   {
     if(uart_rx_data_length > 0)
