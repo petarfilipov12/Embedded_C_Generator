@@ -14,9 +14,13 @@ Func_ReturnType UART_Init(uint8 uart_id, uint16 ubrr)
 
 Func_ReturnType UART_putc(uint8 uart_id, uint8 data)
 {
-    while(!(UCSR0A & (1 << UDRE0)));
+    Func_ReturnType ret = RET_BUSY;
 
-    UDR0 = data;
+    if(UCSR0A & (1 << UDRE0))
+    {
+        UDR0 = data;
+        ret = RET_OK;
+    }
 
-    return RET_OK;
+    return ret;
 }

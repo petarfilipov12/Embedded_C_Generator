@@ -47,7 +47,11 @@ Func_ReturnType Queue_Pop(Queue_t* queue, uint8* value)
 
     if(Queue_IsEmpty(queue) != TRUE)
     {
-        *value = queue->buffer[queue->front];
+        if(value != NULL)
+        {
+            *value = queue->buffer[queue->front];
+        }
+        
         queue->length--;
 
         if(queue->front >= (queue->buffer_size - 1))
@@ -59,6 +63,19 @@ Func_ReturnType Queue_Pop(Queue_t* queue, uint8* value)
             queue->front++;
         }
 
+        ret = RET_OK;
+    }
+
+    return ret;
+}
+
+Func_ReturnType Queue_Peek(Queue_t* queue, uint8* value)
+{
+    Func_ReturnType ret = RET_QUEUE_EMPTY;
+
+    if(Queue_IsEmpty(queue) != TRUE)
+    {
+        *value = queue->buffer[queue->front];
         ret = RET_OK;
     }
 

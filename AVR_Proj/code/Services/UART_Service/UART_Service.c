@@ -44,9 +44,10 @@ void UART_Service_Cyclic(void)
     {
         if( (RET_NOT_OK != UART_Service_UartHwCfg_data[uart_id].status)
             && (TRUE != Queue_IsEmpty(&UART_Service_UartHwCfg_data[uart_id].sUartQueue)) 
-            && (RET_OK == Queue_Pop(&UART_Service_UartHwCfg_data[uart_id].sUartQueue, &value)) )
+            && (RET_OK == Queue_Peek(&UART_Service_UartHwCfg_data[uart_id].sUartQueue, &value))
+            && (RET_OK == UART_putc(uart_id, value)) )
         {
-            UART_putc(uart_id, value);
+            (void)Queue_Pop(&UART_Service_UartHwCfg_data[uart_id].sUartQueue, NULL);
         }
     }
 }

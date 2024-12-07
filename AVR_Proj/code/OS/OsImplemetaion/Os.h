@@ -3,7 +3,6 @@
 
 #include "Types.h"
 #include "OsHAL.h"
-#include "LedIndicator.h"
 
 #define OS_TASK OsHAL_TASK
 #define OS_CreateTask OsHAL_CreateTask

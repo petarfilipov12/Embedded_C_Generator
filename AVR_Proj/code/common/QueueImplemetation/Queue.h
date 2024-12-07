@@ -14,6 +14,7 @@ typedef struct Queue{
 extern void Queue_Init(Queue_t* queue, uint8* buffer, uint8 buffer_size);
 extern Func_ReturnType Queue_Put(Queue_t* queue, uint8* data, uint8 data_length);
 extern Func_ReturnType Queue_Pop(Queue_t* queue, uint8* value);
+extern Func_ReturnType Queue_Peek(Queue_t* queue, uint8* value);
 extern boolean Queue_IsEmpty(Queue_t* queue);
 
 #endif
