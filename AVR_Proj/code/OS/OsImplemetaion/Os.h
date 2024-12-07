@@ -30,7 +30,7 @@ UART_Service_Init();    \
 ADC_Service_Init();
 
 #define Task_10ms_CyclicRunnables   \
-WDT_Service_Cyclic();   \
+WDT_Service_Cyclic();  \
 UART_Service_Cyclic();  \
 ADC_Service_Cyclic();
 /* End Task_10ms */

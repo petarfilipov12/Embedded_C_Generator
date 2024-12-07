@@ -11,7 +11,7 @@ void Queue_Init(Queue_t* queue, uint8* buffer, uint8 buffer_size)
     queue->length = 0u;
 }
 
-Func_ReturnType Queue_Put(Queue_t* queue, uint8* data, uint8 data_length)
+inline Func_ReturnType Queue_Put(Queue_t* queue, uint8* data, uint8 data_length)
 {
     uint8 i = 0;
     Func_ReturnType ret = RET_OK;
@@ -41,7 +41,7 @@ Func_ReturnType Queue_Put(Queue_t* queue, uint8* data, uint8 data_length)
     return ret;
 }
 
-Func_ReturnType Queue_Pop(Queue_t* queue, uint8* value)
+inline Func_ReturnType Queue_Pop(Queue_t* queue, uint8* value)
 {
     Func_ReturnType ret = RET_QUEUE_EMPTY;
 
@@ -69,7 +69,7 @@ Func_ReturnType Queue_Pop(Queue_t* queue, uint8* value)
     return ret;
 }
 
-Func_ReturnType Queue_Peek(Queue_t* queue, uint8* value)
+inline Func_ReturnType Queue_Peek(Queue_t* queue, uint8* value)
 {
     Func_ReturnType ret = RET_QUEUE_EMPTY;
 
@@ -82,7 +82,20 @@ Func_ReturnType Queue_Peek(Queue_t* queue, uint8* value)
     return ret;
 }
 
-boolean Queue_IsEmpty(Queue_t* queue)
+inline Func_ReturnType Queue_Length(Queue_t* queue, uint8* value)
+{
+    Func_ReturnType ret = RET_QUEUE_EMPTY;
+
+    if(Queue_IsEmpty(queue) != TRUE)
+    {
+        *value = queue->length;
+        ret = RET_OK;
+    }
+
+    return ret;
+}
+
+inline boolean Queue_IsEmpty(Queue_t* queue)
 {
     return (queue->length <= 0u);
 }

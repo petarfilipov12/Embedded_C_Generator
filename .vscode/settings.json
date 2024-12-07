@@ -8,6 +8,7 @@
         "iom328p.h": "c",
         "gpt_service.h": "c",
         "compsensor.h": "c",
-        "wdt.h": "c"
+        "wdt.h": "c",
+        "queue.h": "c"
     }
 }
