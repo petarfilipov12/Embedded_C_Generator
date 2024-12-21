@@ -12,7 +12,8 @@ typedef struct Queue{
 }Queue_t;
 
 extern void Queue_Init(Queue_t* queue, uint8* buffer, uint8 buffer_size);
-extern inline Func_ReturnType Queue_Put(Queue_t* queue, uint8* data, uint8 data_length);
+extern inline Func_ReturnType Queue_Put(Queue_t* queue, uint8 data);
+extern inline Func_ReturnType Queue_PutData(Queue_t* queue, uint8* data, uint8 data_length);
 extern inline Func_ReturnType Queue_Pop(Queue_t* queue, uint8* value);
 extern inline Func_ReturnType Queue_Peek(Queue_t* queue, uint8* value);
 extern inline Func_ReturnType Queue_Length(Queue_t* queue, uint8* value);

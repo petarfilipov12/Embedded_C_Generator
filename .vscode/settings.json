@@ -9,6 +9,7 @@
         "gpt_service.h": "c",
         "compsensor.h": "c",
         "wdt.h": "c",
-        "queue.h": "c"
+        "queue.h": "c",
+        "spi_service.h": "c"
     }
 }

@@ -27,6 +27,7 @@ CompSensor_Cyclic_100ms();
 #define Task_10ms_InitRunnables    \
 WDT_Service_Init(); \
 UART_Service_Init();    \
+SPI_Service_Init(); \
 ADC_Service_Init();
 
 #define Task_10ms_CyclicRunnables   \

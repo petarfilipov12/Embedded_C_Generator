@@ -52,7 +52,7 @@ void ADC_Service_Cyclic(void)
                     }
                     else
                     {
-                        Queue_Put(&ADC_Service_Adc_data[adc_id].sAdcQueue, &pin_id, 1u);
+                        Queue_PutData(&ADC_Service_Adc_data[adc_id].sAdcQueue, &pin_id, 1u);
                     }
                 }
             }
@@ -78,7 +78,7 @@ Func_ReturnType ADC_Service_Read_Pin(uint8 pin_id, uint8* value)
          returnL = ADC_Service_Adc_data[ADC_Service_Pin_data[pin_id].adc_id].status;
         if(RET_NOT_OK != returnL)
         {
-            returnL = Queue_Put(&ADC_Service_Adc_data[ADC_Service_Pin_data[pin_id].adc_id].sAdcQueue, &pin_id, 1u);
+            returnL = Queue_PutData(&ADC_Service_Adc_data[ADC_Service_Pin_data[pin_id].adc_id].sAdcQueue, &pin_id, 1u);
             if(RET_OK == returnL)
             {
                 ADC_Service_Pin_data[pin_id].status = RET_PENDING;

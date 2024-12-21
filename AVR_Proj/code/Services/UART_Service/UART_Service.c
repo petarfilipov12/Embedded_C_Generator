@@ -29,7 +29,7 @@ Func_ReturnType UART_Service_Transmit(uint8 uart_id, uint8* data, uint8 data_len
     if(RET_OK == ret)
     {
         UART_Service_UartHwCfg_data[uart_id].status = RET_BUSY;
-        ret = Queue_Put(&UART_Service_UartHwCfg_data[uart_id].sUartTxQueue, &data[0], data_length);
+        ret = Queue_PutData(&UART_Service_UartHwCfg_data[uart_id].sUartTxQueue, &data[0], data_length);
         UART_Service_UartHwCfg_data[uart_id].status = ret;
     }
 
@@ -57,7 +57,7 @@ inline void UART_Service_UART_Receive(uint8 uart_id, uint8* data, uint8 data_len
 {
     if(RET_OK == UART_Service_UartHwCfg_data[uart_id].status)
     {
-        (void)Queue_Put(&UART_Service_UartHwCfg_data[uart_id].sUartRxQueue, &data[0], data_length);
+        (void)Queue_PutData(&UART_Service_UartHwCfg_data[uart_id].sUartRxQueue, &data[0], data_length);
     }
 }
 

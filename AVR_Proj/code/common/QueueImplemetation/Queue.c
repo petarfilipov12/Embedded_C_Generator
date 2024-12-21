@@ -11,7 +11,33 @@ void Queue_Init(Queue_t* queue, uint8* buffer, uint8 buffer_size)
     queue->length = 0u;
 }
 
-inline Func_ReturnType Queue_Put(Queue_t* queue, uint8* data, uint8 data_length)
+inline Func_ReturnType Queue_Put(Queue_t* queue, uint8 data)
+{
+    Func_ReturnType ret = RET_OK;
+
+    if((queue->buffer_size - queue->length) <= 0)
+    {
+        ret = RET_QUEUE_NOT_ENOUGH_SPACE;
+    }
+    else
+    {
+        queue->buffer[queue->rear] = data;
+        queue->length++;
+
+        if(queue->rear >= (queue->buffer_size - 1))
+        {
+            queue->rear = 0u;
+        }
+        else
+        {
+            queue->rear++;
+        }
+    }
+
+    return ret;
+}
+
+inline Func_ReturnType Queue_PutData(Queue_t* queue, uint8* data, uint8 data_length)
 {
     uint8 i = 0;
     Func_ReturnType ret = RET_OK;
@@ -22,20 +48,7 @@ inline Func_ReturnType Queue_Put(Queue_t* queue, uint8* data, uint8 data_length)
     }
     else
     {
-        for(i=0; i<data_length; i++)
-        {
-            queue->buffer[queue->rear] = data[i];
-            queue->length++;
-
-            if(queue->rear >= (queue->buffer_size - 1))
-            {
-                queue->rear = 0u;
-            }
-            else
-            {
-                queue->rear++;
-            }
-        }
+        Queue_Put(queue, data[i]);
     }
 
     return ret;
