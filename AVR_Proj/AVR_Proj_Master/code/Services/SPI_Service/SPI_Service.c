@@ -66,3 +66,17 @@ Func_ReturnType SPI_Service_Transmit(uint8 spi_id, uint8 *tx_data, uint8 *rx_dat
 
     return ret;
 }
+
+Func_ReturnType SPI_Service_GetReceived(uint8 spi_id, uint8 *rx_data, uint8 *data_length)
+{
+    Func_ReturnType ret = RET_QUEUE_EMPTY;
+
+    if(RET_OK == Queue_Length(&SPI_Service_SpiSlaveHwCfg_data[spi_id].sSpiRxQueue, &data_length[0]))
+    {
+        memcpy(&rx_data[0], &SPI_Service_SpiSlaveHwCfg_data[spi_id].au8SpiRxBuffer[0], *data_length);
+
+        ret = RET_OK;
+    }
+    
+    return ret;
+}

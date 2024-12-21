@@ -5,7 +5,13 @@ void Queue_Init(Queue_t* queue, uint8* buffer, uint8 buffer_size)
 {
     queue->buffer = &buffer[0];
     queue->buffer_size = buffer_size;
-    memset(queue->buffer, 0u, buffer_size);
+
+    Queue_Clear(queue);
+}
+
+inline void Queue_Clear(Queue_t* queue)
+{
+    memset(queue->buffer, 0u, queue->buffer_size);
     queue->front = 0u;
     queue->rear = 0u;
     queue->length = 0u;
