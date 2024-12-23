@@ -10,6 +10,8 @@
         "compsensor.h": "c",
         "wdt.h": "c",
         "queue.h": "c",
-        "spi_service.h": "c"
+        "spi_service.h": "c",
+        "adc_service.h": "c",
+        "gen_adc_service.h": "c"
     }
 }

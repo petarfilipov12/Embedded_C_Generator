@@ -35,5 +35,5 @@ Func_ReturnType UART_putc(uint8 uart_id, uint8 data)
 
 ISR(USART_RX_vect)
 {
-    UART_Service_UART_Receive(UART_Service_UART_0_ID, &UDR0, 1u);
+    UART_Service_UART_Receive(0u, &UDR0, 1u);
 }

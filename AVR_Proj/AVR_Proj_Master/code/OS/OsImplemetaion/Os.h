@@ -13,7 +13,7 @@
 
 /* Start Task_200ms */
 #define Task_200ms_InitRunnables    \
-IO_Service_Init();  \
+DIO_Service_Init();  \
 GPT_Service_Init(); \
 PWM_Service_Init(); \
 CompLedIndicator_Init();

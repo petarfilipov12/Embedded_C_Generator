@@ -1,5 +1,7 @@
 #include "GPT_Service.h"
+#include "GPT.h"
 
+#if GPT_Service_TIMER_COUNT > 0
 typedef struct{
     uint8 timer_mode;
     uint8 compare_val;
@@ -7,12 +9,12 @@ typedef struct{
     Func_ReturnType status;
 }GPT_Service_TimerCfg_t;
 
-GPT_Service_TimerCfg_t GPT_Service_Timer_data[GPT_Service_TIMER_COUNT] = {
-    {GPT_Service_TIMER_0_MODE, GPT_Service_TIMER_0_COMPARE_VALUE, GPT_Service_TIMER_0_FREQ_PRESCALER, RET_NOT_OK}, //TIMER_0
-};
+GPT_Service_TimerCfg_t GPT_Service_Timer_data[GPT_Service_TIMER_COUNT] = {GPT_Service_Timer_data_INIT};
+#endif
 
 void GPT_Service_Init(void)
 {
+#if GPT_Service_TIMER_COUNT > 0
     uint8 timer_id = 0;
 
     for(timer_id=0; timer_id<GPT_Service_TIMER_COUNT; timer_id++)
@@ -24,11 +26,15 @@ void GPT_Service_Init(void)
             GPT_Service_Timer_data[timer_id].freq_prescalar
         );
     }
+#endif
 }
 
 Func_ReturnType GPT_Service_Set_Compare_Value(uint8 timer_id, uint8 compare_val)
 {
-    Func_ReturnType ret = GPT_Service_Timer_data[timer_id].status;
+    Func_ReturnType ret = RET_NOT_OK;
+
+#if GPT_Service_TIMER_COUNT > 0
+    ret = GPT_Service_Timer_data[timer_id].status;
 
     if(RET_OK == ret)
     {
@@ -38,6 +44,6 @@ Func_ReturnType GPT_Service_Set_Compare_Value(uint8 timer_id, uint8 compare_val)
             GPT_Service_Timer_data[timer_id].compare_val = compare_val;
         }
     }
-
+#endif
     return ret;
 }

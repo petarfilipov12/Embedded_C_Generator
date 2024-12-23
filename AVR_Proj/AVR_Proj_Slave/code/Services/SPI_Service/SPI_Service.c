@@ -1,9 +1,11 @@
 #include "SPI_Service.h"
 #include "Queue.h"
 
+#if SPI_Service_SPI_MASTER_HW_COUNT > 0u
 typedef struct{
     Func_ReturnType status;
 }SPI_Service_SpiMasterHwCfg_t;
+#endif
 
 SPI_Service_SpiMasterHwCfg_t SPI_Service_SpiMasterHwCfg_data[SPI_Service_SPI_MASTER_HW_COUNT];
 
@@ -21,10 +23,12 @@ void SPI_Service_Init(void)
 {
     uint8 spi_id = 0;
 
+#if SPI_Service_SPI_MASTER_HW_COUNT > 0u
     for(spi_id=0; spi_id<SPI_Service_SPI_MASTER_HW_COUNT; spi_id++)
     {
         SPI_Service_SpiMasterHwCfg_data[spi_id].status = SPI_MasterInit(spi_id);
     }
+#endif
 
 #if SPI_Service_SPI_SLAVE_HW_COUNT > 0u
     for(spi_id=0; spi_id<SPI_Service_SPI_SLAVE_HW_COUNT; spi_id++)
@@ -40,6 +44,7 @@ void SPI_Service_Init(void)
 #endif
 }
 
+#if SPI_Service_SPI_MASTER_HW_COUNT > 0u
 Func_ReturnType SPI_Service_Transmit(uint8 spi_id, uint8 *tx_data, uint8 *rx_data, uint8 data_length)
 {
     uint8 i = 0;
@@ -66,7 +71,9 @@ Func_ReturnType SPI_Service_Transmit(uint8 spi_id, uint8 *tx_data, uint8 *rx_dat
 
     return ret;
 }
+#endif
 
+#if SPI_Service_SPI_SLAVE_HW_COUNT > 0u
 Func_ReturnType SPI_Service_GetReceived(uint8 spi_id, uint8 *rx_data, uint8 *data_length)
 {
     Func_ReturnType ret = RET_QUEUE_EMPTY;
@@ -80,3 +87,4 @@ Func_ReturnType SPI_Service_GetReceived(uint8 spi_id, uint8 *rx_data, uint8 *dat
     
     return ret;
 }
+#endif

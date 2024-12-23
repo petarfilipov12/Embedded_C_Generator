@@ -9,6 +9,7 @@ Queue_t *psRxQueue = NULL;
 
 //Master variables
 volatile uint8 *pu8TransmitRxData = NULL;
+volatile uint8 u8TransmitRxDataBuffer;
 volatile boolean *pbTxRxDone = NULL;
 static volatile boolean spi_busy = TRUE;
 
@@ -100,14 +101,18 @@ static inline void SPI_HandleMasterInterrupt(void)
 {
     if(SPSR & (1 << WCOL))
     {
-        *pu8TransmitRxData = SPDR;
-        *pu8TransmitRxData = 0;
+        u8TransmitRxDataBuffer = SPDR;
+        u8TransmitRxDataBuffer = 0;
     }
     else
     {
-        *pu8TransmitRxData = SPDR;
+        u8TransmitRxDataBuffer = SPDR;
     }
 
+    if(pu8TransmitRxData != NULL)
+    {
+        *pu8TransmitRxData = u8TransmitRxDataBuffer;
+    }
     *pbTxRxDone = TRUE;
     spi_busy = FALSE;
 }

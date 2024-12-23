@@ -1,5 +1,6 @@
 #include "ADC_Service.h"
-#include "Queue.h"
+#include "ADC.h"
+
 
 typedef struct{
     uint8 current_pin_id;
@@ -8,20 +9,23 @@ typedef struct{
     Func_ReturnType status;
 }ADC_Service_AdcCfg_t;
 
-ADC_Service_AdcCfg_t ADC_Service_Adc_data[ADC_Service_ADC_COUNT];
-
 typedef struct{
     uint8 adc_id;
     uint8 last_value;
     Func_ReturnType status;
 }ADC_Service_PinCfg_t;
 
-ADC_Service_PinCfg_t ADC_Service_Pin_data[ADC_Service_PIN_COUNT] = {
-    {ADC_Service_ADC_0_ID, RET_OK}, //ADC_PIN_0
-};
+#if ADC_Service_ADC_COUNT > 0
+ADC_Service_AdcCfg_t ADC_Service_Adc_data[ADC_Service_ADC_COUNT];
+#endif
+
+#if ADC_Service_PIN_COUNT > 0
+ADC_Service_PinCfg_t ADC_Service_Pin_data[ADC_Service_PIN_COUNT] = {ADC_Service_Pin_data_INIT};
+#endif
 
 void ADC_Service_Init(void)
 {
+#if ADC_Service_ADC_COUNT > 0
     uint8 i = 0;
 
     for(i=0; i<ADC_Service_ADC_COUNT; i++)
@@ -29,10 +33,12 @@ void ADC_Service_Init(void)
         Queue_Init(&ADC_Service_Adc_data[i].sAdcQueue, &ADC_Service_Adc_data[i].au8AdcBuffer[0], ADC_Service_ADC_BUFFER_SIZE);
         ADC_Service_Adc_data[i].status = ADC_Enable_ADC(i);
     }
+#endif
 }
 
 void ADC_Service_Cyclic(void)
 {
+#if (ADC_Service_ADC_COUNT > 0) && (ADC_Service_PIN_COUNT > 0)
     uint8 adc_id = 0;
     uint8 pin_id = 0;
 
@@ -67,11 +73,15 @@ void ADC_Service_Cyclic(void)
             }
         }
     }
+#endif
 }
 
 Func_ReturnType ADC_Service_Read_Pin(uint8 pin_id, uint8* value)
 {
-    Func_ReturnType returnL = ADC_Service_Pin_data[pin_id].status;
+    Func_ReturnType returnL = RET_NOT_OK;
+    
+#if ADC_Service_PIN_COUNT > 0
+    returnL = ADC_Service_Pin_data[pin_id].status;
 
     if(RET_OK == returnL)
     {
@@ -92,6 +102,7 @@ Func_ReturnType ADC_Service_Read_Pin(uint8 pin_id, uint8* value)
         ADC_Service_Pin_data[pin_id].status = RET_OK;
         returnL = RET_OK;
     }
+#endif
 
     return returnL;
 }

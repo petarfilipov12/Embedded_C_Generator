@@ -4,7 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/lib/avr/include/**"
+                "/usr/lib/avr/include/**",
+                "${workspaceFolder}/AVR_Proj/AVR_Proj_Master/**",
+                "${workspaceFolder}/AVR_Proj/AVR_Proj_Master/code/GenData/Services"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

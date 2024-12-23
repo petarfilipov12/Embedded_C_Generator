@@ -14,6 +14,12 @@
 //#define SPI_Service_SPI_SLAVE_SPI_1_ID        0u
 #define SPI_Service_SPI_SLAVE_HW_COUNT       0u
 
+#if SPI_Service_SPI_MASTER_HW_COUNT > 0
 extern Func_ReturnType SPI_Service_Transmit(uint8 spi_id, uint8 *tx_data, uint8 *rx_data, uint8 data_length);
+#endif
+
+#if SPI_Service_SPI_SLAVE_HW_COUNT > 0
+extern Func_ReturnType SPI_Service_GetReceived(uint8 spi_id, uint8 *rx_data, uint8 *data_length);
+#endif
 
 #endif

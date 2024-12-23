@@ -4,11 +4,10 @@
 #include "Types.h"
 #include <avr/wdt.h>
 
-#define WDT_Reset wdt_reset
-
-extern void WDT_Init(uint8 wdt_prescalar);
-extern void WDT_Disable(void);
-extern void WDT_Enable(void);
-extern Func_ReturnType WDT_SetPrescalar(uint8 wdt_prescalar);
+extern Func_ReturnType WDT_Init(uint8 wdt_id, uint32 wdt_prescalar);
+extern Func_ReturnType WDT_Disable(uint8 wdt_id);
+extern Func_ReturnType WDT_Enable(uint8 wdt_id);
+extern Func_ReturnType WDT_SetPrescalar(uint8 wdt_id, uint32 wdt_prescalar);
+extern inline void WDT_Reset(uint8 wdt_id);
 
 #endif
