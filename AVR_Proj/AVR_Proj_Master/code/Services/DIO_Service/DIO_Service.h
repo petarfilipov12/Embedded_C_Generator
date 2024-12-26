@@ -10,8 +10,6 @@
 #define DIO_Service_PIN_LOW              0u
 #define DIO_Service_PIN_HIGH             1u
 
-
-
 extern Func_ReturnType DIO_Service_Set_Pin(uint8 pin_id, uint8 pin_type);
 extern Func_ReturnType DIO_Service_Read_Pin(uint8 pin_id, uint8* value);
 extern Func_ReturnType DIO_Service_Write_Pin(uint8 pin_id, uint8 pin_state);
