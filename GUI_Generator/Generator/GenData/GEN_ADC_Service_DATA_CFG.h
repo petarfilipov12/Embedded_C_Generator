@@ -4,7 +4,7 @@
 #include "Types.h"
 #include "Queue.h"
 #include "GEN_ADC_Service_CFG.h"
-#include "ADC_Service_.h"
+#include "ADC_Service.h"
 
 extern ADC_Service_AdcCfg_t ADC_Service_AdcHwCfg_data[ADC_Service_ADC_Service_ADCs_Count];
 

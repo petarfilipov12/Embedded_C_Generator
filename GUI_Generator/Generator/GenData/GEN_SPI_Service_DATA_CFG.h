@@ -4,7 +4,7 @@
 #include "Types.h"
 #include "Queue.h"
 #include "GEN_SPI_Service_CFG.h"
-#include "SPI_Service_.h"
+#include "SPI_Service.h"
 
 extern SPI_Service_SpiCfg_t SPI_Service_SpiHwCfg_data[SPI_Service_SPI_Service_SPIs_Count];
 
