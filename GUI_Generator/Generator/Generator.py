@@ -511,7 +511,7 @@ class Generator:
             client_ports_cfg_file_name = "GEN_" + component_data["Properties"]["Component_Name"]["value"] + "_CLIENT_PORTS_CFG.h"
             self._Generator_DeleteFile(self._generator_gen_folder + "/" + client_ports_cfg_file_name)
 
-            server_ports_cfg_file_s = self._Generator_WrapFile(file_s=service_ports_s, file_name=server_ports_cfg_file_name, include_libs=[],
+            server_ports_cfg_file_s = self._Generator_WrapFile(file_s=service_ports_s, file_name=server_ports_cfg_file_name, include_libs=["Types.h", "Queue.h"],
                                                   ifndef_protection=True)
             self._Generator_WriteFile(server_ports_cfg_file_s, self._generator_gen_folder + "/" + server_ports_cfg_file_name)
 
