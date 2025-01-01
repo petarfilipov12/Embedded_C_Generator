@@ -1,23 +1,23 @@
 #include "GPT_Service.h"
 #include "GPT.h"
 
-#if GPT_Service_TIMER_COUNT > 0
+#if GPT_Service_GPT_Service_GPTs_Count > 0
 typedef struct{
-    uint8 timer_mode;
     uint8 compare_val;
+    uint8 timer_mode;
     uint8 freq_prescalar;
     Func_ReturnType status;
 }GPT_Service_TimerCfg_t;
 
-GPT_Service_TimerCfg_t GPT_Service_Timer_data[GPT_Service_TIMER_COUNT] = {GPT_Service_Timer_data_INIT};
+GPT_Service_TimerCfg_t GPT_Service_Timer_data[GPT_Service_GPT_Service_GPTs_Count] = {GPT_Service_Data_Init};
 #endif
 
 void GPT_Service_Init(void)
 {
-#if GPT_Service_TIMER_COUNT > 0
+#if GPT_Service_GPT_Service_GPTs_Count > 0
     uint8 timer_id = 0;
 
-    for(timer_id=0; timer_id<GPT_Service_TIMER_COUNT; timer_id++)
+    for(timer_id = 0; timer_id < GPT_Service_GPT_Service_GPTs_Count; timer_id++)
     {
         GPT_Service_Timer_data[timer_id].status = GPT_Init_Timer(
             timer_id,

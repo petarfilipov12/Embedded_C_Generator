@@ -1,5 +1,9 @@
 {
     "files.associations": {
-        "io_service.h": "c"
+        "io_service.h": "c",
+        "gen_adc_service_data_cfg.h": "c",
+        "adc_service.h": "c",
+        "types.h": "c",
+        "adc.h": "c"
     }
 }

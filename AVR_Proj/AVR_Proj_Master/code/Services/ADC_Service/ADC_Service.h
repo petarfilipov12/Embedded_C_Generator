@@ -6,13 +6,19 @@
 #include "GEN_ADC_Service_CFG.h"
 
 typedef struct{
-    Queue_t sAdcQueue;
-    uint8* pu8AdcBuffer;
-    uint8 u8AdcBufferSize;
+    Queue_t AdcQueue;
+    uint8* AdcBuffer;
+    uint8 AdcBufferSize;
+    uint8 id;
     uint8 current_pin_id;
     Func_ReturnType status;
 }ADC_Service_AdcCfg_t;
 
-extern Func_ReturnType ADC_Service_Read_Pin(uint8 pin_id, uint8* value);
+typedef struct{
+    uint8 adcref;
+    uint8 id;
+    uint8 last_value;
+    Func_ReturnType status;
+}ADC_Service_PinCfg_t;
 
 #endif

@@ -34,4 +34,12 @@ typedef uint8 Func_ReturnType;
 #define RET_QUEUE_NOT_ENOUGH_SPACE  ((uint8)4u)
 #define RET_QUEUE_EMPTY             ((uint8)5u)
 
+#define PIN_INPUT   ((uint8)0u)
+#define PIN_OUTPUT  ((uint8)1u)
+#define PIN_LOW     ((uint8)0u)
+#define PIN_HIGH    ((uint8)1u)
+
+#define GPT_MODE_NORMAL ((uint8)0u)
+#define GPT_MODE_PWM    ((uint8)1u)
+
 #endif
