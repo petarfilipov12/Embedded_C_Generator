@@ -5,8 +5,7 @@
 
 #define OS_Start main
 
-OS_TASK(Task_200ms, 200u, 110u, 1, OS_GetTaskInitRunnables(Task_200ms), OS_GetTaskCyclicRunnables(Task_200ms))
-OS_TASK(Task_10ms, 10u, 285u, 2, OS_GetTaskInitRunnables(Task_10ms), OS_GetTaskCyclicRunnables(Task_10ms))
+OS_TASKS_CONFIG()
 
 int OS_Start(void)
 {

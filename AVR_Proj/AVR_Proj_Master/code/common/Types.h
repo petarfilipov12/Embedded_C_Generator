@@ -42,4 +42,7 @@ typedef uint8 Func_ReturnType;
 #define GPT_MODE_NORMAL ((uint8)0u)
 #define GPT_MODE_PWM    ((uint8)1u)
 
+#define SPI_MODE_MASTER ((uint8)0u)
+#define SPI_MODE_SLAVE  ((uint8)1u)
+
 #endif

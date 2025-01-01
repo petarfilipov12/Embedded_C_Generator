@@ -4,6 +4,14 @@
         "gen_adc_service_data_cfg.h": "c",
         "adc_service.h": "c",
         "types.h": "c",
-        "adc.h": "c"
+        "adc.h": "c",
+        "gen_dio_service_data_cfg.h": "c",
+        "queue.h": "c",
+        "dio_service.h": "c",
+        "gen_gpt_service_server_ports_cfg.h": "c",
+        "gen_gpt_service_data_cfg.h": "c",
+        "gen_pwm_service_data_cfg.h": "c",
+        "gen_adc_service_cfg.h": "c",
+        "wdt.h": "c"
     }
 }

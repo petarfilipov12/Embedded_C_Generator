@@ -4,14 +4,11 @@
 #include "Types.h"
 #include "GEN_WDT_Service_CFG.h"
 
-#define WDT_Service_WDT_0_ID              0
-#define WDT_Service_WDT_0_PRESCALAR_INIT            2000u
-#define WDT_Service_WDT_0_ENABLED_INIT   FALSE
-
-#define WDT_Service_WDT_COUNT             1
-
-extern Func_ReturnType WDT_Service_WDT_Disable(uint8 wdt_id);
-extern Func_ReturnType WDT_Service_WDT_Enable(uint8 wdt_id);
-extern Func_ReturnType WDT_Service_WDT_SetPrescalar(uint8 wdt_id, uint32 wdt_prescalar);
+typedef struct{
+    uint32 prescaler;
+    uint8 id;
+    Func_ReturnType status;
+    boolean bIsEnabled
+}WDT_Service_WdtCfg_t;
 
 #endif

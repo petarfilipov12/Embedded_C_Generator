@@ -7,8 +7,16 @@
 
 #define CALC_UBRR(baud)     (((F_CPU / (16 * baud)) - 1))
 
-extern Func_ReturnType UART_Service_Transmit(uint8 uart_id, uint8* data, uint8 data_length);
-extern inline void UART_Service_UART_Receive(uint8 uart_id, uint8* data, uint8 data_length);
-extern Func_ReturnType UART_Service_Read(uint8 uart_id, uint8* data, uint8 *data_length);
+typedef struct{
+    Queue_t uartRxQueue;
+    Queue_t uartTxQueue;
+    uint32 baud;
+    uint8* uartRxBuffer;
+    uint8 uartRxBufferSize;
+    uint8* uartTxBuffer;
+    uint8 uartTxBufferSize;
+    uint8 id;
+    Func_ReturnType status;
+}UART_Service_UartHwCfg_t;
 
 #endif

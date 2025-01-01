@@ -4,23 +4,23 @@
 
 void UART_Service_Init(void)
 {
-#if UART_Service_UART_HW_COUNT > 0
+#if UART_Service_UART_Service_UARTs_Count > 0
     uint8 uart_id = 0;
 
     UART_Service_UartHwCfg_data_INIT_FUNC();
 
-    for(uart_id=0; uart_id<UART_Service_UART_HW_COUNT; uart_id++)
+    for(uart_id = 0; uart_id < UART_Service_UART_Service_UARTs_Count; uart_id++)
     {
         Queue_Init(
-            &UART_Service_UartHwCfg_data[uart_id].sUartTxQueue,
-            &UART_Service_UartHwCfg_data[uart_id].pu8UartTxBuffer[0],
-            UART_Service_UartHwCfg_data[uart_id].u8UartTxBufferSize
+            &UART_Service_UartHwCfg_data[uart_id].uartTxQueue,
+            &UART_Service_UartHwCfg_data[uart_id].uartTxBuffer[0],
+            UART_Service_UartHwCfg_data[uart_id].uartTxBufferSize
         );
 
         Queue_Init(
-            &UART_Service_UartHwCfg_data[uart_id].sUartRxQueue,
-            &UART_Service_UartHwCfg_data[uart_id].pu8UartRxBuffer[0],
-            UART_Service_UartHwCfg_data[uart_id].u8UartRxBufferSize
+            &UART_Service_UartHwCfg_data[uart_id].uartRxQueue,
+            &UART_Service_UartHwCfg_data[uart_id].uartRxBuffer[0],
+            UART_Service_UartHwCfg_data[uart_id].uartRxBufferSize
         );
 
         UART_Service_UartHwCfg_data[uart_id].status = UART_Init(uart_id, CALC_UBRR(UART_Service_UartHwCfg_data[uart_id].baud));
@@ -30,17 +30,17 @@ void UART_Service_Init(void)
 
 void UART_Service_Cyclic(void)
 {
-#if UART_Service_UART_HW_COUNT > 0
+#if UART_Service_UART_Service_UARTs_Count > 0
     uint8 uart_id = 0;
     uint8 value = 0;
 
-    for(uart_id=0; uart_id<UART_Service_UART_HW_COUNT; uart_id++)
+    for(uart_id = 0; uart_id < UART_Service_UART_Service_UARTs_Count; uart_id++)
     {
         if( (RET_NOT_OK != UART_Service_UartHwCfg_data[uart_id].status)
-            && (RET_OK == Queue_Peek(&UART_Service_UartHwCfg_data[uart_id].sUartTxQueue, &value))
+            && (RET_OK == Queue_Peek(&UART_Service_UartHwCfg_data[uart_id].uartTxQueue, &value))
             && (RET_OK == UART_putc(uart_id, value)) )
         {
-            (void)Queue_Pop(&UART_Service_UartHwCfg_data[uart_id].sUartTxQueue, NULL);
+            (void)Queue_Pop(&UART_Service_UartHwCfg_data[uart_id].uartTxQueue, NULL);
         }
     }
 #endif
@@ -50,13 +50,13 @@ Func_ReturnType UART_Service_Transmit(uint8 uart_id, uint8* data, uint8 data_len
 {
     Func_ReturnType ret = RET_NOT_OK;
 
-#if UART_Service_UART_HW_COUNT > 0
+#if UART_Service_UART_Service_UARTs_Count > 0
     ret = UART_Service_UartHwCfg_data[uart_id].status;
 
     if(RET_OK == ret)
     {
         UART_Service_UartHwCfg_data[uart_id].status = RET_BUSY;
-        ret = Queue_PutData(&UART_Service_UartHwCfg_data[uart_id].sUartTxQueue, &data[0], data_length);
+        ret = Queue_PutData(&UART_Service_UartHwCfg_data[uart_id].uartTxQueue, &data[0], data_length);
         UART_Service_UartHwCfg_data[uart_id].status = ret;
     }
 #endif
@@ -68,7 +68,7 @@ Func_ReturnType UART_Service_Read(uint8 uart_id, uint8* data, uint8 *data_length
 {
     Func_ReturnType ret = RET_NOT_OK;
 
-#if UART_Service_UART_HW_COUNT > 0
+#if UART_Service_UART_Service_UARTs_Count > 0
     uint8 i = 0;
 
     ret = UART_Service_UartHwCfg_data[uart_id].status;
@@ -78,13 +78,13 @@ Func_ReturnType UART_Service_Read(uint8 uart_id, uint8* data, uint8 *data_length
 
     if(RET_NOT_OK != ret)
     {
-        if(Queue_IsEmpty(&UART_Service_UartHwCfg_data[uart_id].sUartRxQueue))
+        if(Queue_IsEmpty(&UART_Service_UartHwCfg_data[uart_id].uartRxQueue))
         {
             ret = RET_QUEUE_EMPTY;
         }
         else
         {
-            for(i=0; RET_OK == Queue_Pop(&UART_Service_UartHwCfg_data[uart_id].sUartRxQueue, &data[i]); i++);
+            for(i=0; RET_OK == Queue_Pop(&UART_Service_UartHwCfg_data[uart_id].uartRxQueue, &data[i]); i++);
             *data_length = i;
         }
     }
@@ -96,10 +96,10 @@ Func_ReturnType UART_Service_Read(uint8 uart_id, uint8* data, uint8 *data_length
 //Ment to be called from HAL as Rx interrupt
 inline void UART_Service_UART_Receive(uint8 uart_id, uint8* data, uint8 data_length)
 {
-#if UART_Service_UART_HW_COUNT > 0
+#if UART_Service_UART_Service_UARTs_Count > 0
     if(RET_OK == UART_Service_UartHwCfg_data[uart_id].status)
     {
-        (void)Queue_PutData(&UART_Service_UartHwCfg_data[uart_id].sUartRxQueue, &data[0], data_length);
+        (void)Queue_PutData(&UART_Service_UartHwCfg_data[uart_id].uartRxQueue, &data[0], data_length);
     }
 #endif
 }

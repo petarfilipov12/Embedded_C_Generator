@@ -4,7 +4,13 @@
 #include "Types.h"
 #include "GEN_SPI_Service_CFG.h"
 
-extern Func_ReturnType SPI_Service_Transmit(uint8 spi_id, uint8 *tx_data, uint8 *rx_data, uint8 data_length);
-extern Func_ReturnType SPI_Service_GetReceived(uint8 spi_id, uint8 *rx_data, uint8 *data_length);
+typedef struct{
+    Queue_t spiRxQueue;
+    uint8* spiRxBuffer;
+    uint8 spiRxBufferSize;
+    uint8 id;
+    uint8 spiMode;
+    Func_ReturnType status;
+}SPI_Service_SpiCfg_t;
 
 #endif
