@@ -26,4 +26,8 @@ CompLedIndicator_Cyclic();
 OS_TASK(OS_Task_10ms_Prio2, 10u, 285u, 2u, OS_Task_10ms_Prio2_InitRunnables, OS_Task_10ms_Prio2_CyclicRunnables)	\
 OS_TASK(OS_Task_200ms_Prio1, 200u, 110u, 1u, OS_Task_200ms_Prio1_InitRunnables, OS_Task_200ms_Prio1_CyclicRunnables)
 
+#define OS_CREATE_TASKS()	\
+OS_CreateTask(OS_Task_10ms_Prio2, 10u, 285u, 2u);	\
+OS_CreateTask(OS_Task_200ms_Prio1, 200u, 110u, 1u);
+
 #endif

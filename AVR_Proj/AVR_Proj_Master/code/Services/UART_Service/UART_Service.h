@@ -2,6 +2,7 @@
 #define UART_SERVICE_H
 
 #include "Types.h"
+#include "Queue.h"
 #include "SystemConfig.h"
 #include "GEN_UART_Service_CFG.h"
 

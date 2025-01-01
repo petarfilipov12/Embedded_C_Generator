@@ -1,12 +1,7 @@
-#include "LedIndicator.h"
-
-
-
-#include "GEN_LedIndicator_PORTS_CFG.h"
-#include "DIO_Service.h"
-#include "UART_Service.h"
-
 /* DO NOT REMOVE COMMENT - GEN INCLUDE SECTION */
+#include "GEN_CompLedIndicator_SERVER_PORTS_CFG.h"
+#include "GEN_CompLedIndicator_CLIENT_PORTS_CFG.h"
+#include "CompLedIndicator.h"
 /* DO NOT REMOVE COMMENT - GEN END SECTION */
 
 /* DO NOT REMOVE COMMENT - GEN SERVER PORTS-VARS SECTION */
@@ -16,16 +11,17 @@
 /* DO NOT REMOVE COMMENT - GEN END SECTION */
 
 /* DO NOT REMOVE COMMENT - GEN RUNNABLES SECTION */
-/* DO NOT REMOVE COMMENT - GEN END SECTION */
-
+/* DO NOT REMOVE COMMENT - GEN START FUNC */
 void CompLedIndicator_Init(void)
 {
   uint8 uart_tx_data[5] = {'I', 'N', 'I', 'T', '\n'};
 
   UART_Service_Transmit(UART_Service_UART_0_ID, &uart_tx_data[0], (uint8)(sizeof(uart_tx_data)/sizeof(uart_tx_data[0])));
 }
+/* DO NOT REMOVE COMMENT - GEN END FUNC */
 
-void CompLedIndicator_cyclic_100ms(void)
+/* DO NOT REMOVE COMMENT - GEN START FUNC */
+void CompLedIndicator_Cyclic(void)
 {
   uint8 pin_val = 0;
   uint8 uart_tx_data[7] = {'T', 'O', 'G', 'G', 'L', 'E', '\n'};
@@ -53,5 +49,6 @@ void CompLedIndicator_cyclic_100ms(void)
       UART_Service_Transmit(UART_Service_UART_0_ID, &uart_rx_data[0], uart_rx_data_length);
     }
   }
-  
 }
+/* DO NOT REMOVE COMMENT - GEN END FUNC */
+/* DO NOT REMOVE COMMENT - GEN END SECTION */

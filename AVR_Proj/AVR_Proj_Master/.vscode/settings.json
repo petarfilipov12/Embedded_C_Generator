@@ -12,6 +12,9 @@
         "gen_gpt_service_data_cfg.h": "c",
         "gen_pwm_service_data_cfg.h": "c",
         "gen_adc_service_cfg.h": "c",
-        "wdt.h": "c"
+        "wdt.h": "c",
+        "gen_compledindicator_server_ports_cfg.h": "c",
+        "gen_compledindicator_client_ports_cfg.h": "c",
+        "gen_uart_service_server_ports_cfg.h": "c"
     }
 }

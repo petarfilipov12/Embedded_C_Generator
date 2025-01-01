@@ -5,8 +5,10 @@
 #include "OsHAL.h"
 #include "GEN_OS_CFG.h"
 
+#define OS_ADD_QUOTE(s) #s 
+
 #define OS_TASK OsHAL_TASK
-#define OS_CreateTask OsHAL_CreateTask
+#define OS_CreateTask(taskName, cycle, stackSize, priority) OsHAL_CreateTask(taskName, OS_ADD_QUOTE(taskName), cycle, stackSize, priority)
 #define OS_Run Os_HAL_Run
 
 #endif

@@ -9,8 +9,7 @@ OS_TASKS_CONFIG()
 
 int OS_Start(void)
 {
-    OS_CreateTask(Task_10ms, "Task_10ms", 10u,  285u, 2);
-    OS_CreateTask(Task_200ms, "Task_200ms", 200u,  110u, 1);
+    OS_CREATE_TASKS()
 
     OS_Interrupt_EnableGlobal();
 

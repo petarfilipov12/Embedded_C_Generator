@@ -2,6 +2,7 @@
 #define SPI_SERVICE_H
 
 #include "Types.h"
+#include "Queue.h"
 #include "GEN_SPI_Service_CFG.h"
 
 typedef struct{
