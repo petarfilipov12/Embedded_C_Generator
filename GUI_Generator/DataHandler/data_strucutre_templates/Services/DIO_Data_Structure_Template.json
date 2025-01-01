@@ -58,7 +58,7 @@
               "changeable": false
             }
           },
-          "PinInitState": {
+          "PinState": {
             "value": "PIN_LOW",
             "metadata": {
               "type": "selectable",

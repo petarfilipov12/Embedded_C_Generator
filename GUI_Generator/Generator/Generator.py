@@ -52,8 +52,6 @@ class Generator:
 
     def _Generator_GenService_GenerateDataCfgCFile(self, prefix, data, data_cfg_c_file_s=None, buffers_s=None):
         for key in data.keys():
-            print(key)
-            print(self._generator_gen_service_struct_name)
             metadata = data[key]["metadata"]
 
             if ( ("generate_data_data_files" in metadata.keys()) and (metadata["generate_data_data_files"] == True) and (len(data[key]["data"]) > 0) ):
@@ -192,11 +190,11 @@ class Generator:
 
     def _Generator_GenOs(self, os_data):
         cfg_os_file_s = ""
-        tasks_config_s = "#define OS_TASKS_CONFIG\t\\\n"
+        tasks_config_s = "#define OS_TASKS_CONFIG()\t\\\n"
+        create_tasks_define_s = "#define OS_CREATE_TASKS()\t\\\n"
 
         if("OS_Tasks" in os_data.keys()):
             for os_task in os_data["OS_Tasks"]["data"].values():
-                print(os_task)
                 task_name = os_task["parameters"]["ShortName"]["value"]
                 priority = os_task["parameters"]["Priority"]["value"]
                 cycle = os_task["parameters"]["Cycle"]["value"]
@@ -206,7 +204,6 @@ class Generator:
 
                 init_runnables_define_name = task_name + "_InitRunnables"
                 runnables_s = "#define " + init_runnables_define_name + "\t\\\n"
-                print(init_runnables)
                 for runnble in init_runnables:
                     runnables_s += runnble + "();\t\\\n"
                 runnables_s = runnables_s[: runnables_s.rfind('\\')].strip()
@@ -222,9 +219,12 @@ class Generator:
                 tasks_config_s += ("OS_TASK(" + task_name + ", " + str(cycle) + "u, " + str(stack_size) + "u, " +
                                    str(priority) + "u, " + init_runnables_define_name + ", " + cyclic_runnables_define_name + ")\t\\\n")
 
+                create_tasks_define_s += "OS_CreateTask(" + task_name + ", " + str(cycle) + "u, " + str(stack_size) + "u, " + str(priority) + "u);\t\\\n"
+
 
         tasks_config_s = tasks_config_s[: tasks_config_s.rfind('\\')].strip()
-        cfg_os_file_s = cfg_os_file_s.strip() + "\n\n" + tasks_config_s
+        create_tasks_define_s = create_tasks_define_s[: create_tasks_define_s.rfind('\\')].strip()
+        cfg_os_file_s = cfg_os_file_s.strip() + "\n\n" + tasks_config_s + "\n\n" + create_tasks_define_s
 
         return cfg_os_file_s
 

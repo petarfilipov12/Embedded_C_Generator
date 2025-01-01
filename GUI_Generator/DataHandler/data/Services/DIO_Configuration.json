@@ -20,7 +20,7 @@
             },
             "value": "0"
           },
-          "PinInitState": {
+          "PinState": {
             "metadata": {
               "changeable": true,
               "selectable_list": [
@@ -70,7 +70,7 @@
             },
             "value": "1"
           },
-          "PinInitState": {
+          "PinState": {
             "metadata": {
               "changeable": true,
               "selectable_list": [
