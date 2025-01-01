@@ -1,0 +1,75 @@
+{
+  "DIO_Service_Pins": {
+    "metadata": {
+      "type": "Services/DIO/DIO_Service_Pins",
+      "mandatory": true,
+      "deletable": false,
+      "duplicable": false,
+      "generate_params": false,
+      "generate_data_count": true,
+      "generate_data_init_define": true
+    },
+    "parameters": {
+      "ShortName": {
+        "value": "DIO_Service_Pins",
+        "metadata": {
+          "type": "string",
+          "changeable": false
+        }
+      }
+    },
+    "data": {
+      "DIO_Service_Pin": {
+        "metadata": {
+          "type": "Services/DIO/DIO_Service_Pins/data/DIO_Service_Pin",
+          "mandatory": false,
+          "leaf": true,
+          "deletable": true,
+          "duplicable": true,
+          "generate_params": true
+        },
+        "parameters": {
+          "ShortName": {
+            "value": "DIO_Service_Pin",
+            "metadata": {
+              "type": "string",
+              "changeable": true
+            }
+          },
+          "PinType": {
+            "value": "",
+            "metadata": {
+              "type": "selectable",
+              "selectable_list": [
+                "INPUT",
+                "OUTPUT"
+              ],
+              "changeable": true
+            }
+          },
+          "Id": {
+            "value": "0",
+            "metadata": {
+              "type": "int",
+              "id": true,
+              "changeable": false
+            }
+          },
+          "PinInitState": {
+            "value": "",
+            "metadata": {
+              "type": "selectable",
+              "selectable_list": [
+                "HIGH",
+                "LOW"
+              ],
+              "changeable": true
+            }
+          }
+        },
+        "data": {
+        }
+      }
+    }
+  }
+}

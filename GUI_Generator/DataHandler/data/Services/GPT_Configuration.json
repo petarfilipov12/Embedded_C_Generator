@@ -1,0 +1,77 @@
+{
+  "GPT_Service_GPTs": {
+    "data": {
+      "GPT_TIMER_0": {
+        "data": {},
+        "metadata": {
+          "deletable": true,
+          "duplicable": true,
+          "generate_params": true,
+          "leaf": true,
+          "mandatory": false,
+          "type": "Services/GPT/GPT_Service_GPTs/data/GPT_Service_GPT"
+        },
+        "parameters": {
+          "CompareValue": {
+            "metadata": {
+              "changeable": true,
+              "type": "int"
+            },
+            "value": "0"
+          },
+          "GptMode": {
+            "metadata": {
+              "changeable": true,
+              "selectable_list": [
+                "PWM",
+                "NORMAL"
+              ],
+              "type": "selectable"
+            },
+            "value": "PWM"
+          },
+          "Id": {
+            "metadata": {
+              "changeable": false,
+              "id": true,
+              "type": "int"
+            },
+            "value": "0"
+          },
+          "Prescaler": {
+            "metadata": {
+              "changeable": true,
+              "type": "int"
+            },
+            "value": 64
+          },
+          "ShortName": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "GPT_TIMER_0"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "deletable": false,
+      "duplicable": false,
+      "generate_data_count": true,
+      "generate_data_init_define": true,
+      "generate_params": false,
+      "mandatory": true,
+      "type": "Services/GPT/GPT_Service_GPTs"
+    },
+    "parameters": {
+      "ShortName": {
+        "metadata": {
+          "changeable": false,
+          "type": "string"
+        },
+        "value": "GPT_Service_GPTs"
+      }
+    }
+  }
+}
