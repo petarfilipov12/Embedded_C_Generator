@@ -59,8 +59,10 @@ class Generator:
                 self._generator_gen_service_current_element = -1
                 if (data_cfg_c_file_s == None):
                     data_cfg_c_file_s = ""
+                else:
+                    data_cfg_c_file_s = data_cfg_c_file_s.strip() + "\n}\n"
 
-                data_cfg_c_file_s += prefix + metadata["generate_data_data_files_data_type"] + " " + prefix + metadata["generate_data_data_files_data_name"] + "[" + prefix + key + "_Count];\n\n"
+                data_cfg_c_file_s = data_cfg_c_file_s.strip() + "\n\n" + prefix + metadata["generate_data_data_files_data_type"] + " " + prefix + metadata["generate_data_data_files_data_name"] + "[" + prefix + key + "_Count];\n\n"
                 data_cfg_c_file_s += "inline void " + prefix + metadata["generate_data_data_files_data_name"] + metadata["generate_data_data_files_init_func_postfix"] + "(void)\n{\n"
 
             if ( (self._generator_gen_service_struct_name != None) and ("generate_params" in metadata.keys()) and (metadata["generate_params"] == True)):
@@ -259,7 +261,12 @@ class Generator:
         if(data_cfg_c_file_s != None):
             if(buffers_s == None):
                 buffers_s = ""
-            data_cfg_c_file_s = buffers_s.strip() + "\n\n" + data_cfg_c_file_s.strip() + "\n}"
+
+            data_cfg_c_file_s = data_cfg_c_file_s.strip()
+            if(data_cfg_c_file_s[len(data_cfg_c_file_s) - 1] != '}'):
+                data_cfg_c_file_s = data_cfg_c_file_s.strip() + "\n}"
+
+            data_cfg_c_file_s = buffers_s.strip() + "\n\n" + data_cfg_c_file_s.strip()
 
             data_cfg_c_file_s = self._Generator_WrapFile(file_s=data_cfg_c_file_s, file_name=data_cfg_c_file_name, include_libs=[data_cfg_h_file_name],
                                                   ifndef_protection=False)
