@@ -1,4 +1,5 @@
 #include "DIO_Service.h"
+#include "GEN_DIO_Service_PORTS_CFG.h"
 #include "DIO.h"
 
 #if DIO_Service_PIN_COUNT > 0
