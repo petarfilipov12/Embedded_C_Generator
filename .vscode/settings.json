@@ -14,6 +14,8 @@
         "adc_service.h": "c",
         "gen_adc_service.h": "c",
         "gen_adc_service_data_cfg.h": "c",
-        "gen_adc_service_cfg.h": "c"
+        "gen_adc_service_cfg.h": "c",
+        "dio_service.h": "c",
+        "gen_ledindicator_ports_cfg.h": "c"
     }
 }

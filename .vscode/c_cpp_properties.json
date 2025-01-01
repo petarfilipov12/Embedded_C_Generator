@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "/usr/lib/avr/include/**",
                 "${workspaceFolder}/AVR_Proj/AVR_Proj_Master/**",
-                "${workspaceFolder}/AVR_Proj/AVR_Proj_Master/code/GenData/Services"
+                "${workspaceFolder}/AVR_Proj/AVR_Proj_Master/code/GenData/**",
+                "${workspaceFolder}/AVR_Proj/AVR_Proj_Master/code/Services/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

@@ -1,7 +1,22 @@
 #include "LedIndicator.h"
 
+
+
+#include "GEN_LedIndicator_PORTS_CFG.h"
 #include "DIO_Service.h"
 #include "UART_Service.h"
+
+/* DO NOT REMOVE COMMENT - GEN INCLUDE SECTION */
+/* DO NOT REMOVE COMMENT - GEN END SECTION */
+
+/* DO NOT REMOVE COMMENT - GEN SERVER PORTS-VARS SECTION */
+/* DO NOT REMOVE COMMENT - GEN END SECTION */
+
+/* DO NOT REMOVE COMMENT - GEN SERVER PORTS-FUNCS SECTION */
+/* DO NOT REMOVE COMMENT - GEN END SECTION */
+
+/* DO NOT REMOVE COMMENT - GEN RUNNABLES SECTION */
+/* DO NOT REMOVE COMMENT - GEN END SECTION */
 
 void CompLedIndicator_Init(void)
 {
@@ -20,14 +35,14 @@ void CompLedIndicator_cyclic_100ms(void)
 
   Func_ReturnType ret = RET_OK;
 
-  if( (RET_OK == DIO_Service_Read_Pin(DIO_Service_PIN_1_ID, &pin_val)) && (DIO_Service_PIN_HIGH != pin_val) )
+  if( (RET_OK == LedIndicator_Read_Pin(DIO_Service_PIN_1_ID, &pin_val)) && (DIO_Service_PIN_HIGH != pin_val) )
   {
-    DIO_Service_Toggle_Pin(DIO_Service_PIN_0_ID);
+    LedIndicator_Toggle_Pin(DIO_Service_PIN_0_ID);
     UART_Service_Transmit(UART_Service_UART_0_ID, &uart_tx_data[0], (uint8)(sizeof(uart_tx_data)/sizeof(uart_tx_data[0])));
   }
   else
   {
-    DIO_Service_Write_Pin(DIO_Service_PIN_0_ID, DIO_Service_PIN_LOW);
+    LedIndicator_Write_Pin(DIO_Service_PIN_0_ID, DIO_Service_PIN_LOW);
   }
 
   ret = UART_Service_Read(UART_Service_UART_0_ID, &uart_rx_data[0], &uart_rx_data_length);
