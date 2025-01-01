@@ -4,6 +4,7 @@
 #include "Types.h"
 #include "Queue.h"
 #include "GEN_UART_Service_CFG.h"
+#include "UART_Service_.h"
 
 extern UART_Service_UartHwCfg_t UART_Service_UartHwCfg_data[UART_Service_UART_Service_UARTs_Count];
 

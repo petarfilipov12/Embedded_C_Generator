@@ -249,7 +249,7 @@ class Generator:
         data_cfg_h_file_s = self._Generator_GenService_GenerateDataCfgHFile(prefix=prefix, data=copy.deepcopy(service_data))
         if(data_cfg_h_file_s != None):
             data_cfg_h_file_s = self._Generator_WrapFile(file_s=data_cfg_h_file_s, file_name=data_cfg_h_file_name,
-                                                         include_libs=["Types.h", "Queue.h", cfg_file_name], ifndef_protection=True)
+                                                         include_libs=["Types.h", "Queue.h", cfg_file_name, prefix + ".h"], ifndef_protection=True)
             self._Generator_WriteFile(data_cfg_h_file_s, self._generator_gen_folder + "/" + data_cfg_h_file_name)
 
         data_cfg_c_file_s, buffers_s = self._Generator_GenService_GenerateDataCfgCFile(prefix=prefix, data=copy.deepcopy(service_data))
