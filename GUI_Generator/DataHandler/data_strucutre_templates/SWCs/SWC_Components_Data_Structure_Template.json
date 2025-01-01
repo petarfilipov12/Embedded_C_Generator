@@ -8,6 +8,17 @@
         },
         "value": "Component_name"
       },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "APPLICATION"
+      },
       "Gen_Structure": {
         "metadata": {
           "changeable": true,

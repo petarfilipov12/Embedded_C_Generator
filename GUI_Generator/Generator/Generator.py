@@ -3,6 +3,7 @@ import copy
 import re
 from pathlib import Path
 
+DATA_HANDLER = None
 
 class Generator:
     _generator_gen_folder = None
@@ -322,7 +323,10 @@ class Generator:
 
         return service_ports_s
 
-    def _Generator_GenClientPorts(self, component_name, client_ports_data, connections_data):
+    def _Generator_GenClientPorts(self, component_data, connections_data, client_ports_data):
+        global DATA_HANDLER
+
+        component_name = component_data["Properties"]["Component_Name"]["value"]
         client_ports_s = None
         includes = None
 
@@ -344,6 +348,12 @@ class Generator:
                 server_component_ports_cfg_file_name = "GEN_" + server_component + "_SERVER_PORTS_CFG.h"
                 if(server_component_ports_cfg_file_name not in includes):
                     includes += "#include \"" + server_component_ports_cfg_file_name + "\"\n"
+                    for component in DATA_HANDLER.GetData()["SWCs"]["Components"]:
+                        if (component["Properties"]["Component_Name"]["value"] == server_component):
+                            if(component["Properties"]["Component_Type"]["value"] == "SERVICE"):
+                                server_component_cfg_file_name = "GEN_" + server_component + "_CFG.h"
+                                includes += "#include \"" + server_component_cfg_file_name + "\"\n"
+
                 client_ports_s += "#define " + client_port + "\t" + server_port + "\n"
             else:
                 client_ports_s += "#define " + client_port + "\t" + "RET_PORT_UNCONNECTED\n"
@@ -522,8 +532,8 @@ class Generator:
 
     def GenerateComponent(self, component_data, connections_data):
         service_ports_s = self._Generator_GenServicePorts(component_data["Server_Ports"]["value"])
-        client_ports_s = self._Generator_GenClientPorts(component_name=component_data["Properties"]["Component_Name"]["value"],
-                                                        client_ports_data=component_data["Client_Ports"]["value"], connections_data=connections_data)
+        client_ports_s = self._Generator_GenClientPorts(component_data = component_data, connections_data=connections_data,
+                                                        client_ports_data=component_data["Client_Ports"]["value"])
 
         if( (service_ports_s != None) or (client_ports_s != None) ):
             if(service_ports_s == None):
@@ -542,7 +552,7 @@ class Generator:
             self._Generator_WriteFile(server_ports_cfg_file_s, self._generator_gen_folder + "/" + server_ports_cfg_file_name)
 
             client_ports_cfg_file_s = self._Generator_WrapFile(file_s=client_ports_s,
-                                                               file_name=server_ports_cfg_file_name, include_libs=[],
+                                                               file_name=client_ports_cfg_file_name, include_libs=[],
                                                                ifndef_protection=True)
             self._Generator_WriteFile(client_ports_cfg_file_s,
                                       self._generator_gen_folder + "/" + client_ports_cfg_file_name)
@@ -552,6 +562,10 @@ class Generator:
 
 
 def Generate(data_handler, generation_data):
+    global DATA_HANDLER
+
+    DATA_HANDLER = data_handler
+
     generator = Generator("Generator/GenData")
 
     for service in generation_data["Services"]:

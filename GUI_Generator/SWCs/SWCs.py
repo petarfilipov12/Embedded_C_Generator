@@ -599,6 +599,12 @@ class SWCs_GUI_Handler:
                     elif(param_data_pointer[param_name]["metadata"]["type"] == "boolean"):
                         param_tag = dpg.add_checkbox(tag=parent + "/PARAMETER/" + param_name, default_value=bool(param_data_pointer[param_name]["value"]),
                                                      callback=self._SWC_ParamChangeCallBack, user_data=self._swc_edit_window_apply_button_tag)
+                    elif (param_data_pointer[param_name]["metadata"]["type"] == "selectable"):
+                        param_tag = dpg.add_combo(param_data_pointer[param_name]["metadata"]["selectable_list"],
+                                                  tag=parent + "/PARAMETER/" + param_name,
+                                                     default_value=str(param_data_pointer[param_name]["value"]),
+                                                     callback=self._SWC_ParamChangeCallBack,
+                                                     user_data=self._swc_edit_window_apply_button_tag)
 
                     if (not param_data_pointer[param_name]["metadata"]["changeable"]):
                         dpg.configure_item(tag=param_tag, enabled=False)
@@ -783,8 +789,9 @@ class SWCs_GUI_Handler:
 
     def _SWC_RenderComponentList(self, parent):
         dpg.delete_item("SWC_COMPONENT_LIST")
-        dpg.add_listbox(self._SWC_GetComponentList(), tag="SWC_COMPONENT_LIST", parent=parent,
-                        callback=self._SWC_ListCallBack, enabled=True)
+        component_list = self._SWC_GetComponentList()
+        dpg.add_listbox(component_list, tag="SWC_COMPONENT_LIST", parent=parent,
+                        callback=self._SWC_ListCallBack, num_items=len(component_list), enabled=True)
 
     def ShowWindow(self, parent):
         with dpg.handler_registry():

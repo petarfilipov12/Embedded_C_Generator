@@ -8,6 +8,17 @@
         },
         "value": "ADC_Service"
       },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
       "Gen_Structure": {
         "metadata": {
           "changeable": true,
@@ -131,6 +142,17 @@
           "type": "string"
         },
         "value": "DIO_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
       },
       "Gen_Structure": {
         "metadata": {
@@ -325,6 +347,17 @@
         },
         "value": "GPT_Service"
       },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
       "Gen_Structure": {
         "metadata": {
           "changeable": true,
@@ -429,6 +462,17 @@
         },
         "value": "PWM_Service"
       },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
       "Gen_Structure": {
         "metadata": {
           "changeable": true,
@@ -532,6 +576,17 @@
           "type": "string"
         },
         "value": "SPI_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
       },
       "Gen_Structure": {
         "metadata": {
@@ -669,6 +724,17 @@
           "type": "string"
         },
         "value": "UART_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
       },
       "Gen_Structure": {
         "metadata": {
@@ -825,6 +891,17 @@
           "type": "string"
         },
         "value": "WDT_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
       },
       "Gen_Structure": {
         "metadata": {
@@ -1008,6 +1085,17 @@
         },
         "value": "CompSensor"
       },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "APPLICATION"
+      },
       "Gen_Structure": {
         "metadata": {
           "changeable": true,
@@ -1084,6 +1172,17 @@
           "type": "string"
         },
         "value": "CompLedIndicator"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "APPLICATION"
       },
       "Gen_Structure": {
         "metadata": {
