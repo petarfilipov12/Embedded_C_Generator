@@ -224,13 +224,16 @@ class NavigationWindow:
         selectable_list = []
         for reference_target in reference_targets:
             data_key = reference_target[: reference_target.find("/")]
-            reference_target = reference_target[reference_target.find("/") + 1 :]
+            reference_target_temp = reference_target[reference_target.find("/") + 1 :]
 
-            containers = reference_target.split("/")
+            containers = reference_target_temp.split("/")
             data_pointer = reduce(getitem, containers, self.data_handler.GetData()[data_key])
             data = copy.deepcopy(data_pointer)
 
-            selectable_list += list(data["data"].keys())
+            temp = list(data["data"].keys())
+            for index in range(len(temp)):
+                temp[index] = reference_target + "/" + temp[index]
+            selectable_list += temp
 
         return selectable_list
 

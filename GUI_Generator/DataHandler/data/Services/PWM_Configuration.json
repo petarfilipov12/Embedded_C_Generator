@@ -20,7 +20,7 @@
               ],
               "type": "reference"
             },
-            "value": "GPT_TIMER_0"
+            "value": "Services/GPT/GPT_Service_GPTs/GPT_TIMER_0"
           },
           "Id": {
             "metadata": {

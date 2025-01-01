@@ -83,7 +83,7 @@
               ],
               "type": "reference"
             },
-            "value": "ADC_0"
+            "value": "Services/ADC/ADC_Service_ADCs/ADC_0"
           },
           "Id": {
             "metadata": {

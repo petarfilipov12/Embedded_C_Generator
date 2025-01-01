@@ -151,7 +151,20 @@ class Generator:
 
                 for param_name in params.keys():
                     define_name = prefix + short_name + "_" + param_name
-                    cfg_file_s += "#define " + define_name + " " + str(data[key]["parameters"][param_name]["value"]) + "\n"
+                    cfg_file_s += "#define " + define_name + " "
+                    if(data[key]["parameters"][param_name]["metadata"]["type"] == "reference"):
+                        service = data[key]["parameters"][param_name]["value"]
+                        service = service[service.find('/') + 1 :]
+                        service = service[: service.find("/")]
+                        print(service)
+
+                        ref_container_shortname = data[key]["parameters"][param_name]["value"]
+                        ref_container_shortname = ref_container_shortname[ref_container_shortname.rfind("/") + 1 :]
+                        print(ref_container_shortname)
+
+                        cfg_file_s += service + "_Service_" + ref_container_shortname + "_Id\n"
+                    else:
+                        cfg_file_s += str(data[key]["parameters"][param_name]["value"]) + "\n"
 
                     if(cfg_file_data_init_s != None):
                         cfg_file_data_init_s += define_name + ", "
