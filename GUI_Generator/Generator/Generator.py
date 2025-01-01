@@ -111,6 +111,8 @@ class Generator:
             if ( ("generate_data_data_files" in metadata.keys()) and (metadata["generate_data_data_files"] == True) and (len(data[key]["data"]) > 0) ):
                 if (data_cfg_h_file_s == None):
                     data_cfg_h_file_s = ""
+                else:
+                    data_cfg_h_file_s = data_cfg_h_file_s.strip() + "\n\n"
 
                 if("generate_data_data_files_data_type" in metadata.keys()):
                     data_cfg_h_file_s += "extern " + prefix + metadata["generate_data_data_files_data_type"] + " "
