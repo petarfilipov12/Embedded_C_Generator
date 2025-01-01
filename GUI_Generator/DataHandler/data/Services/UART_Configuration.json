@@ -38,8 +38,8 @@
             "metadata": {
               "changeable": true,
               "gen_buffer": true,
-              "gen_buffer_size_var_name": "UartRxBufferSize",
-              "gen_buffer_var_name": "UartRxBuffer",
+              "gen_buffer_size_var_name": "uartRxBufferSize",
+              "gen_buffer_var_name": "uartRxBuffer",
               "type": "int"
             },
             "value": 50
@@ -48,8 +48,8 @@
             "metadata": {
               "changeable": true,
               "gen_buffer": true,
-              "gen_buffer_size_var_name": "UartTxBufferSize",
-              "gen_buffer_var_name": "UartTxBuffer",
+              "gen_buffer_size_var_name": "uartTxBufferSize",
+              "gen_buffer_var_name": "uartTxBuffer",
               "type": "int"
             },
             "value": 50

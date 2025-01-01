@@ -52,18 +52,18 @@
             "metadata": {
               "type": "int",
               "gen_buffer": true,
-              "gen_buffer_var_name": "SpiRxBuffer",
-              "gen_buffer_size_var_name": "SpiRxBufferSize",
+              "gen_buffer_var_name": "spiRxBuffer",
+              "gen_buffer_size_var_name": "spiRxBufferSize",
               "changeable": true
             }
           },
           "SpiMode": {
-            "value": "",
+            "value": "SPI_MODE_MASTER",
             "metadata": {
               "type": "selectable",
               "selectable_list": [
-                "MASTER",
-                "SLAVE"
+                "SPI_MODE_MASTER",
+                "SPI_MODE_SLAVE"
               ],
               "changeable": true
             }

@@ -23,12 +23,12 @@
             "metadata": {
               "changeable": true,
               "selectable_list": [
-                "PWM",
-                "NORMAL"
+                "GPT_MODE_PWM",
+                "GPT_MODE_NORMAL"
               ],
               "type": "selectable"
             },
-            "value": "PWM"
+            "value": "GPT_MODE_PWM"
           },
           "Id": {
             "metadata": {
@@ -59,7 +59,10 @@
       "deletable": false,
       "duplicable": false,
       "generate_data_count": true,
-      "generate_data_init_define": true,
+      "generate_data_data_files": true,
+      "generate_data_data_files_data_name": "GptCfg_data",
+      "generate_data_data_files_data_type": "GptCfg_t",
+      "generate_data_data_files_init_func_postfix": "_INIT_FUNC",
       "generate_params": false,
       "mandatory": true,
       "type": "Services/GPT/GPT_Service_GPTs"

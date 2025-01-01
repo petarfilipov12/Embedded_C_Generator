@@ -16,8 +16,8 @@
             "metadata": {
               "changeable": true,
               "gen_buffer": true,
-              "gen_buffer_size_var_name": "AdcBufferSize",
-              "gen_buffer_var_name": "AdcBuffer",
+              "gen_buffer_size_var_name": "adcBufferSize",
+              "gen_buffer_var_name": "adcBuffer",
               "type": "int"
             },
             "value": 10

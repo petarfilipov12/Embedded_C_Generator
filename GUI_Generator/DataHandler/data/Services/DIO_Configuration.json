@@ -24,23 +24,23 @@
             "metadata": {
               "changeable": true,
               "selectable_list": [
-                "HIGH",
-                "LOW"
+                "PIN_HIGH",
+                "PIN_LOW"
               ],
               "type": "selectable"
             },
-            "value": "LOW"
+            "value": "PIN_LOW"
           },
           "PinType": {
             "metadata": {
               "changeable": true,
               "selectable_list": [
-                "INPUT",
-                "OUTPUT"
+                "PIN_INPUT",
+                "PIN_OUTPUT"
               ],
               "type": "selectable"
             },
-            "value": "OUTPUT"
+            "value": "PIN_OUTPUT"
           },
           "ShortName": {
             "metadata": {
@@ -74,23 +74,23 @@
             "metadata": {
               "changeable": true,
               "selectable_list": [
-                "HIGH",
-                "LOW"
+                "PIN_HIGH",
+                "PIN_LOW"
               ],
               "type": "selectable"
             },
-            "value": "LOW"
+            "value": "PIN_LOW"
           },
           "PinType": {
             "metadata": {
               "changeable": true,
               "selectable_list": [
-                "INPUT",
-                "OUTPUT"
+                "PIN_INPUT",
+                "PIN_OUTPUT"
               ],
               "type": "selectable"
             },
-            "value": "INPUT"
+            "value": "PIN_INPUT"
           },
           "ShortName": {
             "metadata": {
@@ -106,7 +106,10 @@
       "deletable": false,
       "duplicable": false,
       "generate_data_count": true,
-      "generate_data_init_define": true,
+      "generate_data_data_files": true,
+      "generate_data_data_files_data_name": "PinCfg_data",
+      "generate_data_data_files_data_type": "PinCfg_t",
+      "generate_data_data_files_init_func_postfix": "_INIT_FUNC",
       "generate_params": false,
       "mandatory": true,
       "type": "Services/DIO/DIO_Service_Pins"

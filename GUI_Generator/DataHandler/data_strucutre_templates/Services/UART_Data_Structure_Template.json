@@ -60,8 +60,8 @@
               "type": "int",
               "changeable": true,
               "gen_buffer": true,
-              "gen_buffer_var_name": "UartTxBuffer",
-              "gen_buffer_size_var_name": "UartTxBufferSize"
+              "gen_buffer_var_name": "uartTxBuffer",
+              "gen_buffer_size_var_name": "uartTxBufferSize"
             }
           },
           "UartRxBufferSize": {
@@ -70,8 +70,8 @@
               "type": "int",
               "changeable": true,
               "gen_buffer": true,
-              "gen_buffer_var_name": "UartRxBuffer",
-              "gen_buffer_size_var_name": "UartRxBufferSize"
+              "gen_buffer_var_name": "uartRxBuffer",
+              "gen_buffer_size_var_name": "uartRxBufferSize"
             }
           }
         },

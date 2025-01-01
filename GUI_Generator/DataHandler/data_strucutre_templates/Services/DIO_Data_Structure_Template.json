@@ -7,7 +7,10 @@
       "duplicable": false,
       "generate_params": false,
       "generate_data_count": true,
-      "generate_data_init_define": true
+      "generate_data_data_files": true,
+      "generate_data_data_files_data_type": "PinCfg_t",
+      "generate_data_data_files_data_name": "PinCfg_data",
+      "generate_data_data_files_init_func_postfix": "_INIT_FUNC"
     },
     "parameters": {
       "ShortName": {
@@ -37,12 +40,12 @@
             }
           },
           "PinType": {
-            "value": "",
+            "value": "PIN_OUTPUT",
             "metadata": {
               "type": "selectable",
               "selectable_list": [
-                "INPUT",
-                "OUTPUT"
+                "PIN_INPUT",
+                "PIN_OUTPUT"
               ],
               "changeable": true
             }
@@ -56,12 +59,12 @@
             }
           },
           "PinInitState": {
-            "value": "",
+            "value": "PIN_LOW",
             "metadata": {
               "type": "selectable",
               "selectable_list": [
-                "HIGH",
-                "LOW"
+                "PIN_HIGH",
+                "PIN_LOW"
               ],
               "changeable": true
             }

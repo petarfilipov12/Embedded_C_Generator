@@ -7,7 +7,10 @@
       "duplicable": false,
       "generate_params": false,
       "generate_data_count": true,
-      "generate_data_init_define": true
+      "generate_data_data_files": true,
+      "generate_data_data_files_data_name": "PwmCfg_data",
+      "generate_data_data_files_data_type": "PwmCfg_t",
+      "generate_data_data_files_init_func_postfix": "_INIT_FUNC"
     },
     "parameters": {
       "ShortName": {

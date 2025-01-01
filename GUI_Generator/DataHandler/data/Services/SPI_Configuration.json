@@ -31,19 +31,19 @@
             "metadata": {
               "changeable": true,
               "selectable_list": [
-                "MASTER",
-                "SLAVE"
+                "SPI_MODE_MASTER",
+                "SPI_MODE_SLAVE"
               ],
               "type": "selectable"
             },
-            "value": "MASTER"
+            "value": "SPI_MODE_MASTER"
           },
           "SpiRxBufferSize": {
             "metadata": {
               "changeable": true,
               "gen_buffer": true,
-              "gen_buffer_size_var_name": "SpiRxBufferSize",
-              "gen_buffer_var_name": "SpiRxBuffer",
+              "gen_buffer_size_var_name": "spiRxBufferSize",
+              "gen_buffer_var_name": "spiRxBuffer",
               "type": "int"
             },
             "value": "0"

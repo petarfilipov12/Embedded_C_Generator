@@ -52,6 +52,8 @@ class Generator:
 
     def _Generator_GenService_GenerateDataCfgCFile(self, prefix, data, data_cfg_c_file_s=None, buffers_s=None):
         for key in data.keys():
+            print(key)
+            print(self._generator_gen_service_struct_name)
             metadata = data[key]["metadata"]
 
             if ( ("generate_data_data_files" in metadata.keys()) and (metadata["generate_data_data_files"] == True) and (len(data[key]["data"]) > 0) ):
@@ -91,12 +93,15 @@ class Generator:
                                               + " = " + prefix + short_name + "_" + param_name + ";\n")
 
                     else:
-                        data_cfg_c_file_s += ("\t" + self._generator_gen_service_struct_name + "[" + str(self._generator_gen_service_current_element) + "]." + param_name.lower()
+                        data_cfg_c_file_s += ("\t" + self._generator_gen_service_struct_name + "[" + str(self._generator_gen_service_current_element) + "]." + param_name[0].lower() + param_name[1 :]
                                               + " = " + prefix + short_name + "_" + param_name + ";\n")
 
                 data_cfg_c_file_s += "\t" + self._generator_gen_service_struct_name + "[" + str(
-                    self._generator_gen_service_current_element) + "].status = RTE_NOT_OK;\n\n"
-                self._generator_gen_service_struct_name = None
+                    self._generator_gen_service_current_element) + "].status = RET_NOT_OK;\n\n"
+
+                if (("generate_data_data_files" in metadata.keys()) and (
+                        metadata["generate_data_data_files"] == True) and (len(data[key]["data"]) > 0)):
+                    self._generator_gen_service_struct_name = None
 
             if (("leaf" not in metadata.keys()) or (metadata["leaf"] == False)):
                 data_cfg_c_file_s, buffers_s = self._Generator_GenService_GenerateDataCfgCFile(prefix=prefix, data=data[key]["data"],
@@ -156,11 +161,9 @@ class Generator:
                         service = data[key]["parameters"][param_name]["value"]
                         service = service[service.find('/') + 1 :]
                         service = service[: service.find("/")]
-                        print(service)
 
                         ref_container_shortname = data[key]["parameters"][param_name]["value"]
                         ref_container_shortname = ref_container_shortname[ref_container_shortname.rfind("/") + 1 :]
-                        print(ref_container_shortname)
 
                         cfg_file_s += service + "_Service_" + ref_container_shortname + "_Id\n"
                     else:
