@@ -10,5 +10,6 @@
 #define CompLedIndicator_DIO_TogglePin	DIO_Service_Toggle_Pin
 #define CompLedIndicator_UART_Transmit	UART_Service_Transmit
 #define CompLedIndicator_UART_Read	UART_Service_Read
+#define CompLedIndicator_DIO_WritePin	DIO_Service_Write_Pin
 
 #endif

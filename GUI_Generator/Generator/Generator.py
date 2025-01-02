@@ -456,7 +456,7 @@ class Generator:
                                 break
                         if(func_new == None):
                             func_new = self._generator_gen_start_func + "\n"
-                            func_new += callout + "\n{\n}\n"
+                            func_new += callout + "\n{\n\n}\n"
                             func_new += self._generator_gen_end_func
 
                         server_ports_funcs_section_new += func_new.strip() + "\n\n"
@@ -485,7 +485,7 @@ class Generator:
                                 break
                         if (func_new == None):
                             func_new = self._generator_gen_start_func + "\n"
-                            func_new += func_declaration + "\n{\n}\n"
+                            func_new += func_declaration + "\n{\n\n}\n"
                             func_new += self._generator_gen_end_func
 
                         runnables_section_new += func_new.strip() + "\n\n"

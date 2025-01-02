@@ -68,5 +68,15 @@
       "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/UART_Service/UART_Service_Read/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_UART_Read"
     },
     "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "DIO_Service_Write_Pin",
+    "Client_Port": "CompLedIndicator_DIO_WritePin",
+    "Server_Component": "DIO_Service",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/DIO_Service/DIO_Service_Write_Pin/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_DIO_WritePin"
+    },
+    "Port_Type": "FUNCTION"
   }
 ]
