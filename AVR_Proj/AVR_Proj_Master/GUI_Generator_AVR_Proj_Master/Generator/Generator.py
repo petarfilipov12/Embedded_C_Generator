@@ -55,7 +55,7 @@ class Generator:
         for key in data.keys():
             metadata = data[key]["metadata"]
 
-            if ( ("generate_data_data_files" in metadata.keys()) and (metadata["generate_data_data_files"] == True) and (len(data[key]["data"]) > 0) ):
+            if ( ("generate_data_data_files" in metadata.keys()) and (metadata["generate_data_data_files"] == True) ):
                 self._generator_gen_service_struct_name = prefix + metadata["generate_data_data_files_data_name"]
                 self._generator_gen_service_current_element = -1
                 if (data_cfg_c_file_s == None):
@@ -63,7 +63,8 @@ class Generator:
                 else:
                     data_cfg_c_file_s = data_cfg_c_file_s.strip() + "\n}\n"
 
-                data_cfg_c_file_s = data_cfg_c_file_s.strip() + "\n\n" + prefix + metadata["generate_data_data_files_data_type"] + " " + prefix + metadata["generate_data_data_files_data_name"] + "[" + prefix + key + "_Count];\n\n"
+                if(len(data[key]["data"]) > 0):
+                    data_cfg_c_file_s = data_cfg_c_file_s.strip() + "\n\n" + prefix + metadata["generate_data_data_files_data_type"] + " " + prefix + metadata["generate_data_data_files_data_name"] + "[" + prefix + key + "_Count];\n\n"
                 data_cfg_c_file_s += "inline void " + prefix + metadata["generate_data_data_files_data_name"] + metadata["generate_data_data_files_init_func_postfix"] + "(void)\n{\n"
 
             if ( (self._generator_gen_service_struct_name != None) and ("generate_params" in metadata.keys()) and (metadata["generate_params"] == True)):
@@ -110,24 +111,26 @@ class Generator:
         return data_cfg_c_file_s, buffers_s
 
 
-    def _Generator_GenService_GenerateDataCfgHFile(self, prefix, data, data_cfg_h_file_s=None):
+    def _Generator_GenService_GenerateDataCfgHFile(self, prefix, data):
+        data_cfg_h_file_s = None
+
         for key in data.keys():
             metadata = data[key]["metadata"]
 
-            if ( ("generate_data_data_files" in metadata.keys()) and (metadata["generate_data_data_files"] == True) and (len(data[key]["data"]) > 0) ):
+            if ( ("generate_data_data_files" in metadata.keys()) and (metadata["generate_data_data_files"] == True) ):
                 if (data_cfg_h_file_s == None):
                     data_cfg_h_file_s = ""
                 else:
                     data_cfg_h_file_s = data_cfg_h_file_s.strip() + "\n\n"
 
-                if("generate_data_data_files_data_type" in metadata.keys()):
+                if( ("generate_data_data_files_data_type" in metadata.keys()) and (len(data[key]["data"]) > 0) ):
                     data_cfg_h_file_s += "extern " + prefix + metadata["generate_data_data_files_data_type"] + " "
 
-                if("generate_data_data_files_data_name" in metadata.keys()):
+                if( ("generate_data_data_files_data_name" in metadata.keys()) and (len(data[key]["data"]) > 0) ):
                     data_cfg_h_file_s += prefix + metadata["generate_data_data_files_data_name"] + "[" + prefix + key + "_Count];\n\n"
 
-                    if("generate_data_data_files_init_func_postfix" in metadata.keys()):
-                        data_cfg_h_file_s += "extern inline void " + prefix + metadata["generate_data_data_files_data_name"] + metadata["generate_data_data_files_init_func_postfix"] + "(void);"
+                if("generate_data_data_files_init_func_postfix" in metadata.keys()):
+                    data_cfg_h_file_s += "extern inline void " + prefix + metadata["generate_data_data_files_data_name"] + metadata["generate_data_data_files_init_func_postfix"] + "(void);"
 
         return data_cfg_h_file_s
     def _Generator_GenService_GenerateCfgFile(self, prefix, data, cfg_file_s=None, cfg_file_data_init_s=None):

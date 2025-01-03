@@ -123,7 +123,10 @@ static inline void SPI_HandleMasterInterrupt(void)
 
 static inline void SPI_HandleSlaveInterrupt(void)
 {
-    Queue_Put(psRxQueue, SPDR);
+    uint8 spi_val;
+
+    spi_val = SPDR;
+    Queue_Put(psRxQueue, spi_val);
 }
 
 ISR(SPI_STC_vect)

@@ -4,7 +4,7 @@
 #include "CompSensor.h"
 /* DO NOT REMOVE COMMENT - GEN END SECTION */
 
-#define BUFFER_SIZE 10
+#define BUFFER_SIZE 2
 uint8 buffer[BUFFER_SIZE] = {0};
 uint8 current_buffer_size = 0;
 
