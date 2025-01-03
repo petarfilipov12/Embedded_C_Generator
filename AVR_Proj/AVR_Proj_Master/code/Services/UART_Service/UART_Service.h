@@ -20,4 +20,6 @@ typedef struct{
     Func_ReturnType status;
 }UART_Service_UartHwCfg_t;
 
+extern inline void UART_Service_UART_Receive(uint8 uart_id, uint8* data, uint8 data_length);
+
 #endif

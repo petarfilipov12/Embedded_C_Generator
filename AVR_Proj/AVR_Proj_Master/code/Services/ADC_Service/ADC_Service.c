@@ -67,7 +67,7 @@ void ADC_Service_Cyclic(void)
         {
             if(ADC_IS_ADC_READY(adc_id))
             {
-                ADC_READ(adc_id, &ADC_Service_AdcPinCfg_data[ADC_Service_AdcHwCfg_data[adc_id].current_pin_id].last_value);
+                ADC_READ(adc_id, &ADC_Service_AdcPinCfg_data[ADC_Service_AdcHwCfg_data[adc_id].currentPinId].lastValue);
                 ADC_Service_AdcHwCfg_data[adc_id].status = RET_OK;
                 ADC_Service_AdcPinCfg_data[ADC_Service_AdcHwCfg_data[adc_id].currentPinId].status = RET_READY;
             }

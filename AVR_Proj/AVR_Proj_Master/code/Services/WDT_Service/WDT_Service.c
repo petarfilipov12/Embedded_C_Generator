@@ -17,13 +17,13 @@ void WDT_Service_Init(void)
 
         if(WDT_Service_WdtCfg_data[wdt_id].bIsEnabled)
         {
-            WDT_Service_WDT_Enable(wdt_id);
+            WDT_Service_Enable(wdt_id);
         }
     }
     #endif
 }
 
-Func_ReturnType WDT_Service_WDT_Disable(uint8 wdt_id)
+Func_ReturnType WDT_Service_Disable(uint8 wdt_id)
 {
     Func_ReturnType ret = RET_NOT_OK;
 
@@ -38,7 +38,7 @@ Func_ReturnType WDT_Service_WDT_Disable(uint8 wdt_id)
     return ret;
 }
 
-Func_ReturnType WDT_Service_WDT_Enable(uint8 wdt_id)
+Func_ReturnType WDT_Service_Enable(uint8 wdt_id)
 {
     Func_ReturnType ret = RET_NOT_OK;
 
@@ -53,7 +53,7 @@ Func_ReturnType WDT_Service_WDT_Enable(uint8 wdt_id)
     return ret;
 }
 
-Func_ReturnType WDT_Service_WDT_SetPrescalar(uint8 wdt_id, uint32 wdt_prescalar)
+Func_ReturnType WDT_Service_SetPrescalar(uint8 wdt_id, uint32 wdt_prescalar)
 {
     Func_ReturnType ret = RET_NOT_OK;
 

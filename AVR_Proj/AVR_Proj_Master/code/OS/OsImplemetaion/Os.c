@@ -1,7 +1,5 @@
-#include "Types.h"
-#include "OsHAL.h"
 #include "Os.h"
-#include "OS_HAL_Interrupt.h"
+#include "OS_Interrupt.h"
 
 #define OS_Start main
 

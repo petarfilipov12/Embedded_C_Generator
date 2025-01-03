@@ -16,7 +16,7 @@ void CompLedIndicator_Init(void)
 {
   uint8 uart_tx_data[5] = {'I', 'N', 'I', 'T', '\n'};
 
-  UART_Service_Transmit(UART_Service_UART_0_ID, &uart_tx_data[0], (uint8)(sizeof(uart_tx_data)/sizeof(uart_tx_data[0])));
+  CompLedIndicator_UART_Transmit(UART_Service_UART_0_Id, &uart_tx_data[0], (uint8)(sizeof(uart_tx_data)/sizeof(uart_tx_data[0])));
 }
 /* DO NOT REMOVE COMMENT - GEN END FUNC */
 
@@ -31,22 +31,22 @@ void CompLedIndicator_Cyclic(void)
 
   Func_ReturnType ret = RET_OK;
 
-  if( (RET_OK == LedIndicator_Read_Pin(DIO_Service_PIN_1_ID, &pin_val)) && (DIO_Service_PIN_HIGH != pin_val) )
+  if( (RET_OK == CompLedIndicator_DIO_ReadPin(DIO_Service_DIO_PIN_1_Id, &pin_val)) && (PIN_HIGH != pin_val) )
   {
-    LedIndicator_Toggle_Pin(DIO_Service_PIN_0_ID);
-    UART_Service_Transmit(UART_Service_UART_0_ID, &uart_tx_data[0], (uint8)(sizeof(uart_tx_data)/sizeof(uart_tx_data[0])));
+    CompLedIndicator_DIO_TogglePin(DIO_Service_DIO_PIN_0_Id);
+    CompLedIndicator_UART_Transmit(UART_Service_UART_0_Id, &uart_tx_data[0], (uint8)(sizeof(uart_tx_data)/sizeof(uart_tx_data[0])));
   }
   else
   {
-    LedIndicator_Write_Pin(DIO_Service_PIN_0_ID, DIO_Service_PIN_LOW);
+    CompLedIndicator_DIO_WritePin(DIO_Service_DIO_PIN_0_Id, PIN_LOW);
   }
 
-  ret = UART_Service_Read(UART_Service_UART_0_ID, &uart_rx_data[0], &uart_rx_data_length);
+  ret = CompLedIndicator_UART_Read(UART_Service_UART_0_Id, &uart_rx_data[0], &uart_rx_data_length);
   if(RET_OK == ret)
   {
     if(uart_rx_data_length > 0)
     {
-      UART_Service_Transmit(UART_Service_UART_0_ID, &uart_rx_data[0], uart_rx_data_length);
+      CompLedIndicator_UART_Transmit(UART_Service_UART_0_Id, &uart_rx_data[0], uart_rx_data_length);
     }
   }
 }

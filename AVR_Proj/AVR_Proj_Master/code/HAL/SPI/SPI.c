@@ -1,4 +1,5 @@
 #include "SPI.h"
+#include "OS_Interrupt.h"
 
 #define SPI_MODE_MASTER 0u
 #define SPI_MODE_SLAVE 1u
@@ -8,9 +9,9 @@
 Queue_t *psRxQueue = NULL;
 
 //Master variables
-volatile uint8 *pu8TransmitRxData = NULL;
+volatile uint8 *pu8TransmitRxData;
 volatile uint8 u8TransmitRxDataBuffer;
-volatile boolean *pbTxRxDone = NULL;
+volatile boolean *pbTxRxDone;
 static volatile boolean spi_busy = TRUE;
 
 static uint8 spi_mode = SPI_MODE_INVALID;
@@ -31,6 +32,9 @@ static void SPI_DeactivateSlave(void)
 Func_ReturnType SPI_MasterInit(uint8 spi_id)
 {
     Func_ReturnType ret = RET_NOT_OK;
+
+    pbTxRxDone = NULL;
+    pu8TransmitRxData = NULL;
 
     if(spi_mode == SPI_MODE_INVALID)
     {
@@ -85,7 +89,7 @@ Func_ReturnType SPI_Send(uint8 spi_id, uint8 tx_data, uint8 *rx_data, boolean *t
     if(spi_busy == FALSE)
     {
         pu8TransmitRxData = rx_data;
-        pbTxRxDone = txrx_done;
+        pbTxRxDone = &txrx_done[0];
 
         *pbTxRxDone = FALSE;
 
@@ -124,6 +128,8 @@ static inline void SPI_HandleSlaveInterrupt(void)
 
 ISR(SPI_STC_vect)
 {
+    //OS_Interrupt_DisableGlobal();
+
     if(spi_mode == SPI_MODE_MASTER)
     {
         SPI_HandleMasterInterrupt();
@@ -136,4 +142,6 @@ ISR(SPI_STC_vect)
     {
         //Nothing to do
     }
+
+    //OS_Interrupt_EnableGlobal();
 }

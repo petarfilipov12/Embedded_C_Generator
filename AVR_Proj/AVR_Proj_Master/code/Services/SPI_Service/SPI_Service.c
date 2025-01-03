@@ -3,10 +3,14 @@
 #include "Queue.h"
 #include "SPI.h"
 
+boolean txrx_done = TRUE;
+
 void SPI_Service_Init(void)
 {
 #if SPI_Service_SPI_Service_SPIs_Count > 0
     uint8 spi_id = 0;
+
+    SPI_Service_SpiHwCfg_data_INIT_FUNC();
 
     for(spi_id=0; spi_id<SPI_Service_SPI_Service_SPIs_Count; spi_id++)
     {
@@ -39,7 +43,6 @@ Func_ReturnType SPI_Service_Transmit(uint8 spi_id, uint8 *tx_data, uint8 *rx_dat
 
 #if SPI_Service_SPI_Service_SPIs_Count > 0
     uint8 i = 0;
-    boolean txrx_done = TRUE;
 
     if(SPI_Service_SpiHwCfg_data[spi_id].spiMode == SPI_MODE_MASTER)
     {
@@ -49,6 +52,7 @@ Func_ReturnType SPI_Service_Transmit(uint8 spi_id, uint8 *tx_data, uint8 *rx_dat
         {
             SPI_Service_SpiHwCfg_data[spi_id].status = RET_BUSY;
 
+            i = 0;
             while(i < data_length)
             {
                 if(txrx_done != FALSE)
