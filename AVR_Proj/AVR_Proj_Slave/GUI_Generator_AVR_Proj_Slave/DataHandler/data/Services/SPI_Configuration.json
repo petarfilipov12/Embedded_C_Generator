@@ -36,7 +36,7 @@
               ],
               "type": "selectable"
             },
-            "value": "SPI_MODE_MASTER"
+            "value": "SPI_MODE_SLAVE"
           },
           "SpiRxBufferSize": {
             "metadata": {
