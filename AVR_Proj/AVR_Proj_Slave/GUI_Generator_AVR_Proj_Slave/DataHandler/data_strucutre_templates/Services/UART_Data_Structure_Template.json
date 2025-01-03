@@ -1,0 +1,82 @@
+{
+  "UART_Service_UARTs": {
+    "metadata": {
+      "type": "Services/UART/UART_Service_UARTs",
+      "mandatory": true,
+      "deletable": false,
+      "duplicable": false,
+      "generate_params": false,
+      "generate_data_count": true,
+      "generate_data_data_files": true,
+      "generate_data_data_files_data_type": "UartHwCfg_t",
+      "generate_data_data_files_data_name": "UartHwCfg_data",
+      "generate_data_data_files_init_func_postfix": "_INIT_FUNC"
+    },
+    "parameters": {
+      "ShortName": {
+        "value": "UART_Service_UARTs",
+        "metadata": {
+          "type": "string",
+          "changeable": false
+        }
+      }
+    },
+    "data": {
+      "UART_Service_UART": {
+        "metadata": {
+          "type": "Services/UART/UART_Service_UARTs/data/UART_Service_UART",
+          "mandatory": false,
+          "leaf": true,
+          "deletable": true,
+          "duplicable": true,
+          "generate_params": true
+        },
+        "parameters": {
+          "ShortName": {
+            "value": "UART_Service_UART",
+            "metadata": {
+              "type": "string",
+              "changeable": true
+            }
+          },
+          "Id": {
+            "value": "0",
+            "metadata": {
+              "type": "int",
+              "id": true,
+              "changeable": false
+            }
+          },
+          "Baud": {
+            "value": "0",
+            "metadata": {
+              "type": "int",
+              "changeable": true
+            }
+          },
+          "UartTxBufferSize": {
+            "value": "0",
+            "metadata": {
+              "type": "int",
+              "changeable": true,
+              "gen_buffer": true,
+              "gen_buffer_var_name": "uartTxBuffer",
+              "gen_buffer_size_var_name": "uartTxBufferSize"
+            }
+          },
+          "UartRxBufferSize": {
+            "value": "0",
+            "metadata": {
+              "type": "int",
+              "changeable": true,
+              "gen_buffer": true,
+              "gen_buffer_var_name": "uartRxBuffer",
+              "gen_buffer_size_var_name": "uartRxBufferSize"
+            }
+          }
+        },
+        "data": {}
+      }
+    }
+  }
+}

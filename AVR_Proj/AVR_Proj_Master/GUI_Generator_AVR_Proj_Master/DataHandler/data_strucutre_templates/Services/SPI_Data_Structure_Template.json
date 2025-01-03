@@ -1,0 +1,76 @@
+{
+  "SPI_Service_SPIs": {
+    "metadata": {
+      "type": "Services/SPI/SPI_Service_SPIs",
+      "mandatory": true,
+      "deletable": false,
+      "duplicable": false,
+      "generate_params": false,
+      "generate_data_count": true,
+      "generate_data_data_files": true,
+      "generate_data_data_files_data_type": "SpiCfg_t",
+      "generate_data_data_files_data_name": "SpiHwCfg_data",
+      "generate_data_data_files_init_func_postfix": "_INIT_FUNC"
+    },
+    "parameters": {
+      "ShortName": {
+        "value": "SPI_Service_SPIs",
+        "metadata": {
+          "type": "string",
+          "changeable": false
+        }
+      }
+    },
+    "data": {
+      "SPI_Service_SPI": {
+        "metadata": {
+          "type": "Services/SPI/SPI_Service_SPIs/data/SPI_Service_SPI",
+          "mandatory": false,
+          "leaf": true,
+          "deletable": true,
+          "duplicable": true,
+          "generate_params": true
+        },
+        "parameters": {
+          "ShortName": {
+            "value": "SPI_Service_SPI",
+            "metadata": {
+              "type": "string",
+              "changeable": true
+            }
+          },
+          "Id": {
+            "value": "0",
+            "metadata": {
+              "type": "int",
+              "id": true,
+              "changeable": false
+            }
+          },
+          "SpiRxBufferSize": {
+            "value": "0",
+            "metadata": {
+              "type": "int",
+              "gen_buffer": true,
+              "gen_buffer_var_name": "spiRxBuffer",
+              "gen_buffer_size_var_name": "spiRxBufferSize",
+              "changeable": true
+            }
+          },
+          "SpiMode": {
+            "value": "SPI_MODE_MASTER",
+            "metadata": {
+              "type": "selectable",
+              "selectable_list": [
+                "SPI_MODE_MASTER",
+                "SPI_MODE_SLAVE"
+              ],
+              "changeable": true
+            }
+          }
+        },
+        "data": {}
+      }
+    }
+  }
+}
