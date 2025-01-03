@@ -15,7 +15,8 @@ UART_Service_Cyclic();
 #define OS_Task_200ms_Prio1_InitRunnables	\
 GPT_Service_Init();	\
 PWM_Service_Init();	\
-DIO_Service_Init();
+DIO_Service_Init();	\
+CompLedIndicator_Init();
 
 #define OS_Task_200ms_Prio1_CyclicRunnables	\
 CompLedIndicator_Cyclic();

@@ -140,7 +140,8 @@
             "value": [
               "GPT_Service_Init",
               "PWM_Service_Init",
-              "DIO_Service_Init"
+              "DIO_Service_Init",
+              "CompLedIndicator_Init"
             ]
           },
           "Priority": {

@@ -17,4 +17,11 @@ void CompLedIndicator_Cyclic(void)
 
 }
 /* DO NOT REMOVE COMMENT - GEN END FUNC */
+
+/* DO NOT REMOVE COMMENT - GEN START FUNC */
+void CompLedIndicator_Init(void)
+{
+
+}
+/* DO NOT REMOVE COMMENT - GEN END FUNC */
 /* DO NOT REMOVE COMMENT - GEN END SECTION */

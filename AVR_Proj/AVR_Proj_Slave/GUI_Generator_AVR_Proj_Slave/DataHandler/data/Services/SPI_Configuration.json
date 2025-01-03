@@ -46,7 +46,7 @@
               "gen_buffer_var_name": "spiRxBuffer",
               "type": "int"
             },
-            "value": "0"
+            "value": 10
           }
         }
       }

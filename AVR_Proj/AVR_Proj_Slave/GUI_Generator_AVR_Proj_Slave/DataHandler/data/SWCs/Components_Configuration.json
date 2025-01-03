@@ -1160,6 +1160,26 @@
             },
             "value": "Cyclic"
           }
+        },
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "CompLedIndicator_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
         }
       ]
     }
