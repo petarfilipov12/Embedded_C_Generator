@@ -12,12 +12,12 @@
 
 /* DO NOT REMOVE COMMENT - GEN RUNNABLES SECTION */
 /* DO NOT REMOVE COMMENT - GEN START FUNC */
-// void CompLedIndicator_Init(void)
-// {
-//   uint8 uart_tx_data[5] = {'I', 'N', 'I', 'T', '\n'};
+void CompLedIndicator_Init(void)
+{
+  uint8 uart_tx_data[5] = {'I', 'N', 'I', 'T', '\n'};
 
-//   CompLedIndicator_UART_Transmit(UART_Service_UART_0_Id, &uart_tx_data[0], (uint8)(sizeof(uart_tx_data)/sizeof(uart_tx_data[0])));
-// }
+  CompLedIndicator_UART_Transmit(UART_Service_UART_0_Id, &uart_tx_data[0], (uint8)(sizeof(uart_tx_data)/sizeof(uart_tx_data[0])));
+}
 /* DO NOT REMOVE COMMENT - GEN END FUNC */
 
 /* DO NOT REMOVE COMMENT - GEN START FUNC */

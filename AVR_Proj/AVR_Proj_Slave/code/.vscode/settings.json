@@ -3,6 +3,7 @@
         "gen_compledindicator_client_ports_cfg.h": "c",
         "gen_spi_service_server_ports_cfg.h": "c",
         "gen_spi_service_cfg.h": "c",
-        "gen_pwm_service_cfg.h": "c"
+        "gen_pwm_service_cfg.h": "c",
+        "gen_uart_service_server_ports_cfg.h": "c"
     }
 }
