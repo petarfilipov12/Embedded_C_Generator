@@ -1,25 +1,17 @@
 #ifndef SPI_SERVICE_H
 #define SPI_SERVICE_H
 
-#include "SPI.h"
+#include "Types.h"
+#include "Queue.h"
+#include "GEN_SPI_Service_CFG.h"
 
-#define SPI_Service_MODE_MASTER 0u
-#define SPI_Service_MODE_SLAVE 1u
-
-#define SPI_Service_SPI_RX_BUFFER_SIZE 20u
-
-#define SPI_Service_SPI_MASTER_SPI_0_ID        0u
-#define SPI_Service_SPI_MASTER_HW_COUNT       1u
-
-//#define SPI_Service_SPI_SLAVE_SPI_1_ID        0u
-#define SPI_Service_SPI_SLAVE_HW_COUNT       0u
-
-#if SPI_Service_SPI_MASTER_HW_COUNT > 0
-extern Func_ReturnType SPI_Service_Transmit(uint8 spi_id, uint8 *tx_data, uint8 *rx_data, uint8 data_length);
-#endif
-
-#if SPI_Service_SPI_SLAVE_HW_COUNT > 0
-extern Func_ReturnType SPI_Service_GetReceived(uint8 spi_id, uint8 *rx_data, uint8 *data_length);
-#endif
+typedef struct{
+    Queue_t spiRxQueue;
+    uint8* spiRxBuffer;
+    uint8 spiRxBufferSize;
+    uint8 id;
+    uint8 spiMode;
+    Func_ReturnType status;
+}SPI_Service_SpiCfg_t;
 
 #endif

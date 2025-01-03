@@ -2,15 +2,23 @@
 #define ADC_SERVICE_H
 
 #include "Types.h"
-#include "ADC.h"
+#include "Queue.h"
+#include "GEN_ADC_Service_CFG.h"
 
-#define ADC_Service_ADC_0_ID            0
-#define ADC_Service_ADC_COUNT           1
-#define ADC_Service_ADC_BUFFER_SIZE     10
+typedef struct{
+    Queue_t adcQueue;
+    uint8* adcBuffer;
+    uint8 adcBufferSize;
+    uint8 id;
+    uint8 currentPinId;
+    Func_ReturnType status;
+}ADC_Service_AdcCfg_t;
 
-#define ADC_Service_PIN_0_ID             0
-#define ADC_Service_PIN_COUNT            1
-
-extern Func_ReturnType ADC_Service_Read_Pin(uint8 pin_id, uint8* value);
+typedef struct{
+    uint8 adcRef;
+    uint8 id;
+    uint8 lastValue;
+    Func_ReturnType status;
+}ADC_Service_PinCfg_t;
 
 #endif

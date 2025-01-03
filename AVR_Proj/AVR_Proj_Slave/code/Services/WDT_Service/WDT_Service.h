@@ -1,13 +1,14 @@
 #ifndef WDT_SERVICE_H
 #define WDT_SERVICE_H
 
-#include "WDT.h"
-#include "WDT_Service_Prescalars.h"
+#include "Types.h"
+#include "GEN_WDT_Service_CFG.h"
 
-#define WDT_TIMEOUT_PRESCALAR_INIT eWdtTimeout_32ms
-
-extern void WDT_Service_WDT_Disable(void);
-extern void WDT_Service_WDT_Enable(void);
-extern Func_ReturnType WDT_Service_WDT_SetPrescalar(uint8 wdt_prescalar);
+typedef struct{
+    uint32 prescaler;
+    uint8 id;
+    Func_ReturnType status;
+    boolean bIsEnabled
+}WDT_Service_WdtCfg_t;
 
 #endif

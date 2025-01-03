@@ -1,43 +1,78 @@
 #include "WDT_Service.h"
-
-boolean gbWdtEnabled = FALSE;
+#include "GEN_WDT_Service_DATA_CFG.h"
+#include "GEN_WDT_Service_SERVER_PORTS_CFG.h"
+#include "GEN_WDT_Service_CLIENT_PORTS_CFG.h"
+#include "WDT.h"
 
 void WDT_Service_Init(void)
 {
-    WDT_Init(WDT_TIMEOUT_PRESCALAR_INIT);
-    gbWdtEnabled = FALSE;
+    #if WDT_Service_WDT_Service_WDTs_Count > 0
+    uint8 wdt_id = 0;
 
-    WDT_Service_WDT_Enable();
+    WDT_Service_WdtCfg_data_INIT_FUNC();
+
+    for(wdt_id = 0; wdt_id < WDT_Service_WDT_Service_WDTs_Count; wdt_id++)
+    {
+        WDT_Init(wdt_id, WDT_Service_WdtCfg_data[wdt_id].prescaler);
+
+        if(WDT_Service_WdtCfg_data[wdt_id].bIsEnabled)
+        {
+            WDT_Service_Enable(wdt_id);
+        }
+    }
+    #endif
 }
 
-void WDT_Service_WDT_Disable(void)
+Func_ReturnType WDT_Service_Disable(uint8 wdt_id)
 {
+    Func_ReturnType ret = RET_NOT_OK;
+
+#if WDT_Service_WDT_Service_WDTs_Count > 0
     //Disable Interrupts
-    WDT_Disable();
+    ret = WDT_Disable(wdt_id);
     //Enable interrupts
 
-    gbWdtEnabled = FALSE;
+    WDT_Service_WdtCfg_data[wdt_id].bIsEnabled = FALSE;
+#endif
+
+    return ret;
 }
 
-void WDT_Service_WDT_Enable(void)
+Func_ReturnType WDT_Service_Enable(uint8 wdt_id)
 {
+    Func_ReturnType ret = RET_NOT_OK;
+
+#if WDT_Service_WDT_Service_WDTs_Count > 0
     //Disable Interrupts
-    WDT_Enable();
+    ret = WDT_Enable(wdt_id);
     //Enable interrupts
 
-    gbWdtEnabled = TRUE;
+    WDT_Service_WdtCfg_data[wdt_id].bIsEnabled = TRUE;
+#endif
+
+    return ret;
 }
 
-Func_ReturnType WDT_Service_WDT_SetPrescalar(uint8 wdt_prescalar)
+Func_ReturnType WDT_Service_SetPrescalar(uint8 wdt_id, uint32 wdt_prescalar)
 {
-    return WDT_SetPrescalar(wdt_prescalar);
+    Func_ReturnType ret = RET_NOT_OK;
+
+#if WDT_Service_WDT_Service_WDTs_Count > 0
+    ret = WDT_SetPrescalar(wdt_id, wdt_prescalar);
+#endif
+
+    return ret;
 }
 
 void WDT_Service_Cyclic(void)
 {
-    if(gbWdtEnabled)
+#if WDT_Service_WDT_Service_WDTs_Count > 0
+    uint8 wdt_id = 0;
+
+    for(wdt_id = 0; wdt_id < WDT_Service_WDT_Service_WDTs_Count; wdt_id++)
+    if(WDT_Service_WdtCfg_data[wdt_id].bIsEnabled)
     {
-        WDT_Reset();
+        WDT_Reset(wdt_id);
     }
-    
+#endif
 }

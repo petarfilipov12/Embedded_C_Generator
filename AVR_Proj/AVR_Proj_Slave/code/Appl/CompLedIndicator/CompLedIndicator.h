@@ -1,0 +1,4 @@
+#ifndef COMPLEDINDICATOR_H
+#define COMPLEDINDICATOR_H
+
+#endif

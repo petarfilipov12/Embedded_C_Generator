@@ -54,7 +54,10 @@ inline Func_ReturnType Queue_PutData(Queue_t* queue, uint8* data, uint8 data_len
     }
     else
     {
-        Queue_Put(queue, data[i]);
+        for(; i < data_length; i++)
+        {
+            Queue_Put(queue, data[i]);
+        }
     }
 
     return ret;

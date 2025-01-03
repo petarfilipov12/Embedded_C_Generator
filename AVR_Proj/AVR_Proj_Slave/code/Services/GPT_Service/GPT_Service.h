@@ -4,17 +4,15 @@
 #define GPT_Service_TIMER_MODE_NORMAL   0
 #define GPT_Service_TIMER_MODE_PWM      1
 
-#include "GPT.h"
+#include "Types.h"
+#include "GEN_GPT_Service_CFG.h"
 
-/*  Start Timer_data  */
-#define GPT_Service_TIMER_0_ID              0
-#define GPT_Service_TIMER_0_MODE            GPT_Service_TIMER_MODE_PWM
-#define GPT_Service_TIMER_0_COMPARE_VALUE   0
-#define GPT_Service_TIMER_0_FREQ_PRESCALER  64
-
-#define GPT_Service_TIMER_COUNT             1
-/*  End Timer_data  */
-
-extern Func_ReturnType GPT_Service_Set_Compare_Value(uint8 timer_id, uint8 compare_val);
+typedef struct{
+    uint8 compareValue;
+    uint8 gptMode;
+    uint8 id;
+    uint8 prescaler;
+    Func_ReturnType status;
+}GPT_Service_GptCfg_t;
 
 #endif
