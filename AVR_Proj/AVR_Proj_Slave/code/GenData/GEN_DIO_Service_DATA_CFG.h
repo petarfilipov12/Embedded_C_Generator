@@ -6,8 +6,6 @@
 #include "GEN_DIO_Service_CFG.h"
 #include "DIO_Service.h"
 
-extern DIO_Service_PinCfg_t DIO_Service_PinCfg_data[DIO_Service_DIO_Service_Pins_Count];
-
 extern inline void DIO_Service_PinCfg_data_INIT_FUNC(void);
 
 #endif
