@@ -13,13 +13,11 @@ ADC_Service_Cyclic();	\
 UART_Service_Cyclic();
 
 #define OS_Task_200ms_Prio1_InitRunnables	\
-CompLedIndicator_Init();	\
 GPT_Service_Init();	\
 PWM_Service_Init();	\
 DIO_Service_Init();
 
 #define OS_Task_200ms_Prio1_CyclicRunnables	\
-CompSensor_Cyclic();	\
 CompLedIndicator_Cyclic();
 
 #define OS_TASKS_CONFIG()	\

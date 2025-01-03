@@ -3,15 +3,9 @@
 
 #include "Types.h"
 
-#define ADC_Service_ADC_Service_ADCs_Count 1
-
-#define ADC_Service_ADC_0_AdcBufferSize 10
-#define ADC_Service_ADC_0_Id 0
+#define ADC_Service_ADC_Service_ADCs_Count 0
 
 
-#define ADC_Service_ADC_Service_Pins_Count 1
-
-#define ADC_Service_ADC_PIN_0_AdcRef ADC_Service_ADC_0_Id
-#define ADC_Service_ADC_PIN_0_Id 0
+#define ADC_Service_ADC_Service_Pins_Count 0
 
 #endif

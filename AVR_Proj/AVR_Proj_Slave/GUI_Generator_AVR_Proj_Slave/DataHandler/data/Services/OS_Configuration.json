@@ -125,7 +125,6 @@
               "type": "reference_list"
             },
             "value": [
-              "CompSensor_Cyclic",
               "CompLedIndicator_Cyclic"
             ]
           },
@@ -139,7 +138,6 @@
               "type": "reference_list"
             },
             "value": [
-              "CompLedIndicator_Init",
               "GPT_Service_Init",
               "PWM_Service_Init",
               "DIO_Service_Init"

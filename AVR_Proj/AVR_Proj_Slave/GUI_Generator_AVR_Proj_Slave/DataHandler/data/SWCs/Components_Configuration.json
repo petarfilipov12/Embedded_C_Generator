@@ -820,37 +820,6 @@
               "uint8* data_legth"
             ]
           }
-        },
-        {
-          "Server_Port_Id": {
-            "metadata": {
-              "changeable": true,
-              "type": "string"
-            },
-            "value": "UART_Service_Receive"
-          },
-          "Port_Type": {
-            "metadata": {
-              "changeable": true,
-              "type": "selectable",
-              "selectable_list": [
-                "FUNCTION",
-                "VARIABLE"
-              ]
-            },
-            "value": "FUNCTION"
-          },
-          "Port_Params": {
-            "metadata": {
-              "changeable": true,
-              "type": "list_string"
-            },
-            "value": [
-              "uint8 uart_id",
-              "uint8* data",
-              "uint8 data_length"
-            ]
-          }
         }
       ],
       "metadata": {
@@ -1114,94 +1083,6 @@
           "changeable": true,
           "type": "string"
         },
-        "value": "CompSensor"
-      },
-      "Component_Type": {
-        "metadata": {
-          "changeable": true,
-          "type": "selectable",
-          "selectable_list": [
-            "SERVICE",
-            "APPLICATION"
-          ]
-        },
-        "value": "APPLICATION"
-      },
-      "Gen_Structure": {
-        "metadata": {
-          "changeable": true,
-          "type": "boolean"
-        },
-        "value": true
-      },
-      "Component_Gen_Location": {
-        "metadata": {
-          "changeable": true,
-          "type": "string"
-        },
-        "value": ""
-      }
-    },
-    "Component_Metadata": {
-      "node_editor_position": [
-        274,
-        285
-      ]
-    },
-    "Server_Ports": {
-      "value": [],
-      "metadata": {
-        "changeable": true,
-        "type": "list_dict"
-      }
-    },
-    "Client_Ports": {
-      "value": [
-        "CompSensor_ADC_ReadPin",
-        "CompSensor_PWM_SetPin",
-        "CompSensor_SPI_Transmit"
-      ],
-      "metadata": {
-        "changeable": true,
-        "type": "list_string"
-      }
-    },
-    "Runnables": {
-      "metadata": {
-        "changeable": true,
-        "type": "list_dict"
-      },
-      "value": [
-        {
-          "Runnable_Name": {
-            "metadata": {
-              "changeable": true,
-              "type": "string"
-            },
-            "value": "CompSensor_Cyclic"
-          },
-          "Runnable_Type": {
-            "metadata": {
-              "changeable": true,
-              "type": "selectable",
-              "selectable_list": [
-                "Init",
-                "Cyclic"
-              ]
-            },
-            "value": "Cyclic"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Properties": {
-      "Component_Name": {
-        "metadata": {
-          "changeable": true,
-          "type": "string"
-        },
         "value": "CompLedIndicator"
       },
       "Component_Type": {
@@ -1232,8 +1113,8 @@
     },
     "Component_Metadata": {
       "node_editor_position": [
-        273,
-        574
+        199,
+        502
       ]
     },
     "Server_Ports": {
@@ -1245,11 +1126,9 @@
     },
     "Client_Ports": {
       "value": [
-        "CompLedIndicator_DIO_ReadPin",
-        "CompLedIndicator_DIO_TogglePin",
-        "CompLedIndicator_UART_Transmit",
-        "CompLedIndicator_UART_Read",
-        "CompLedIndicator_DIO_WritePin"
+        "CompLedIndicator_PWM_Set_Pin",
+        "CompLedIndicator_SPI_Get_Received",
+        "CompLedIndicator_UART_Transmit"
       ],
       "metadata": {
         "changeable": true,
@@ -1262,26 +1141,6 @@
         "type": "list_dict"
       },
       "value": [
-        {
-          "Runnable_Name": {
-            "metadata": {
-              "changeable": true,
-              "type": "string"
-            },
-            "value": "CompLedIndicator_Init"
-          },
-          "Runnable_Type": {
-            "metadata": {
-              "changeable": true,
-              "type": "selectable",
-              "selectable_list": [
-                "Init",
-                "Cyclic"
-              ]
-            },
-            "value": "Init"
-          }
-        },
         {
           "Runnable_Name": {
             "metadata": {

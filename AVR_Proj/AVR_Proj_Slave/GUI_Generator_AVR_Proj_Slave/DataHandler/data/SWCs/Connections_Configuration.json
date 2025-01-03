@@ -1,51 +1,21 @@
 [
   {
-    "Server_Port": "ADC_Service_Read_Pin",
-    "Client_Port": "CompSensor_ADC_ReadPin",
-    "Server_Component": "ADC_Service",
-    "Client_Component": "CompSensor",
-    "metadata": {
-      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/ADC_Service/ADC_Service_Read_Pin/TO/SWC_NODE_EDITOR/CompSensor/CompSensor_ADC_ReadPin"
-    },
-    "Port_Type": "FUNCTION"
-  },
-  {
     "Server_Port": "PWM_Service_Set_Pin",
-    "Client_Port": "CompSensor_PWM_SetPin",
+    "Client_Port": "CompLedIndicator_PWM_Set_Pin",
     "Server_Component": "PWM_Service",
-    "Client_Component": "CompSensor",
+    "Client_Component": "CompLedIndicator",
     "metadata": {
-      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/PWM_Service/PWM_Service_Set_Pin/TO/SWC_NODE_EDITOR/CompSensor/CompSensor_PWM_SetPin"
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/PWM_Service/PWM_Service_Set_Pin/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_PWM_Set_Pin"
     },
     "Port_Type": "FUNCTION"
   },
   {
-    "Server_Port": "SPI_Service_Transmit",
-    "Client_Port": "CompSensor_SPI_Transmit",
+    "Server_Port": "SPI_Service_GetReceived",
+    "Client_Port": "CompLedIndicator_SPI_Get_Received",
     "Server_Component": "SPI_Service",
-    "Client_Component": "CompSensor",
-    "metadata": {
-      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/SPI_Service/SPI_Service_Transmit/TO/SWC_NODE_EDITOR/CompSensor/CompSensor_SPI_Transmit"
-    },
-    "Port_Type": "FUNCTION"
-  },
-  {
-    "Server_Port": "DIO_Service_Read_Pin",
-    "Client_Port": "CompLedIndicator_DIO_ReadPin",
-    "Server_Component": "DIO_Service",
     "Client_Component": "CompLedIndicator",
     "metadata": {
-      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/DIO_Service/DIO_Service_Read_Pin/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_DIO_ReadPin"
-    },
-    "Port_Type": "FUNCTION"
-  },
-  {
-    "Server_Port": "DIO_Service_Toggle_Pin",
-    "Client_Port": "CompLedIndicator_DIO_TogglePin",
-    "Server_Component": "DIO_Service",
-    "Client_Component": "CompLedIndicator",
-    "metadata": {
-      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/DIO_Service/DIO_Service_Toggle_Pin/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_DIO_TogglePin"
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/SPI_Service/SPI_Service_GetReceived/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_SPI_Get_Received"
     },
     "Port_Type": "FUNCTION"
   },
@@ -56,26 +26,6 @@
     "Client_Component": "CompLedIndicator",
     "metadata": {
       "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/UART_Service/UART_Service_Transmit/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_UART_Transmit"
-    },
-    "Port_Type": "FUNCTION"
-  },
-  {
-    "Server_Port": "UART_Service_Read",
-    "Client_Port": "CompLedIndicator_UART_Read",
-    "Server_Component": "UART_Service",
-    "Client_Component": "CompLedIndicator",
-    "metadata": {
-      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/UART_Service/UART_Service_Read/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_UART_Read"
-    },
-    "Port_Type": "FUNCTION"
-  },
-  {
-    "Server_Port": "DIO_Service_Write_Pin",
-    "Client_Port": "CompLedIndicator_DIO_WritePin",
-    "Server_Component": "DIO_Service",
-    "Client_Component": "CompLedIndicator",
-    "metadata": {
-      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/DIO_Service/DIO_Service_Write_Pin/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_DIO_WritePin"
     },
     "Port_Type": "FUNCTION"
   }

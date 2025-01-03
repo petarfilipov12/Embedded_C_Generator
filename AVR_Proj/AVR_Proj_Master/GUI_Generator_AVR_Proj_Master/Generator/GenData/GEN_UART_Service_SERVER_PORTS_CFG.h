@@ -6,6 +6,5 @@
 
 extern Func_ReturnType UART_Service_Transmit(uint8 uart_id, uint8* data, uint8 data_length);
 extern Func_ReturnType UART_Service_Read(uint8 uart_id, uint8* data, uint8* data_legth);
-extern Func_ReturnType UART_Service_Receive(uint8 uart_id, uint8* data, uint8 data_length);
 
 #endif

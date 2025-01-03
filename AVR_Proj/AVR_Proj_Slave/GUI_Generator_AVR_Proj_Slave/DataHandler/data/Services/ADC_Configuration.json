@@ -1,45 +1,6 @@
 {
   "ADC_Service_ADCs": {
-    "data": {
-      "ADC_0": {
-        "data": {},
-        "metadata": {
-          "deletable": true,
-          "duplicable": true,
-          "generate_params": true,
-          "leaf": true,
-          "mandatory": false,
-          "type": "Services/ADC/ADC_Service_ADCs/data/ADC_Service_ADC"
-        },
-        "parameters": {
-          "AdcBufferSize": {
-            "metadata": {
-              "changeable": true,
-              "gen_buffer": true,
-              "gen_buffer_size_var_name": "adcBufferSize",
-              "gen_buffer_var_name": "adcBuffer",
-              "type": "int"
-            },
-            "value": 10
-          },
-          "Id": {
-            "metadata": {
-              "changeable": false,
-              "id": true,
-              "type": "int"
-            },
-            "value": "0"
-          },
-          "ShortName": {
-            "metadata": {
-              "changeable": true,
-              "type": "string"
-            },
-            "value": "ADC_0"
-          }
-        }
-      }
-    },
+    "data": {},
     "metadata": {
       "deletable": false,
       "duplicable": false,
@@ -63,46 +24,7 @@
     }
   },
   "ADC_Service_Pins": {
-    "data": {
-      "ADC_PIN_0": {
-        "data": {},
-        "metadata": {
-          "deletable": true,
-          "duplicable": true,
-          "generate_params": true,
-          "leaf": true,
-          "mandatory": false,
-          "type": "Services/ADC/ADC_Service_Pins/data/ADC_Service_Pin"
-        },
-        "parameters": {
-          "AdcRef": {
-            "metadata": {
-              "changeable": true,
-              "reference_targets": [
-                "Services/ADC/ADC_Service_ADCs"
-              ],
-              "type": "reference"
-            },
-            "value": "Services/ADC/ADC_Service_ADCs/ADC_0"
-          },
-          "Id": {
-            "metadata": {
-              "changeable": false,
-              "id": true,
-              "type": "int"
-            },
-            "value": "0"
-          },
-          "ShortName": {
-            "metadata": {
-              "changeable": true,
-              "type": "string"
-            },
-            "value": "ADC_PIN_0"
-          }
-        }
-      }
-    },
+    "data": {},
     "metadata": {
       "deletable": false,
       "duplicable": false,
