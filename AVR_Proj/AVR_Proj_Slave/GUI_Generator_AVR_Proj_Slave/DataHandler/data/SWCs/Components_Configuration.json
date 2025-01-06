@@ -1132,7 +1132,8 @@
         "CompLedIndicator_LCD_Clear",
         "CompLedIndicator_LCD_SetCursor",
         "CompLedIndicator_LCD_WriteString",
-        "CompLedIndicator_LCD_WriteNumber"
+        "CompLedIndicator_LCD_WriteNumber",
+        "CompLedIndicator_LCD_Status"
       ],
       "metadata": {
         "changeable": true,
@@ -1371,6 +1372,35 @@
             },
             "value": [
               "sint32 num"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_Status"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "VARIABLE"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8"
             ]
           }
         }

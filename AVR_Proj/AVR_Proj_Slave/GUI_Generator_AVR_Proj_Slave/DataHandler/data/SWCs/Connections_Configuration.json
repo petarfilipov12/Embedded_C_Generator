@@ -98,5 +98,15 @@
       "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/PWM_Service/PWM_Service_Set_Pin/TO/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_PWM_Set_Pin"
     },
     "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "LCD_Driver_LCD_Status",
+    "Client_Port": "CompLedIndicator_LCD_Status",
+    "Server_Component": "LCD_Driver",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_LCD_Status/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_LCD_Status"
+    },
+    "Port_Type": "VARIABLE"
   }
 ]
