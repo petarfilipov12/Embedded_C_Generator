@@ -4,6 +4,14 @@
         "gen_spi_service_server_ports_cfg.h": "c",
         "gen_spi_service_cfg.h": "c",
         "gen_pwm_service_cfg.h": "c",
-        "gen_uart_service_server_ports_cfg.h": "c"
+        "gen_uart_service_server_ports_cfg.h": "c",
+        "spi.h": "c",
+        "queue.h": "c",
+        "types.h": "c",
+        "gen_spi_service_data_cfg.h": "c",
+        "dio.h": "c",
+        "gen_lcd_driver_client_ports_cfg.h": "c",
+        "gen_gpt_service_client_ports_cfg.h": "c",
+        "gen_gpt_service_server_ports_cfg.h": "c"
     }
 }

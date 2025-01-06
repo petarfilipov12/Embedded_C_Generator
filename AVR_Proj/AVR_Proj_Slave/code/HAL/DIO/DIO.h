@@ -22,8 +22,12 @@ typedef struct{
 
 #define DIO_PinDataCfg_INIT                \
 /*     ddr, port, ,read_reg, pin    */      \
-    {&DDRB, &PORTB, &PINB, PB0},            \
-    {&DDRD, &PORTD, &PIND, PD4}
+    {&DDRC, &PORTC, &PINC, PC5},            \
+    {&DDRC, &PORTC, &PINC, PC4},            \
+    {&DDRC, &PORTC, &PINC, PC3},            \
+    {&DDRC, &PORTC, &PINC, PC2},            \
+    {&DDRC, &PORTC, &PINC, PC1},            \
+    {&DDRC, &PORTC, &PINC, PC0}
 
 extern DIO_sPinDataCfg_t asDIOPinsCfg[DIO_PIN_COUNT];
 
