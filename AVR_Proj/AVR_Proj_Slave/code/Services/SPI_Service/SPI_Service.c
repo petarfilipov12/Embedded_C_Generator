@@ -77,13 +77,19 @@ Func_ReturnType SPI_Service_GetReceived(uint8 spi_id, uint8 *rx_data, uint8 *dat
     Func_ReturnType ret = RET_NOT_OK;
 
 #if SPI_Service_SPI_Service_SPIs_Count > 0
+    uint8 i = 0; 
+
     if(SPI_Service_SpiHwCfg_data[spi_id].spiMode == SPI_MODE_SLAVE)
     {
         ret = Queue_Length(&SPI_Service_SpiHwCfg_data[spi_id].spiRxQueue, &data_length[0]);
 
         if(RET_OK == ret)
         {
-            memcpy(&rx_data[0], &SPI_Service_SpiHwCfg_data[spi_id].spiRxBuffer[0], *data_length);
+            for(i = 0; i < *data_length; i++)
+            {
+                Queue_Pop(&SPI_Service_SpiHwCfg_data[spi_id].spiRxQueue, &rx_data[i]);
+            }
+            //memcpy(&rx_data[0], &SPI_Service_SpiHwCfg_data[spi_id].spiRxBuffer[0], *data_length);
             ret = RET_OK;
         }
     }
