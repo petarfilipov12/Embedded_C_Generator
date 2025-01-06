@@ -1426,7 +1426,28 @@
         "changeable": true,
         "type": "list_dict"
       },
-      "value": []
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        }
+      ]
     }
   }
 ]
