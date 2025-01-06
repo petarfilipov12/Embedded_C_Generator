@@ -1,15 +1,5 @@
 [
   {
-    "Server_Port": "PWM_Service_Set_Pin",
-    "Client_Port": "CompLedIndicator_PWM_Set_Pin",
-    "Server_Component": "PWM_Service",
-    "Client_Component": "CompLedIndicator",
-    "metadata": {
-      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/PWM_Service/PWM_Service_Set_Pin/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_PWM_Set_Pin"
-    },
-    "Port_Type": "FUNCTION"
-  },
-  {
     "Server_Port": "SPI_Service_GetReceived",
     "Client_Port": "CompLedIndicator_SPI_Get_Received",
     "Server_Component": "SPI_Service",
@@ -26,6 +16,86 @@
     "Client_Component": "CompLedIndicator",
     "metadata": {
       "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/UART_Service/UART_Service_Transmit/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_UART_Transmit"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "DIO_Service_Set_Pin",
+    "Client_Port": "LCD_Driver_DIO_Set_Pin",
+    "Server_Component": "DIO_Service",
+    "Client_Component": "LCD_Driver",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/DIO_Service/DIO_Service_Set_Pin/TO/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_DIO_Set_Pin"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "DIO_Service_Write_Pin",
+    "Client_Port": "LCD_Driver_DIO_Write_Pin",
+    "Server_Component": "DIO_Service",
+    "Client_Component": "LCD_Driver",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/DIO_Service/DIO_Service_Write_Pin/TO/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_DIO_Write_Pin"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "LCD_Driver_LCD_Begin",
+    "Client_Port": "CompLedIndicator_LCD_Begin",
+    "Server_Component": "LCD_Driver",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_LCD_Begin/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_LCD_Begin"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "LCD_Driver_LCD_Clear",
+    "Client_Port": "CompLedIndicator_LCD_Clear",
+    "Server_Component": "LCD_Driver",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_LCD_Clear/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_LCD_Clear"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "LCD_Driver_LCD_SetCursor",
+    "Client_Port": "CompLedIndicator_LCD_SetCursor",
+    "Server_Component": "LCD_Driver",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_LCD_SetCursor/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_LCD_SetCursor"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "LCD_Driver_LCD_WriteString",
+    "Client_Port": "CompLedIndicator_LCD_WriteString",
+    "Server_Component": "LCD_Driver",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_LCD_WriteString/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_LCD_WriteString"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "LCD_Driver_LCD_WriteNumber",
+    "Client_Port": "CompLedIndicator_LCD_WriteNumber",
+    "Server_Component": "LCD_Driver",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_LCD_WriteNumber/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_LCD_WriteNumber"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "PWM_Service_Set_Pin",
+    "Client_Port": "LCD_Driver_PWM_Set_Pin",
+    "Server_Component": "PWM_Service",
+    "Client_Component": "LCD_Driver",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/PWM_Service/PWM_Service_Set_Pin/TO/SWC_NODE_EDITOR/LCD_Driver/LCD_Driver_PWM_Set_Pin"
     },
     "Port_Type": "FUNCTION"
   }

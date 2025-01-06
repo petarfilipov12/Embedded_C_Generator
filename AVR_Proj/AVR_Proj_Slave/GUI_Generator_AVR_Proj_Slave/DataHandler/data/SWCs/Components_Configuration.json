@@ -37,7 +37,7 @@
     "Component_Metadata": {
       "node_editor_position": [
         -267,
-        257
+        325
       ]
     },
     "Server_Ports": {
@@ -171,8 +171,8 @@
     },
     "Component_Metadata": {
       "node_editor_position": [
-        -257,
-        527
+        -271,
+        616
       ]
     },
     "Server_Ports": {
@@ -375,8 +375,8 @@
     },
     "Component_Metadata": {
       "node_editor_position": [
-        -254,
-        771
+        -268,
+        836
       ]
     },
     "Server_Ports": {
@@ -490,8 +490,8 @@
     },
     "Component_Metadata": {
       "node_editor_position": [
-        -275,
-        340
+        -262,
+        756
       ]
     },
     "Server_Ports": {
@@ -753,8 +753,8 @@
     },
     "Component_Metadata": {
       "node_editor_position": [
-        -252,
-        658
+        -271,
+        509
       ]
     },
     "Server_Ports": {
@@ -920,8 +920,8 @@
     },
     "Component_Metadata": {
       "node_editor_position": [
-        -251,
-        845
+        -262,
+        932
       ]
     },
     "Server_Ports": {
@@ -1113,8 +1113,8 @@
     },
     "Component_Metadata": {
       "node_editor_position": [
-        199,
-        502
+        353,
+        557
       ]
     },
     "Server_Ports": {
@@ -1126,9 +1126,13 @@
     },
     "Client_Ports": {
       "value": [
-        "CompLedIndicator_PWM_Set_Pin",
         "CompLedIndicator_SPI_Get_Received",
-        "CompLedIndicator_UART_Transmit"
+        "CompLedIndicator_UART_Transmit",
+        "CompLedIndicator_LCD_Begin",
+        "CompLedIndicator_LCD_Clear",
+        "CompLedIndicator_LCD_SetCursor",
+        "CompLedIndicator_LCD_WriteString",
+        "CompLedIndicator_LCD_WriteNumber"
       ],
       "metadata": {
         "changeable": true,
@@ -1182,6 +1186,217 @@
           }
         }
       ]
+    }
+  },
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "LCD_Driver"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "APPLICATION"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": true
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        44,
+        622
+      ]
+    },
+    "Server_Ports": {
+      "value": [
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_Begin"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": []
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_Clear"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": []
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_SetCursor"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 line",
+              "uint8 pos"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_WriteString"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8* data",
+              "uint8 data_length"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_WriteNumber"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "sint32 num"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [
+        "LCD_Driver_DIO_Set_Pin",
+        "LCD_Driver_DIO_Write_Pin",
+        "LCD_Driver_PWM_Set_Pin"
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": []
     }
   }
 ]
