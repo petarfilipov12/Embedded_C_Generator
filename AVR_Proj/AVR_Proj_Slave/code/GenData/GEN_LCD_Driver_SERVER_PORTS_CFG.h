@@ -4,6 +4,7 @@
 #include "Types.h"
 #include "Queue.h"
 
+extern uint8 LCD_Driver_LCD_Status;
 extern Func_ReturnType LCD_Driver_LCD_Begin();
 extern Func_ReturnType LCD_Driver_LCD_Clear();
 extern Func_ReturnType LCD_Driver_LCD_SetCursor(uint8 line, uint8 pos);

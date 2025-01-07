@@ -5,7 +5,7 @@
 
 #define PWM_Service_PWM_Service_Pins_Count 1
 
-#define PWM_Service_PWM_PIN_0_GptTimerRef GPT_Service_GPT_TIMER_0_Id
-#define PWM_Service_PWM_PIN_0_Id 0
+#define PWM_Service_PWM_LCD_V0_GptTimerRef GPT_Service_GPT_TIMER_0_Id
+#define PWM_Service_PWM_LCD_V0_Id 0
 
 #endif

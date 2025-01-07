@@ -14,5 +14,6 @@
 #define CompLedIndicator_LCD_SetCursor	LCD_Driver_LCD_SetCursor
 #define CompLedIndicator_LCD_WriteString	LCD_Driver_LCD_WriteString
 #define CompLedIndicator_LCD_WriteNumber	LCD_Driver_LCD_WriteNumber
+#define CompLedIndicator_LCD_Status	LCD_Driver_LCD_Status
 
 #endif
