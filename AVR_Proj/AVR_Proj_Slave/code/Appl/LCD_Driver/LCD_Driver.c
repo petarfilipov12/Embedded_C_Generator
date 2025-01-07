@@ -5,6 +5,7 @@
 /* DO NOT REMOVE COMMENT - GEN END SECTION */
 
 #include "OS_Delay.h"
+#include "OS_Interrupt.h"
 
 #define LCD_MODE_COMMAND    PIN_LOW
 #define LCD_MODE_DATA       PIN_HIGH
@@ -28,10 +29,14 @@ static void LCD_PulseEnable(void);
 /* DO NOT REMOVE COMMENT - GEN START FUNC */
 Func_ReturnType LCD_Driver_LCD_Begin()
 {
+    LCD_Driver_DIO_Write_Pin(DIO_Service_DIO_LCD_RW_Id, PIN_LOW);
+    OS_Delay_us(1000);
+
     LCD_Driver_PWM_Set_Pin(PWM_Service_PWM_LCD_V0_Id, 90);
     LCD_Driver_DIO_Write_Pin(DIO_Service_DIO_LCD_RS_Id, PIN_LOW);
     LCD_Driver_DIO_Write_Pin(DIO_Service_DIO_LCD_E_Id, PIN_LOW);
 
+    OS_Interrupt_DisableGlobal();
     LCD_SendCommand(LCD_COMMAND_4BITMODE);
     OS_Delay_us(4500);
     LCD_SendCommand(LCD_COMMAND_4BITMODE);
@@ -40,6 +45,7 @@ Func_ReturnType LCD_Driver_LCD_Begin()
     OS_Delay_us(150);
 
     LCD_SendCommand(LCD_COMMAND_4BITMODE);
+    OS_Interrupt_EnableGlobal();
 
     LCD_SendCommand(LCD_COMMAND_DISPLAYON);
     OS_Delay_us(10);
@@ -115,6 +121,9 @@ static void LCD_WriteByte(uint8 value)
 
 static void LCD_Send(uint8 value, uint8 mode)
 {
+    LCD_Driver_DIO_Write_Pin(DIO_Service_DIO_LCD_RW_Id, PIN_LOW);
+    OS_Delay_us(1000);
+
     LCD_Driver_DIO_Write_Pin(DIO_Service_DIO_LCD_RS_Id, mode);
 
     LCD_Write4Bits(value >> 4);
