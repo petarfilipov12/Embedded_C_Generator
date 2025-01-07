@@ -33,4 +33,9 @@ inline void DIO_Service_PinCfg_data_INIT_FUNC(void)
 	DIO_Service_PinCfg_data[5].pinState = DIO_Service_DIO_LCD_RS_PinState;
 	DIO_Service_PinCfg_data[5].pinType = DIO_Service_DIO_LCD_RS_PinType;
 	DIO_Service_PinCfg_data[5].status = RET_NOT_OK;
+
+	DIO_Service_PinCfg_data[6].id = DIO_Service_DIO_LCD_RW_Id;
+	DIO_Service_PinCfg_data[6].pinState = DIO_Service_DIO_LCD_RW_PinState;
+	DIO_Service_PinCfg_data[6].pinType = DIO_Service_DIO_LCD_RW_PinType;
+	DIO_Service_PinCfg_data[6].status = RET_NOT_OK;
 }
