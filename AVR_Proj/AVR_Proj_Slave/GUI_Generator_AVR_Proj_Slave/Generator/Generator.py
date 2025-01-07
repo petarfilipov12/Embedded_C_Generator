@@ -371,7 +371,7 @@ class Generator:
 
         file_s = self._Generator_ReadFile(component_gen_location + "/" + file_name_h)
         if ( (file_s == None) or (not file_s.strip()) ):
-            file_s = self._Generator_WrapFile(file_s="", file_name=file_name_h, include_libs=[], ifndef_protection=True)
+            file_s = self._Generator_WrapFile(file_s="", file_name=file_name_h, include_libs=["Types.h"], ifndef_protection=True)
         file_s = file_s.strip()
 
         return file_s
@@ -459,7 +459,7 @@ class Generator:
                                 break
                         if(func_new == None):
                             func_new = self._generator_gen_start_func + "\n"
-                            func_new += callout + "\n{\n\n}\n"
+                            func_new += callout + "\n{\n\treturn RET_OK;\n}\n"
                             func_new += self._generator_gen_end_func
 
                         server_ports_funcs_section_new += func_new.strip() + "\n\n"

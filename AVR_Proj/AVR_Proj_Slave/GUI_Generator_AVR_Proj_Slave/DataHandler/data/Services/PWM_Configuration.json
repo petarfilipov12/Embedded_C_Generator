@@ -1,7 +1,7 @@
 {
   "PWM_Service_Pins": {
     "data": {
-      "PWM_PIN_0": {
+      "PWM_LCD_V0": {
         "data": {},
         "metadata": {
           "deletable": true,
@@ -35,7 +35,7 @@
               "changeable": true,
               "type": "string"
             },
-            "value": "PWM_PIN_0"
+            "value": "PWM_LCD_V0"
           }
         }
       }

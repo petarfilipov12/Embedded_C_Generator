@@ -12,35 +12,35 @@ uint8 LCD_Driver_LCD_Status;
 /* DO NOT REMOVE COMMENT - GEN START FUNC */
 Func_ReturnType LCD_Driver_LCD_Begin()
 {
-
+	return RET_OK;
 }
 /* DO NOT REMOVE COMMENT - GEN END FUNC */
 
 /* DO NOT REMOVE COMMENT - GEN START FUNC */
 Func_ReturnType LCD_Driver_LCD_Clear()
 {
-
+	return RET_OK;
 }
 /* DO NOT REMOVE COMMENT - GEN END FUNC */
 
 /* DO NOT REMOVE COMMENT - GEN START FUNC */
 Func_ReturnType LCD_Driver_LCD_SetCursor(uint8 line, uint8 pos)
 {
-
+	return RET_OK;
 }
 /* DO NOT REMOVE COMMENT - GEN END FUNC */
 
 /* DO NOT REMOVE COMMENT - GEN START FUNC */
 Func_ReturnType LCD_Driver_LCD_WriteString(uint8* data, uint8 data_length)
 {
-
+	return RET_OK;
 }
 /* DO NOT REMOVE COMMENT - GEN END FUNC */
 
 /* DO NOT REMOVE COMMENT - GEN START FUNC */
 Func_ReturnType LCD_Driver_LCD_WriteNumber(sint32 num)
 {
-
+	return RET_OK;
 }
 /* DO NOT REMOVE COMMENT - GEN END FUNC */
 /* DO NOT REMOVE COMMENT - GEN END SECTION */
