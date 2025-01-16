@@ -16,7 +16,6 @@ UART_Service_Cyclic();
 GPT_Service_Init();	\
 PWM_Service_Init();	\
 DIO_Service_Init();	\
-LCD_Driver_Init();	\
 CompLedIndicator_Init();
 
 #define OS_Task_200ms_Prio1_CyclicRunnables	\
