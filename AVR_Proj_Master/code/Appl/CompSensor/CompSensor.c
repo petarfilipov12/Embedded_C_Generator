@@ -25,7 +25,6 @@ void CompSensor_Cyclic(void)
 
     if(RET_OK == CompSensor_ADC_ReadPin(ADC_Service_ADC_PIN_0_Id, &sensor_val))
     {
-        CompSensor_PWM_SetPin(PWM_Service_PWM_PIN_0_Id, sensor_val);
         if(current_buffer_size < BUFFER_SIZE)
         {
             buffer[current_buffer_size] = sensor_val;
@@ -41,6 +40,7 @@ void CompSensor_Cyclic(void)
         }
         avg = (uint8)(sum / (uint32)BUFFER_SIZE);
 
+        CompSensor_PWM_SetPin(PWM_Service_PWM_PIN_0_Id, avg);
         CompSensor_SPI_Transmit(SPI_Service_SPI_0_Id, &avg, NULL, 1u);
 
         current_buffer_size = 0;

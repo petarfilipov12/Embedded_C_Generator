@@ -16,10 +16,6 @@ void CompLedIndicator_Init(void)
 {
   uint8 uart_tx_data[5] = {'I', 'N', 'I', 'T', '\n'};
   CompLedIndicator_UART_Transmit(UART_Service_UART_0_Id, &uart_tx_data[0], (uint8)(sizeof(uart_tx_data)/sizeof(uart_tx_data[0])));
-
-  CompLedIndicator_LCD_Begin();
-  CompLedIndicator_LCD_SetCursor(1, 0);
-  CompLedIndicator_LCD_WriteNumber(299);
 }
 /* DO NOT REMOVE COMMENT - GEN END FUNC */
 
@@ -48,7 +44,7 @@ void CompLedIndicator_Cyclic(void)
       sum += rx_data[i];
     }
     avg = (uint8)(sum / (uint32)data_length);
-    //CompLedIndicator_PWM_Set_Pin(PWM_Service_PWM_PIN_0_Id, avg);
+    CompLedIndicator_PWM_SetPin(PWM_Service_PWM_PIN_0_Id, avg);
   }
 }
 /* DO NOT REMOVE COMMENT - GEN END FUNC */

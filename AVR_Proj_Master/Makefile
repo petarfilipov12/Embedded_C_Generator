@@ -8,7 +8,7 @@ BUILD_DIR = build
 CODE_DIR = code
 CORE_DIR = ../Core
 
-INCLUDES = $(sort $(shell find $(CODE_DIR) -type f -name '*.h' -printf "%h\n") $(shell find $(CORE_DIR) -type f -name '*.h' -printf "%h\n"))
+INCLUDES = $(sort $(shell find $(CODE_DIR) -type f -name '*.h' -printf "%h\n"))
 INC_FLAGS = $(patsubst %, -I%, $(INCLUDES))
 
 CODE_SOURCES = $(shell find $(CODE_DIR) -type f -name '*.c')
@@ -42,3 +42,6 @@ upload:
 
 fuse_read:
 	avrdude -c usbasp-clone -p $(MCU) -U lfuse:r:-:h -U hfuse:r:-:h -U efuse:r:-:h
+
+print:
+	echo $(INCLUDES)
