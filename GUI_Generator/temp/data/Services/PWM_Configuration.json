@@ -1,0 +1,65 @@
+{
+  "PWM_Service_Pins": {
+    "data": {
+      "PWM_LCD_V0": {
+        "data": {},
+        "metadata": {
+          "deletable": true,
+          "duplicable": true,
+          "generate_params": true,
+          "leaf": true,
+          "mandatory": false,
+          "type": "Services/PWM/PWM_Service_Pins/data/PWM_Service_Pin"
+        },
+        "parameters": {
+          "GptTimerRef": {
+            "metadata": {
+              "changeable": true,
+              "reference_targets": [
+                "Services/GPT/GPT_Service_GPTs"
+              ],
+              "type": "reference"
+            },
+            "value": "Services/GPT/GPT_Service_GPTs/GPT_TIMER_0"
+          },
+          "Id": {
+            "metadata": {
+              "changeable": false,
+              "id": true,
+              "type": "int"
+            },
+            "value": "0"
+          },
+          "ShortName": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "PWM_LCD_V0"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "deletable": false,
+      "duplicable": false,
+      "generate_data_count": true,
+      "generate_data_data_files": true,
+      "generate_data_data_files_data_name": "PwmCfg_data",
+      "generate_data_data_files_data_type": "PwmCfg_t",
+      "generate_data_data_files_init_func_postfix": "_INIT_FUNC",
+      "generate_params": false,
+      "mandatory": true,
+      "type": "Services/PWM/PWM_Service_Pins"
+    },
+    "parameters": {
+      "ShortName": {
+        "metadata": {
+          "changeable": false,
+          "type": "string"
+        },
+        "value": "PWM_Service_Pins"
+      }
+    }
+  }
+}

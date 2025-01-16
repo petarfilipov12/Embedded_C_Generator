@@ -1,76 +1,87 @@
 import json
 import copy
+from common import FileHandler
+
+from DataHandler.data_strucutre_templates.Services.ADC_Data_Structure_Template import ADC_Data_Structure_Template
+from DataHandler.data_strucutre_templates.Services.DIO_Data_Structure_Template import DIO_Data_Structure_Template
+from DataHandler.data_strucutre_templates.Services.GPT_Data_Structure_Template import GPT_Data_Structure_Template
+from DataHandler.data_strucutre_templates.Services.OS_Data_Structure_Template import OS_Data_Structure_Template
+from DataHandler.data_strucutre_templates.Services.PWM_Data_Structure_Template import PWM_Data_Structure_Template
+from DataHandler.data_strucutre_templates.Services.SPI_Data_Structure_Template import SPI_Data_Structure_Template
+from DataHandler.data_strucutre_templates.Services.UART_Data_Structure_Template import UART_Data_Structure_Template
+from DataHandler.data_strucutre_templates.Services.WDT_Data_Structure_Template import WDT_Data_Structure_Template
+
+from DataHandler.data_strucutre_templates.SWCs.SWC_Components_Data_Structure_Template import SWC_Components_Data_Structure_Template
+from DataHandler.data_strucutre_templates.SWCs.SWC_Connections_Data_Structure_Template import SWC_Connections_Data_Structure_Template
 
 class DataHandler:
     
     data_files = {
         "Services": {
-            "ADC": "/DataHandler/data/Services/ADC_Configuration.json",
-            "DIO": "/DataHandler/data/Services/DIO_Configuration.json",
-            "GPT": "/DataHandler/data/Services/GPT_Configuration.json",
-            "UART": "/DataHandler/data/Services/UART_Configuration.json",
-            "SPI": "/DataHandler/data/Services/SPI_Configuration.json",
-            "WDT": "/DataHandler/data/Services/WDT_Configuration.json",
-            "PWM": "/DataHandler/data/Services/PWM_Configuration.json",
-            "OS": "/DataHandler/data/Services/OS_Configuration.json",
+            "ADC": "/Services/ADC_Configuration.json",
+            "DIO": "/Services/DIO_Configuration.json",
+            "GPT": "/Services/GPT_Configuration.json",
+            "UART": "/Services/UART_Configuration.json",
+            "SPI": "/Services/SPI_Configuration.json",
+            "WDT": "/Services/WDT_Configuration.json",
+            "PWM": "/Services/PWM_Configuration.json",
+            "OS": "/Services/OS_Configuration.json",
         },
         "SWCs": {
-            "Components": "/DataHandler/data/SWCs/Components_Configuration.json",
-            "Connections": "/DataHandler/data/SWCs/Connections_Configuration.json"
+            "Components": "/SWCs/Components_Configuration.json",
+            "Connections": "/SWCs/Connections_Configuration.json"
         }
     }
-    
-    data_structure_template_files = {
+
+    data_structure_template = {
         "Services": {
-            "ADC": "/DataHandler/data_strucutre_templates/Services/ADC_Data_Structure_Template.json",
-            "DIO": "/DataHandler/data_strucutre_templates/Services/DIO_Data_Structure_Template.json",
-            "GPT": "/DataHandler/data_strucutre_templates/Services/GPT_Data_Structure_Template.json",
-            "UART": "/DataHandler/data_strucutre_templates/Services/UART_Data_Structure_Template.json",
-            "SPI": "/DataHandler/data_strucutre_templates/Services/SPI_Data_Structure_Template.json",
-            "WDT": "/DataHandler/data_strucutre_templates/Services/WDT_Data_Structure_Template.json",
-            "PWM": "/DataHandler/data_strucutre_templates/Services/PWM_Data_Structure_Template.json",
-            "OS": "/DataHandler/data_strucutre_templates/Services/OS_Data_Structure_Template.json",
+            "ADC": ADC_Data_Structure_Template,
+            "DIO": DIO_Data_Structure_Template,
+            "GPT": GPT_Data_Structure_Template,
+            "UART": UART_Data_Structure_Template,
+            "SPI": SPI_Data_Structure_Template,
+            "WDT": WDT_Data_Structure_Template,
+            "PWM": PWM_Data_Structure_Template,
+            "OS": OS_Data_Structure_Template,
         },
         "SWCs": {
-            "Components": "/DataHandler/data_strucutre_templates/SWCs/SWC_Components_Data_Structure_Template.json",
-            "Connections": "/DataHandler/data_strucutre_templates/SWCs/SWC_Connections_Data_Structure_Template.json"
+            "Components": SWC_Components_Data_Structure_Template,
+            "Connections": SWC_Connections_Data_Structure_Template,
         }
     }
     
     data = {}
-    data_structure_template = {}
-    project_dir = None
+    data_dir = None
     sync_id_count = 0
     
-    def __init__(self, project_dir):
-        self.project_dir = project_dir
+    def __init__(self, data_dir):
+        self.data_dir = data_dir
 
-        for key in self.data_structure_template_files.keys():
-            self.data_structure_template[key] = {}
-            self.data[key] = {}
-
-            for data_type in self.data_structure_template_files[key].keys():
-                self.data_structure_template[key][data_type] = self._DataHandler_ReadData(
-                    project_dir + self.data_structure_template_files[key][data_type])
-
-                try:
-                    self.data[key][data_type] = self._DataHandler_ReadData(
-                        project_dir + self.data_files[key][data_type])
-                except FileNotFoundError:
-                    self.data[key][data_type] = self._DataHandler_InitEmptyData(self.data_structure_template[key][data_type])
-
-        self.data = self.SortData(self.data)
         self.data_structure_template = self.SortData(self.data_structure_template)
 
+        for key in self.data_structure_template.keys():
+            self.data[key] = {}
+
+            for data_type in self.data_structure_template[key].keys():
+                temp = self._DataHandler_ReadData(
+                        self.data_dir + self.data_files[key][data_type])
+                if(temp == None):
+                    temp = self._DataHandler_InitEmptyData(self.data_structure_template[key][data_type])
+
+                self.data[key][data_type] = temp
+
+        self.data = self.SortData(self.data)
+
     def _DataHandler_ReadData(self, data_file):
-        data = None
-        with open(data_file, 'r') as file:
-            data = json.load(file)
+        data = FileHandler.ReadFile(data_file)
+
+        if(data != None):
+            data = json.loads(data)
+
         return data
 
     def _DataHandler_WriteData(self, data, data_file):
-        with open(data_file, 'w') as file:
-            json.dump(data, file, indent=2)
+        FileHandler.WriteFile(s=json.dumps(data, indent=2), path_to_file=data_file, create_path_to_file=True)
 
     def _DataHandler_InitEmptyData_Recursive(self, data_src, data_dest):
         for key, val in data_src.items():
@@ -103,7 +114,7 @@ class DataHandler:
         return self.data
 
     def GetServices(self):
-        return list(self.data_structure_template_files["Services"].keys())
+        return list(self.data_structure_template["Services"].keys())
 
     def GetSWCs(self):
         ret = []
@@ -120,10 +131,9 @@ class DataHandler:
 
         for key in self.data_files.keys():
             for data_type in self.data_files[key].keys():
-                self._DataHandler_WriteData(self.data[key][data_type], self.project_dir + self.data_files[key][data_type])
+                self._DataHandler_WriteData(self.data[key][data_type], self.data_dir + self.data_files[key][data_type])
 
     def _Synchronize(self, data):
-        print(data)
         if (("leaf" in data["metadata"].keys()) and (data["metadata"]["leaf"] == True)):
             for param in data["parameters"].values():
                 if (("id" in param["metadata"].keys()) and (param["metadata"]["id"] == True)):

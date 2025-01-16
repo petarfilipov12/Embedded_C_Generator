@@ -1,0 +1,1453 @@
+[
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "ADC_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": false
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        -267,
+        325
+      ]
+    },
+    "Server_Ports": {
+      "value": [
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "ADC_Service_Read_Pin"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 pin_id",
+              "uint8* value"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "ADC_Service_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        },
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "ADC_Service_Cyclic"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Cyclic"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "DIO_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": false
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        -271,
+        616
+      ]
+    },
+    "Server_Ports": {
+      "value": [
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "DIO_Service_Set_Pin"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 pin_id",
+              "uint8 pin_type"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "DIO_Service_Read_Pin"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 pin_id",
+              "uint8* value"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "DIO_Service_Write_Pin"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 pin_id",
+              "uint8 pin_state"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "DIO_Service_Toggle_Pin"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 pin_id"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "DIO_Service_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "GPT_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": false
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        -268,
+        836
+      ]
+    },
+    "Server_Ports": {
+      "value": [
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "GPT_Service_Set_Compare_Value"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 timer_id",
+              "uint8 compare_val"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "GPT_Service_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "PWM_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": false
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        -262,
+        756
+      ]
+    },
+    "Server_Ports": {
+      "value": [
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "PWM_Service_Set_Pin"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 pin_id",
+              "uint8 duty_cycle"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "PWM_Service_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "SPI_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": false
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        -268,
+        419
+      ]
+    },
+    "Server_Ports": {
+      "value": [
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "SPI_Service_Transmit"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 spi_id",
+              "uint8* tx_data",
+              "uint8* rx_data",
+              "uint8 data_length"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "SPI_Service_GetReceived"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 spi_id",
+              "uint8* rx_data",
+              "uint8* data_length"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "SPI_Service_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "UART_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": false
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        -271,
+        509
+      ]
+    },
+    "Server_Ports": {
+      "value": [
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "UART_Service_Transmit"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 uart_id",
+              "uint8* data",
+              "uint8 data_length"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "UART_Service_Read"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 uart_id",
+              "uint8* data",
+              "uint8* data_legth"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "UART_Service_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        },
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "UART_Service_Cyclic"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Cyclic"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "WDT_Service"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "SERVICE"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": false
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        -262,
+        932
+      ]
+    },
+    "Server_Ports": {
+      "value": [
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "WDT_Service_Disable"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 wdt_id"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "WDT_Service_Enable"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 wdt_id"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "WDT_Service_SetPrescalar"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 wdt_id",
+              "uint32 wdt_prescalar"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "WDT_Service_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        },
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "WDT_Service_Cyclic"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Cyclic"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "CompLedIndicator"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "APPLICATION"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": true
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        353,
+        557
+      ]
+    },
+    "Server_Ports": {
+      "value": [],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [
+        "CompLedIndicator_SPI_Get_Received",
+        "CompLedIndicator_UART_Transmit",
+        "CompLedIndicator_LCD_Begin",
+        "CompLedIndicator_LCD_Clear",
+        "CompLedIndicator_LCD_SetCursor",
+        "CompLedIndicator_LCD_WriteString",
+        "CompLedIndicator_LCD_WriteNumber",
+        "CompLedIndicator_LCD_Status"
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "CompLedIndicator_Cyclic"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Cyclic"
+          }
+        },
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "CompLedIndicator_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Properties": {
+      "Component_Name": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": "LCD_Driver"
+      },
+      "Component_Type": {
+        "metadata": {
+          "changeable": true,
+          "type": "selectable",
+          "selectable_list": [
+            "SERVICE",
+            "APPLICATION"
+          ]
+        },
+        "value": "APPLICATION"
+      },
+      "Gen_Structure": {
+        "metadata": {
+          "changeable": true,
+          "type": "boolean"
+        },
+        "value": true
+      },
+      "Component_Gen_Location": {
+        "metadata": {
+          "changeable": true,
+          "type": "string"
+        },
+        "value": ""
+      }
+    },
+    "Component_Metadata": {
+      "node_editor_position": [
+        44,
+        622
+      ]
+    },
+    "Server_Ports": {
+      "value": [
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_Begin"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": []
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_Clear"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": []
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_SetCursor"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8 line",
+              "uint8 pos"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_WriteString"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8* data",
+              "uint8 data_length"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_WriteNumber"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "FUNCTION"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "sint32 num"
+            ]
+          }
+        },
+        {
+          "Server_Port_Id": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_LCD_Status"
+          },
+          "Port_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "FUNCTION",
+                "VARIABLE"
+              ]
+            },
+            "value": "VARIABLE"
+          },
+          "Port_Params": {
+            "metadata": {
+              "changeable": true,
+              "type": "list_string"
+            },
+            "value": [
+              "uint8"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      }
+    },
+    "Client_Ports": {
+      "value": [
+        "LCD_Driver_DIO_Set_Pin",
+        "LCD_Driver_DIO_Write_Pin",
+        "LCD_Driver_PWM_Set_Pin"
+      ],
+      "metadata": {
+        "changeable": true,
+        "type": "list_string"
+      }
+    },
+    "Runnables": {
+      "metadata": {
+        "changeable": true,
+        "type": "list_dict"
+      },
+      "value": [
+        {
+          "Runnable_Name": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "LCD_Driver_Init"
+          },
+          "Runnable_Type": {
+            "metadata": {
+              "changeable": true,
+              "type": "selectable",
+              "selectable_list": [
+                "Init",
+                "Cyclic"
+              ]
+            },
+            "value": "Init"
+          }
+        }
+      ]
+    }
+  }
+]

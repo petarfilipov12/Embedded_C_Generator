@@ -1,0 +1,32 @@
+[
+  {
+    "Server_Port": "SPI_Service_GetReceived",
+    "Client_Port": "CompLedIndicator_SPI_Get_Received",
+    "Server_Component": "SPI_Service",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/SPI_Service/SPI_Service_GetReceived/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_SPI_Get_Received"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "UART_Service_Transmit",
+    "Client_Port": "CompLedIndicator_UART_Transmit",
+    "Server_Component": "UART_Service",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/UART_Service/UART_Service_Transmit/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_UART_Transmit"
+    },
+    "Port_Type": "FUNCTION"
+  },
+  {
+    "Server_Port": "PWM_Service_Set_Pin",
+    "Client_Port": "CompLedIndicator_PWM_SetPin",
+    "Server_Component": "PWM_Service",
+    "Client_Component": "CompLedIndicator",
+    "metadata": {
+      "tag": "SWC_NODE_EDITOR/CONNECTION/SWC_NODE_EDITOR/PWM_Service/PWM_Service_Set_Pin/TO/SWC_NODE_EDITOR/CompLedIndicator/CompLedIndicator_PWM_SetPin"
+    },
+    "Port_Type": "FUNCTION"
+  }
+]

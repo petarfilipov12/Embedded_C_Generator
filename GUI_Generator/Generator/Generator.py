@@ -1,11 +1,9 @@
-import os
 import copy
 import re
-from pathlib import Path
-
-DATA_HANDLER = None
+from common import FileHandler
 
 class Generator:
+    _generator_data_handler = None
     _generator_gen_folder = None
 
     _generator_gen_service_struct_name = None
@@ -23,33 +21,18 @@ class Generator:
                                    _generator_gen_server_ports_funcs_section_start + "\n" + _generator_gen_end_section + "\n\n" +
                                    _generator_gen_runnables_section_start + "\n" + _generator_gen_end_section)
 
-    def __init__(self, gen_folder):
+    def __init__(self, data_handler, gen_folder):
+        self._generator_data_handler = data_handler
         self._generator_gen_folder = gen_folder
 
     def _Generator_ReadFile(self, path_to_file):
-        s = None
-        if(path_to_file != None):
-            try:
-                f = open(path_to_file, "r")
-                s = f.read()
-                f.close()
-            except FileNotFoundError:
-                pass
-        
-        return s
+        return FileHandler.ReadFile(path_to_file)
 
     def _Generator_WriteFile(self, s, path_to_file):
-        if( (s != None) and (path_to_file != None) ):
-            file_name = path_to_file[path_to_file.rfind("/") + 1:]
-            path_to_file = path_to_file[: path_to_file.rfind("/")]
-            Path(path_to_file).mkdir(parents=True, exist_ok=True)
-            f = open(path_to_file + "/" + file_name, "w")
-            f.write(s)
-            f.close()
+        FileHandler.WriteFile(s=s, path_to_file=path_to_file, create_path_to_file=True)
 
     def _Generator_DeleteFile(self, path_to_file):
-        if os.path.exists(path_to_file):
-            os.remove(path_to_file)
+        FileHandler.DeleteFile(path_to_file)
 
     def _Generator_GenService_GenerateDataCfgCFile(self, prefix, data, data_cfg_c_file_s=None, buffers_s=None):
         for key in data.keys():
@@ -327,8 +310,6 @@ class Generator:
         return service_ports_s
 
     def _Generator_GenClientPorts(self, component_data, connections_data, client_ports_data):
-        global DATA_HANDLER
-
         component_name = component_data["Properties"]["Component_Name"]["value"]
         client_ports_s = None
         includes = None
@@ -351,7 +332,7 @@ class Generator:
                 server_component_ports_cfg_file_name = "GEN_" + server_component + "_SERVER_PORTS_CFG.h"
                 if(server_component_ports_cfg_file_name not in includes):
                     includes += "#include \"" + server_component_ports_cfg_file_name + "\"\n"
-                    for component in DATA_HANDLER.GetData()["SWCs"]["Components"]:
+                    for component in self._generator_data_handler.GetData()["SWCs"]["Components"]:
                         if (component["Properties"]["Component_Name"]["value"] == server_component):
                             if(component["Properties"]["Component_Type"]["value"] == "SERVICE"):
                                 server_component_cfg_file_name = "GEN_" + server_component + "_CFG.h"
@@ -455,6 +436,8 @@ class Generator:
                         for func in funcs_old_list:
                             if(func_declaration in func):
                                 func_params = callout[callout.find('('): callout.find(')') + 1]
+                                if(not func_params):
+                                    func_params = "(void)"
                                 func_new = func.replace(func[func.find('(', func.find(func_declaration)) : func.find(')', func.find(func_declaration)) + 1], func_params)
                                 break
                         if(func_new == None):
@@ -563,22 +546,15 @@ class Generator:
         if(component_data["Properties"]["Gen_Structure"]["value"]):
             self._Generator_GenComponentStructure(component_data=component_data, service_ports_s=service_ports_s, server_ports_cfg_file_name=server_ports_cfg_file_name, client_ports_cfg_file_name=client_ports_cfg_file_name)
 
+    def Generate(self, generation_data):
+        for service in generation_data["Services"]:
+            if(service == "OS"):
+                self.GenerateOS(self._generator_data_handler.GetData()["Services"]["OS"])
+            else:
+                self.GenerateService(service_data=self._generator_data_handler.GetData()["Services"][service], service_name=service)
 
-def Generate(data_handler, generation_data):
-    global DATA_HANDLER
-
-    DATA_HANDLER = data_handler
-
-    generator = Generator("Generator/GenData")
-
-    for service in generation_data["Services"]:
-        if(service == "OS"):
-            generator.GenerateOS(data_handler.GetData()["Services"]["OS"])
-        else:
-            generator.GenerateService(service_data=data_handler.GetData()["Services"][service], service_name=service)
-
-    for swc in generation_data["SWCs"]:
-        for component in data_handler.GetData()["SWCs"]["Components"]:
-            if (component["Properties"]["Component_Name"]["value"] == swc):
-                generator.GenerateComponent(component, data_handler.GetData()["SWCs"]["Connections"])
-                break
+        for swc in generation_data["SWCs"]:
+            for component in self._generator_data_handler.GetData()["SWCs"]["Components"]:
+                if (component["Properties"]["Component_Name"]["value"] == swc):
+                    self.GenerateComponent(component, self._generator_data_handler.GetData()["SWCs"]["Connections"])
+                    break

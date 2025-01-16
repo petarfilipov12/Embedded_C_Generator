@@ -1,0 +1,188 @@
+{
+  "OS_Configuration": {
+    "data": {},
+    "metadata": {
+      "deletable": false,
+      "duplicable": false,
+      "leaf": true,
+      "mandatory": true,
+      "type": "Services/OS/OS_Configuration"
+    },
+    "parameters": {
+      "CpuClock": {
+        "metadata": {
+          "changeable": true,
+          "type": "int"
+        },
+        "value": "0"
+      },
+      "ShortName": {
+        "metadata": {
+          "changeable": false,
+          "type": "string"
+        },
+        "value": "OS_Configuration"
+      }
+    }
+  },
+  "OS_Tasks": {
+    "data": {
+      "OS_Task_10ms_Prio2": {
+        "data": {},
+        "metadata": {
+          "deletable": true,
+          "duplicable": true,
+          "leaf": true,
+          "mandatory": false,
+          "type": "Services/OS/OS_Tasks/data/OS_Task"
+        },
+        "parameters": {
+          "Cycle": {
+            "metadata": {
+              "changeable": true,
+              "type": "int"
+            },
+            "value": 10
+          },
+          "CyclicRunnables": {
+            "metadata": {
+              "changeable": true,
+              "reference_target_keys": "Runnables/*/Runnable_Name",
+              "reference_targets": [
+                "SWCs/Components/Runnables/value/Runnable_Name/value"
+              ],
+              "type": "reference_list"
+            },
+            "value": [
+              "WDT_Service_Cyclic",
+              "ADC_Service_Cyclic",
+              "UART_Service_Cyclic"
+            ]
+          },
+          "InitRunnables": {
+            "metadata": {
+              "changeable": true,
+              "reference_target_keys": "Runnables/*/Runnable_Name",
+              "reference_targets": [
+                "SWCs/Components/Runnables/value/Runnable_Name/value"
+              ],
+              "type": "reference_list"
+            },
+            "value": [
+              "ADC_Service_Init",
+              "SPI_Service_Init",
+              "UART_Service_Init",
+              "WDT_Service_Init"
+            ]
+          },
+          "Priority": {
+            "metadata": {
+              "changeable": true,
+              "type": "int"
+            },
+            "value": 2
+          },
+          "ShortName": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "OS_Task_10ms_Prio2"
+          },
+          "StackSize": {
+            "metadata": {
+              "changeable": true,
+              "type": "int"
+            },
+            "value": 285
+          }
+        }
+      },
+      "OS_Task_200ms_Prio1": {
+        "data": {},
+        "metadata": {
+          "deletable": true,
+          "duplicable": true,
+          "leaf": true,
+          "mandatory": false,
+          "type": "Services/OS/OS_Tasks/data/OS_Task"
+        },
+        "parameters": {
+          "Cycle": {
+            "metadata": {
+              "changeable": true,
+              "type": "int"
+            },
+            "value": 200
+          },
+          "CyclicRunnables": {
+            "metadata": {
+              "changeable": true,
+              "reference_target_keys": "Runnables/*/Runnable_Name",
+              "reference_targets": [
+                "SWCs/Components/Runnables/value/Runnable_Name/value"
+              ],
+              "type": "reference_list"
+            },
+            "value": [
+              "CompSensor_Cyclic",
+              "CompLedIndicator_Cyclic"
+            ]
+          },
+          "InitRunnables": {
+            "metadata": {
+              "changeable": true,
+              "reference_target_keys": "Runnables/*/Runnable_Name",
+              "reference_targets": [
+                "SWCs/Components/Runnables/value/Runnable_Name/value"
+              ],
+              "type": "reference_list"
+            },
+            "value": [
+              "CompLedIndicator_Init",
+              "GPT_Service_Init",
+              "PWM_Service_Init",
+              "DIO_Service_Init"
+            ]
+          },
+          "Priority": {
+            "metadata": {
+              "changeable": true,
+              "type": "int"
+            },
+            "value": 1
+          },
+          "ShortName": {
+            "metadata": {
+              "changeable": true,
+              "type": "string"
+            },
+            "value": "OS_Task_200ms_Prio1"
+          },
+          "StackSize": {
+            "metadata": {
+              "changeable": true,
+              "type": "int"
+            },
+            "value": 110
+          }
+        }
+      }
+    },
+    "metadata": {
+      "deletable": false,
+      "duplicable": false,
+      "mandatory": true,
+      "type": "Services/OS/OS_Tasks"
+    },
+    "parameters": {
+      "ShortName": {
+        "metadata": {
+          "changeable": false,
+          "type": "string"
+        },
+        "value": "OS_Tasks"
+      }
+    }
+  }
+}

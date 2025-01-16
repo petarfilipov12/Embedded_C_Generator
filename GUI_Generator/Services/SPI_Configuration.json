@@ -1,0 +1,26 @@
+{
+  "SPI_Service_SPIs": {
+    "data": {},
+    "metadata": {
+      "deletable": false,
+      "duplicable": false,
+      "generate_data_count": true,
+      "generate_data_data_files": true,
+      "generate_data_data_files_data_name": "SpiHwCfg_data",
+      "generate_data_data_files_data_type": "SpiCfg_t",
+      "generate_data_data_files_init_func_postfix": "_INIT_FUNC",
+      "generate_params": false,
+      "mandatory": true,
+      "type": "Services/SPI/SPI_Service_SPIs"
+    },
+    "parameters": {
+      "ShortName": {
+        "metadata": {
+          "changeable": false,
+          "type": "string"
+        },
+        "value": "SPI_Service_SPIs"
+      }
+    }
+  }
+}
