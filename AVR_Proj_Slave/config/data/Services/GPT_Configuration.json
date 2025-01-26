@@ -15,7 +15,8 @@
           "CompareValue": {
             "metadata": {
               "changeable": true,
-              "type": "int"
+              "type": "int",
+			  "description": "Value ot which the timer resets and registers 1 tick"
             },
             "value": "0"
           },
@@ -26,7 +27,8 @@
                 "GPT_MODE_PWM",
                 "GPT_MODE_NORMAL"
               ],
-              "type": "selectable"
+              "type": "selectable",
+			  "description": "Mode of the GPT_Service_GPT unit.\nNORMAL - regular timer functionality.\nPWM - pulse width modulation functionality"
             },
             "value": "GPT_MODE_PWM"
           },
@@ -34,21 +36,24 @@
             "metadata": {
               "changeable": false,
               "id": true,
-              "type": "int"
+              "type": "int",
+			  "description": "Unique Id number"
             },
             "value": "0"
           },
           "Prescaler": {
             "metadata": {
               "changeable": true,
-              "type": "int"
+              "type": "int",
+			  "description": "Value by witch the timer frequency is divided, effectively slowing down the tick count."
             },
             "value": 64
           },
           "ShortName": {
             "metadata": {
               "changeable": true,
-              "type": "string"
+              "type": "string",
+			  "description": "Shortname for GPT_Service_GPT unit"
             },
             "value": "GPT_TIMER_0"
           }
@@ -71,7 +76,8 @@
       "ShortName": {
         "metadata": {
           "changeable": false,
-          "type": "string"
+          "type": "string",
+		  "description": "Shortname for GPT_Service_GPTs container"
         },
         "value": "GPT_Service_GPTs"
       }

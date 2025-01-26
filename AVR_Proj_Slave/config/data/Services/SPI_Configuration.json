@@ -16,14 +16,16 @@
             "metadata": {
               "changeable": false,
               "id": true,
-              "type": "int"
+              "type": "int",
+			  "description": "Unique Id number"
             },
             "value": "0"
           },
           "ShortName": {
             "metadata": {
               "changeable": true,
-              "type": "string"
+              "type": "string",
+			  "description": "Shortname for SPI_Service_SPI"
             },
             "value": "SPI_0"
           },
@@ -34,7 +36,8 @@
                 "SPI_MODE_MASTER",
                 "SPI_MODE_SLAVE"
               ],
-              "type": "selectable"
+              "type": "selectable",
+			  "description": "Mode of the SPI unit (Master/Slave)"
             },
             "value": "SPI_MODE_SLAVE"
           },
@@ -44,7 +47,8 @@
               "gen_buffer": true,
               "gen_buffer_size_var_name": "spiRxBufferSize",
               "gen_buffer_var_name": "spiRxBuffer",
-              "type": "int"
+              "type": "int",
+			  "description": "Size of SPI Rx buffer in bytes. This parameter is relevant if SPI mode is SPI_MODE_SLAVE"
             },
             "value": 10
           }
@@ -67,7 +71,8 @@
       "ShortName": {
         "metadata": {
           "changeable": false,
-          "type": "string"
+          "type": "string",
+		  "description": "Shortname for SPI_Service_SPIs container"
         },
         "value": "SPI_Service_SPIs"
       }

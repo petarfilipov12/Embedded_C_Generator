@@ -17,7 +17,8 @@ SPI_Data_Structure_Template = {
         "value": "SPI_Service_SPIs",
         "metadata": {
           "type": "string",
-          "changeable": False
+          "changeable": False,
+          "description": "Shortname for SPI_Service_SPIs container"
         }
       }
     },
@@ -36,7 +37,8 @@ SPI_Data_Structure_Template = {
             "value": "SPI_Service_SPI",
             "metadata": {
               "type": "string",
-              "changeable": True
+              "changeable": True,
+              "description": "Shortname for SPI_Service_SPI"
             }
           },
           "Id": {
@@ -44,7 +46,8 @@ SPI_Data_Structure_Template = {
             "metadata": {
               "type": "int",
               "id": True,
-              "changeable": False
+              "changeable": False,
+              "description": "Unique Id number"
             }
           },
           "SpiRxBufferSize": {
@@ -54,7 +57,8 @@ SPI_Data_Structure_Template = {
               "gen_buffer": True,
               "gen_buffer_var_name": "spiRxBuffer",
               "gen_buffer_size_var_name": "spiRxBufferSize",
-              "changeable": True
+              "changeable": True,
+              "description": "Size of SPI Rx buffer in bytes. This parameter is relevant if SPI mode is SPI_MODE_SLAVE"
             }
           },
           "SpiMode": {
@@ -65,7 +69,8 @@ SPI_Data_Structure_Template = {
                 "SPI_MODE_MASTER",
                 "SPI_MODE_SLAVE"
               ],
-              "changeable": True
+              "changeable": True,
+              "description": "Mode of the SPI unit (Master/Slave)"
             }
           }
         },

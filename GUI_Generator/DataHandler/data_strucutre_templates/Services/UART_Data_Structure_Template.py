@@ -17,7 +17,8 @@ UART_Data_Structure_Template = {
         "value": "UART_Service_UARTs",
         "metadata": {
           "type": "string",
-          "changeable": False
+          "changeable": False,
+          "description": "Shortname for UART_Service_UARTs container"
         }
       }
     },
@@ -36,7 +37,8 @@ UART_Data_Structure_Template = {
             "value": "UART_Service_UART",
             "metadata": {
               "type": "string",
-              "changeable": True
+              "changeable": True,
+              "description": "Shortname for UART_Service_UART"
             }
           },
           "Id": {
@@ -44,14 +46,16 @@ UART_Data_Structure_Template = {
             "metadata": {
               "type": "int",
               "id": True,
-              "changeable": False
+              "changeable": False,
+              "description": "Unique Id number"
             }
           },
           "Baud": {
             "value": "0",
             "metadata": {
               "type": "int",
-              "changeable": True
+              "changeable": True,
+              "description": "Baud rate of UART connection in bits/s"
             }
           },
           "UartTxBufferSize": {
@@ -61,7 +65,8 @@ UART_Data_Structure_Template = {
               "changeable": True,
               "gen_buffer": True,
               "gen_buffer_var_name": "uartTxBuffer",
-              "gen_buffer_size_var_name": "uartTxBufferSize"
+              "gen_buffer_size_var_name": "uartTxBufferSize",
+              "description": "Size of UART Tx buffer in bytes."
             }
           },
           "UartRxBufferSize": {
@@ -71,7 +76,8 @@ UART_Data_Structure_Template = {
               "changeable": True,
               "gen_buffer": True,
               "gen_buffer_var_name": "uartRxBuffer",
-              "gen_buffer_size_var_name": "uartRxBufferSize"
+              "gen_buffer_size_var_name": "uartRxBufferSize",
+              "description": "Size of UART Rx buffer in bytes."
             }
           }
         },

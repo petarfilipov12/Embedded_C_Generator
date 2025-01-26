@@ -17,6 +17,7 @@
       "ShortName": {
         "metadata": {
           "changeable": false,
+          "description": "Shortname for ADC_Service_ADCs container",
           "type": "string"
         },
         "value": "ADC_Service_ADCs"
@@ -41,6 +42,7 @@
       "ShortName": {
         "metadata": {
           "changeable": false,
+          "description": "Shortname for ADC_Service_Pins container",
           "type": "string"
         },
         "value": "ADC_Service_Pins"

@@ -17,7 +17,8 @@ GPT_Data_Structure_Template = {
         "value": "GPT_Service_GPTs",
         "metadata": {
           "type": "string",
-          "changeable": False
+          "changeable": False,
+          "description": "Shortname for GPT_Service_GPTs container"
         }
       }
     },
@@ -36,7 +37,8 @@ GPT_Data_Structure_Template = {
             "value": "GPT_Service_GPT",
             "metadata": {
               "type": "string",
-              "changeable": True
+              "changeable": True,
+              "description": "Shortname for GPT_Service_GPT unit"
             }
           },
           "GptMode": {
@@ -47,7 +49,8 @@ GPT_Data_Structure_Template = {
                 "GPT_MODE_PWM",
                 "GPT_MODE_NORMAL"
               ],
-              "changeable": True
+              "changeable": True,
+              "description": "Mode of the GPT_Service_GPT unit.\nNORMAL - regular timer functionality.\nPWM - pulse width modulation functionality"
             }
           },
           "Id": {
@@ -55,21 +58,24 @@ GPT_Data_Structure_Template = {
             "metadata": {
               "type": "int",
               "id": True,
-              "changeable": False
+              "changeable": False,
+              "description": "Unique Id number"
             }
           },
           "CompareValue": {
             "value": "0",
             "metadata": {
               "type": "int",
-              "changeable": True
+              "changeable": True,
+              "description": "Value ot which the timer resets and registers 1 tick"
             }
           },
           "Prescaler": {
             "value": "0",
             "metadata": {
               "type": "int",
-              "changeable": True
+              "changeable": True,
+              "description": "Value by witch the timer frequency is divided, effectively slowing down the tick count."
             }
           }
         },

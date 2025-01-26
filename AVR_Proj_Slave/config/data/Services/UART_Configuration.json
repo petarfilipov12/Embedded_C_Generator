@@ -15,7 +15,8 @@
           "Baud": {
             "metadata": {
               "changeable": true,
-              "type": "int"
+              "type": "int",
+			  "description": "Baud rate of UART connection in bits/s"
             },
             "value": 9600
           },
@@ -23,14 +24,16 @@
             "metadata": {
               "changeable": false,
               "id": true,
-              "type": "int"
+              "type": "int",
+			  "description": "Unique Id number"
             },
             "value": "0"
           },
           "ShortName": {
             "metadata": {
               "changeable": true,
-              "type": "string"
+              "type": "string",
+			  "description": "Shortname for UART_Service_UART"
             },
             "value": "UART_0"
           },
@@ -40,7 +43,8 @@
               "gen_buffer": true,
               "gen_buffer_size_var_name": "uartRxBufferSize",
               "gen_buffer_var_name": "uartRxBuffer",
-              "type": "int"
+              "type": "int",
+			  "description": "Size of UART Rx buffer in bytes."
             },
             "value": 50
           },
@@ -50,7 +54,8 @@
               "gen_buffer": true,
               "gen_buffer_size_var_name": "uartTxBufferSize",
               "gen_buffer_var_name": "uartTxBuffer",
-              "type": "int"
+              "type": "int",
+			  "description": "Size of UART Tx buffer in bytes."
             },
             "value": 50
           }
@@ -73,7 +78,8 @@
       "ShortName": {
         "metadata": {
           "changeable": false,
-          "type": "string"
+          "type": "string",
+		  "description": "Shortname for UART_Service_UARTs container"
         },
         "value": "UART_Service_UARTs"
       }

@@ -16,21 +16,24 @@
             "metadata": {
               "changeable": false,
               "id": true,
-              "type": "int"
+              "type": "int",
+			  "description": "Unique Id number"
             },
             "value": "0"
           },
           "Prescaler": {
             "metadata": {
               "changeable": true,
-              "type": "int"
+              "type": "int",
+			  "description": "Value by witch the timer frequency is divided, effectively slowing down the tick count."
             },
             "value": 512000
           },
           "ShortName": {
             "metadata": {
               "changeable": true,
-              "type": "string"
+              "type": "string",
+			  "description": "Shortname for WDT_Service_WDT"
             },
             "value": "WDT_0"
           }
@@ -53,7 +56,8 @@
       "ShortName": {
         "metadata": {
           "changeable": false,
-          "type": "string"
+          "type": "string",
+		  "description": "Shortname for WDT_Service_WDTs container"
         },
         "value": "WDT_Service_WDTs"
       }

@@ -14,6 +14,7 @@ class SWCs_GUI_Handler:
     _swc_node_handler_registry_tag = None
 
     _swc_data_handler = None
+    _swc_footer_manager = None
     _swc_components_data = None
     _swc_components_data_structure_template = None
     _swc_connections_data = None
@@ -30,8 +31,9 @@ class SWCs_GUI_Handler:
 
     _swc_edit_window_edit_params_last_args = {}
 
-    def __init__(self, data_handler):
+    def __init__(self, data_handler, footer_manager):
         self._swc_data_handler = data_handler
+        self._swc_footer_manager = footer_manager
 
         self._swc_components_data_structure_template = data_handler.GetDataStructureTemplates()["SWCs"]["Components"]
         self._swc_connections_data_structure_template = data_handler.GetDataStructureTemplates()["SWCs"]["Connections"]
@@ -751,13 +753,13 @@ class SWCs_GUI_Handler:
                       pos=component["Component_Metadata"]["node_editor_position"]):
             self._swc_background_disable_widgets_tags.append(component_tag)
             for client_port in component["Client_Ports"]["value"]:
-                with dpg.node_attribute(tag=component_tag + "/" + client_port, parent=component_tag):
+                with dpg.node_attribute(tag=component_tag + "/" + client_port, parent=component_tag, shape=dpg.mvNode_PinShape_CircleFilled):
                     dpg.add_text(client_port)
 
             for server_port in component["Server_Ports"]["value"]:
                 server_port = server_port["Server_Port_Id"]["value"]
                 with dpg.node_attribute(tag=component_tag + "/" + server_port, parent=component_tag,
-                                        attribute_type=dpg.mvNode_Attr_Output):
+                                        attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                     dpg.add_text(server_port)
         dpg.bind_item_handler_registry(item=component_tag, handler_registry=self._swc_node_handler_registry_tag)
 
@@ -783,15 +785,21 @@ class SWCs_GUI_Handler:
             self._SWC_DrawLinkNodesFromConnection(connection=connection, parent="SWC_NODE_EDITOR")
 
     def _SWC_ListCallBack(self, sender, app_data, user_data):
-        # comp_name = app_data
-        self._SWC_OpenSWCEditWindow(app_data)
+        # comp_name = user_data
+        self._SWC_OpenSWCEditWindow(user_data)
 
 
     def _SWC_RenderComponentList(self, parent):
         dpg.delete_item("SWC_COMPONENT_LIST")
         component_list = self._SWC_GetComponentList()
-        dpg.add_listbox(component_list, tag="SWC_COMPONENT_LIST", parent=parent,
-                        callback=self._SWC_ListCallBack, num_items=len(component_list), enabled=True)
+        with dpg.table(tag="SWC_COMPONENT_LIST", parent=parent, header_row=False):
+            dpg.add_table_column()
+            for component in component_list:
+                with dpg.table_row():
+                    dpg.add_selectable(label=component, callback=self._SWC_ListCallBack, user_data=component)
+
+        # dpg.add_listbox(items=component_list, tag="SWC_COMPONENT_LIST", parent=parent,
+        #              callback=self._SWC_ListCallBack, num_items=len(component_list))
 
     def ShowWindow(self, parent):
         with dpg.handler_registry():

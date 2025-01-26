@@ -10,14 +10,15 @@ ADC_Data_Structure_Template = {
       "generate_data_data_files": True,
       "generate_data_data_files_data_type": "AdcCfg_t",
       "generate_data_data_files_data_name": "AdcHwCfg_data",
-      "generate_data_data_files_init_func_postfix": "_INIT_FUNC"
+      "generate_data_data_files_init_func_postfix": "_INIT_FUNC",
     },
     "parameters": {
       "ShortName": {
         "value": "ADC_Service_ADCs",
         "metadata": {
           "type": "string",
-          "changeable": False
+          "changeable": False,
+          "description": "Shortname for ADC_Service_ADCs container"
         }
       }
     },
@@ -29,14 +30,15 @@ ADC_Data_Structure_Template = {
           "leaf": True,
           "deletable": True,
           "duplicable": True,
-          "generate_params": True
+          "generate_params": True,
         },
         "parameters": {
           "ShortName": {
             "value": "ADC_Service_ADC",
             "metadata": {
               "type": "string",
-              "changeable": True
+              "changeable": True,
+              "description": "Shortname for ADC_Service_ADC unit"
             }
           },
           "Id": {
@@ -44,7 +46,8 @@ ADC_Data_Structure_Template = {
             "metadata": {
               "id": True,
               "type": "int",
-              "changeable": False
+              "changeable": False,
+              "description": "Unique Id number"
             }
           },
           "AdcBufferSize": {
@@ -54,7 +57,8 @@ ADC_Data_Structure_Template = {
               "gen_buffer": True,
               "gen_buffer_var_name": "adcBuffer",
               "gen_buffer_size_var_name": "adcBufferSize",
-              "changeable": True
+              "changeable": True,
+              "description": "Size of ADC buffer in bytes"
             }
           }
         },
@@ -80,7 +84,8 @@ ADC_Data_Structure_Template = {
         "value": "ADC_Service_Pins",
         "metadata": {
           "type": "string",
-          "changeable": False
+          "changeable": False,
+          "description": "Shortname for ADC_Service_Pins container"
         }
       }
     },
@@ -99,7 +104,8 @@ ADC_Data_Structure_Template = {
             "value": "ADC_Service_Pin",
             "metadata": {
               "type": "string",
-              "changeable": True
+              "changeable": True,
+              "description": "Shortname for ADC_Service_Pin"
             }
           },
           "Id": {
@@ -107,7 +113,8 @@ ADC_Data_Structure_Template = {
             "metadata": {
               "type": "int",
               "id": True,
-              "changeable": False
+              "changeable": False,
+              "description": "Unique Id number"
             }
           },
           "AdcRef": {
@@ -117,7 +124,8 @@ ADC_Data_Structure_Template = {
               "reference_targets": [
                 "Services/ADC/ADC_Service_ADCs"
               ],
-              "changeable": True
+              "changeable": True,
+              "description": "Reference to ADC_Service_ADCs unit, which this pin will use"
             }
           }
         },

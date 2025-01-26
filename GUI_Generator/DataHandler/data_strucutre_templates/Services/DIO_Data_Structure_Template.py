@@ -17,7 +17,8 @@ DIO_Data_Structure_Template = {
         "value": "DIO_Service_Pins",
         "metadata": {
           "type": "string",
-          "changeable": False
+          "changeable": False,
+          "description": "Shortname for DIO_Service_Pins container"
         }
       }
     },
@@ -36,7 +37,8 @@ DIO_Data_Structure_Template = {
             "value": "DIO_Service_Pin",
             "metadata": {
               "type": "string",
-              "changeable": True
+              "changeable": True,
+              "description": "Shortname for DIO_Service_Pin"
             }
           },
           "PinType": {
@@ -47,7 +49,8 @@ DIO_Data_Structure_Template = {
                 "PIN_INPUT",
                 "PIN_OUTPUT"
               ],
-              "changeable": True
+              "changeable": True,
+              "description": "Initial type of DIO_Pin (Input/Output)"
             }
           },
           "Id": {
@@ -55,7 +58,8 @@ DIO_Data_Structure_Template = {
             "metadata": {
               "type": "int",
               "id": True,
-              "changeable": False
+              "changeable": False,
+              "description": "Unique Id number"
             }
           },
           "PinState": {
@@ -66,7 +70,8 @@ DIO_Data_Structure_Template = {
                 "PIN_HIGH",
                 "PIN_LOW"
               ],
-              "changeable": True
+              "changeable": True,
+              "description": "Initial state of DIO_Pin (High/Low). This parameter is ignored if PinType is PIN_INPUT"
             }
           }
         },

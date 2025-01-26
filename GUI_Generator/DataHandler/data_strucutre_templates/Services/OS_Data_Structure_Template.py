@@ -1,30 +1,4 @@
 OS_Data_Structure_Template = {
-  "OS_Configuration": {
-    "metadata": {
-      "type": "Services/OS/OS_Configuration",
-      "mandatory": True,
-      "deletable": False,
-      "duplicable": False,
-      "leaf": True
-    },
-    "parameters": {
-      "ShortName": {
-        "value": "OS_Configuration",
-        "metadata": {
-          "type": "string",
-          "changeable": False
-        }
-      },
-      "CpuClock": {
-        "value": "0",
-        "metadata": {
-          "type": "int",
-          "changeable": True
-        }
-      }
-    },
-    "data": {}
-  },
   "OS_Tasks": {
     "metadata": {
       "type": "Services/OS/OS_Tasks",
@@ -37,7 +11,8 @@ OS_Data_Structure_Template = {
         "value": "OS_Tasks",
         "metadata": {
           "type": "string",
-          "changeable": False
+          "changeable": False,
+          "description": "Shortname for OS_Tasks container"
         }
       }
     },
@@ -55,21 +30,24 @@ OS_Data_Structure_Template = {
             "value": "OS_Task",
             "metadata": {
               "type": "string",
-              "changeable": True
+              "changeable": True,
+              "description": "Shortname for OS_Task"
             }
           },
           "Priority": {
             "value": "0",
             "metadata": {
               "type": "int",
-              "changeable": True
+              "changeable": True,
+              "description": "Priority number of the task. Tasks with higher priority number are prioritized."
             }
           },
           "Cycle": {
             "value": "0",
             "metadata": {
               "type": "int",
-              "changeable": True
+              "changeable": True,
+              "description": "Cycle time of the task in ms."
             }
           },
           "InitRunnables": {
@@ -80,7 +58,8 @@ OS_Data_Structure_Template = {
                 "SWCs/Components/Runnables/value/Runnable_Name/value"
               ],
               "reference_target_keys": "Runnables/*/Runnable_Name",
-              "changeable": True
+              "changeable": True,
+              "description": "List of runnables to be executed once on task startup."
             }
           },
           "CyclicRunnables": {
@@ -91,14 +70,16 @@ OS_Data_Structure_Template = {
                 "SWCs/Components/Runnables/value/Runnable_Name/value"
               ],
               "reference_target_keys": "Runnables/*/Runnable_Name",
-              "changeable": True
+              "changeable": True,
+              "description": "List of runnables to be executed every task cycle."
             }
           },
           "StackSize": {
             "value": "0",
             "metadata": {
               "type": "int",
-              "changeable": True
+              "changeable": True,
+              "description": "Task stacksize in bytes."
             }
           }
         },

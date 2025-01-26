@@ -3,12 +3,14 @@ from common.NavigationWindow import NavigationWindow
 
 class SERVICES_GUI_Handler:
     data_handler = None
+    footer_manager = None
     data = None
     data_structure_template = None
     _services_navigation_window = None
 
-    def __init__(self, data_handler):
+    def __init__(self, data_handler, footer_manager):
         self.data_handler = data_handler
+        self.footer_manager = footer_manager
         self.data = data_handler.GetData()
         self.data_structure_template = data_handler.GetDataStructureTemplates()
 
@@ -26,7 +28,7 @@ class SERVICES_GUI_Handler:
             self._services_navigation_window.ClearAll()
 
         self.data["Services"][app_data] = self._SERVICES_SortData(self.data["Services"][app_data])
-        self._services_navigation_window = NavigationWindow(service=app_data, data_handler=self.data_handler, tab=app_data)
+        self._services_navigation_window = NavigationWindow(service=app_data, data_handler=self.data_handler, footer_manager=self.footer_manager, tab=app_data)
         self._services_navigation_window.ShowNavigationWindow(parent="SERVICES_NAVIGATION_WINDOW")
 
     def ShowWindow(self, parent):

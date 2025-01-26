@@ -5,6 +5,7 @@ import copy
 
 
 class NavigationWindow:
+    footer_manager = None
     data_handler = None
     _nav_service = None
 
@@ -20,8 +21,9 @@ class NavigationWindow:
     _nav_add_runnables_selected_buffer = []
     _nav_current_param_window_data = {}
 
-    def __init__(self, service, data_handler, tab):
+    def __init__(self, service, data_handler, footer_manager, tab):
         self.data_handler = data_handler
+        self.footer_manager = footer_manager
         self._nav_service = service
 
         self._nav_tab = tab
@@ -59,9 +61,10 @@ class NavigationWindow:
 
     def _NAV_NavigationButtonCallback(self, sender, app_data, user_data):
         caller = dpg.get_item_alias(app_data[1])
-        params = dpg.get_item_user_data(caller)["parameters"]
+        data = dpg.get_item_user_data(caller)
 
-        self._NAV_RenderParamWindow(parameters_data=params, parent=caller)
+        #self.footer_manager.Footer_DisplayText(data["metadata"]["description"])
+        self._NAV_RenderParamWindow(parameters_data=data["parameters"], parent=caller)
 
     def _NAV_ShowPopup(self, sender, app_data, user_data):
         caller = dpg.get_item_alias(app_data[1])
@@ -343,7 +346,9 @@ class NavigationWindow:
                 tag = parent + "/parameters/" + param_name
 
                 with dpg.table_row():
-                    dpg.add_text(param_name)
+                    txt = dpg.add_text(param_name, user_data=parameters_data[param_name])
+                    dpg.bind_item_handler_registry(item=txt, handler_registry=self.footer_manager.Footer_GetHandlerRegistry())
+
                     temp_reference_list_data[param_name] = {}
                     temp_reference_list_data[param_name]["data_pointer"] = parameters_data[param_name]
                     temp_reference_list_data[param_name]["selected_buffer"] = []
@@ -388,7 +393,6 @@ class NavigationWindow:
                                         dpg.add_selectable(span_columns=True, label=elem, user_data=(elem,param_name),
                                                            callback=lambda sender, app_data, user_data: (
                                             temp_reference_list_data[user_data[1]]["selected_buffer"].append(user_data[0]) if user_data[0] not in temp_reference_list_data[user_data[1]]["selected_buffer"] else temp_reference_list_data[user_data[1]]["selected_buffer"].remove(user_data[0]),
-                                            print(temp_reference_list_data[user_data[1]]["selected_buffer"]),
                                             dpg.configure_item(temp_reference_list_data[user_data[1]]["delete_button"], enabled=(len(temp_reference_list_data[user_data[1]]["selected_buffer"]) > 0))
                                         ))
                     elif (parameters_data[param_name]["metadata"]["type"] == "bool"):

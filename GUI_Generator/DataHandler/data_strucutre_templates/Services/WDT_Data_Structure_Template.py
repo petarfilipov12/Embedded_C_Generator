@@ -17,7 +17,8 @@ WDT_Data_Structure_Template = {
         "value": "WDT_Service_WDTs",
         "metadata": {
           "type": "string",
-          "changeable": False
+          "changeable": False,
+          "description": "Shortname for WDT_Service_WDTs container"
         }
       }
     },
@@ -36,7 +37,8 @@ WDT_Data_Structure_Template = {
             "value": "WDT_Service_WDT",
             "metadata": {
               "type": "string",
-              "changeable": True
+              "changeable": True,
+              "description": "Shortname for WDT_Service_WDT"
             }
           },
           "Id": {
@@ -44,14 +46,16 @@ WDT_Data_Structure_Template = {
             "metadata": {
               "type": "int",
               "id": True,
-              "changeable": False
+              "changeable": False,
+              "description": "Unique Id number"
             }
           },
           "Prescaler": {
             "value": "0",
             "metadata": {
               "type": "int",
-              "changeable": True
+              "changeable": True,
+              "description": "Value by witch the timer frequency is divided, effectively slowing down the tick count."
             }
           }
         },

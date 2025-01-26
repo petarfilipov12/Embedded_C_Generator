@@ -18,7 +18,8 @@
               "reference_targets": [
                 "Services/GPT/GPT_Service_GPTs"
               ],
-              "type": "reference"
+              "type": "reference",
+			  "description": "Reference to GPT_Service_GPTs unit, which this pin will use"
             },
             "value": "Services/GPT/GPT_Service_GPTs/GPT_TIMER_0"
           },
@@ -26,14 +27,16 @@
             "metadata": {
               "changeable": false,
               "id": true,
-              "type": "int"
+              "type": "int",
+			  "description": "Unique Id number"
             },
             "value": "0"
           },
           "ShortName": {
             "metadata": {
               "changeable": true,
-              "type": "string"
+              "type": "string",
+			  "description": "Shortname for PWM_Service_Pin"
             },
             "value": "PWM_PIN_0"
           }
@@ -56,7 +59,8 @@
       "ShortName": {
         "metadata": {
           "changeable": false,
-          "type": "string"
+          "type": "string",
+		  "description": "Shortname for PWM_Service_Pins container"
         },
         "value": "PWM_Service_Pins"
       }

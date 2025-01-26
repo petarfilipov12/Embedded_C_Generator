@@ -3,12 +3,16 @@ from Services.Services import SERVICES_GUI_Handler
 from SWCs.SWCs import SWCs_GUI_Handler
 from DataHandler.DataHandler import DataHandler
 from Generator.Generator import Generator
+from FooterManager import FooterManager
 import time
 
 class EmbeddedCGenerator:
+    primary_window_tag = "PRIMARY_WINDOW_TAG"
+    
     data_handler = None
     gui_handlers = {}
     generator = None
+    footer_manager = None
 
     proj_title = "Proj_Title"
     data_dir = None
@@ -20,9 +24,10 @@ class EmbeddedCGenerator:
 
         # self.data_handler = DataHandler(os.path.dirname(os.path.realpath(__file__)))
         self.data_handler = DataHandler(data_dir)
+        self.footer_manager = FooterManager(parent=self.primary_window_tag)
 
-        self.gui_handlers["Services"] = SERVICES_GUI_Handler(self.data_handler)
-        self.gui_handlers["SWCs"] = SWCs_GUI_Handler(self.data_handler)
+        self.gui_handlers["Services"] = SERVICES_GUI_Handler(self.data_handler, self.footer_manager)
+        self.gui_handlers["SWCs"] = SWCs_GUI_Handler(self.data_handler, self.footer_manager)
 
         self.generator = Generator(data_handler=self.data_handler, gen_folder=self.gen_dir)
         # Set disabled theme
@@ -48,9 +53,9 @@ class EmbeddedCGenerator:
 
     def MenuBarRefreshButtonCallback(self):
         print("Refresh")
-        dpg.delete_item("PRIMARY_WINDOW_TAG", children_only=True)
+        dpg.delete_item(self.primary_window_tag, children_only=True)
         aliases = dpg.get_aliases()
-        aliases.remove("PRIMARY_WINDOW_TAG")
+        aliases.remove(self.primary_window_tag)
         for alias in aliases:
             dpg.remove_alias(alias)
         self.ShowMainWondow()
@@ -117,18 +122,14 @@ class EmbeddedCGenerator:
                 dpg.add_button(tag="DESIGN_BUTTON_" + key, label=key, callback=self.DesignButtonCallback, user_data=key)
             dpg.add_button(label="Generate", callback=self.GenerateButtonCallback)
     def MainWindowTabs(self, parent):
-        dpg.add_child_window(tag="TABS_WINDOW", parent=parent, resizable_y=True, auto_resize_y=False, height=400)
+        dpg.add_child_window(tag="TABS_WINDOW", parent=parent, resizable_y=True, auto_resize_y=False, height=600)
         dpg.add_tab_bar(tag="MAIN_WINDOW_TAB_BAR_TAG", parent="TABS_WINDOW")
 
-    def MainWindowFooter(self, parent):
-        dpg.add_child_window(tag="FOOTER", parent=parent)
-        dpg.add_input_text(parent="FOOTER", label="FOOTER")
-
     def ShowMainWondow(self):
-        self.MainWindowMenuBar(parent="PRIMARY_WINDOW_TAG")
-        self.MainWindowDesignViewButtons(parent="PRIMARY_WINDOW_TAG")
-        self.MainWindowTabs(parent="PRIMARY_WINDOW_TAG")
-        self.MainWindowFooter(parent="PRIMARY_WINDOW_TAG")
+        self.MainWindowMenuBar(parent=self.primary_window_tag)
+        self.MainWindowDesignViewButtons(parent=self.primary_window_tag)
+        self.MainWindowTabs(parent=self.primary_window_tag)
+        self.footer_manager.Footer_DisplayWindow()
 
     def Run(self):
         dpg.create_context()
@@ -137,9 +138,9 @@ class EmbeddedCGenerator:
         # dpg.toggle_viewport_fullscreen()
         # dpg.maximize_viewport()
 
-        dpg.add_window(tag="PRIMARY_WINDOW_TAG")
+        dpg.add_window(tag=self.primary_window_tag)
         dpg.show_viewport()
-        dpg.set_primary_window("PRIMARY_WINDOW_TAG", True)
+        dpg.set_primary_window(self.primary_window_tag, True)
 
         # dpg.start_dearpygui()
         first_render = True

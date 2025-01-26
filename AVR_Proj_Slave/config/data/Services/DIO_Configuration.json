@@ -17,7 +17,8 @@
       "ShortName": {
         "metadata": {
           "changeable": false,
-          "type": "string"
+          "type": "string",
+		  "description": "Shortname for DIO_Service_Pins container"
         },
         "value": "DIO_Service_Pins"
       }

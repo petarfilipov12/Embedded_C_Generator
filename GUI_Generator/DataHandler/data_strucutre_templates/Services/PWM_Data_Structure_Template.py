@@ -17,7 +17,8 @@ PWM_Data_Structure_Template = {
         "value": "PWM_Service_Pins",
         "metadata": {
           "type": "string",
-          "changeable": False
+          "changeable": False,
+          "description": "Shortname for PWM_Service_Pins container"
         }
       }
     },
@@ -36,7 +37,8 @@ PWM_Data_Structure_Template = {
             "value": "PWM_Service_Pin",
             "metadata": {
               "type": "string",
-              "changeable": True
+              "changeable": True,
+              "description": "Shortname for PWM_Service_Pin"
             }
           },
           "Id": {
@@ -44,7 +46,8 @@ PWM_Data_Structure_Template = {
             "metadata": {
               "type": "int",
               "id": True,
-              "changeable": False
+              "changeable": False,
+              "description": "Unique Id number"
             }
           },
           "GptTimerRef": {
@@ -54,7 +57,8 @@ PWM_Data_Structure_Template = {
               "reference_targets": [
                 "Services/GPT/GPT_Service_GPTs"
               ],
-              "changeable": True
+              "changeable": True,
+              "description": "Reference to GPT_Service_GPTs unit, which this pin will use"
             }
           }
         },
