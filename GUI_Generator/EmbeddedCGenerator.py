@@ -3,7 +3,7 @@ from Services.Services import SERVICES_GUI_Handler
 from SWCs.SWCs import SWCs_GUI_Handler
 from DataHandler.DataHandler import DataHandler
 from Generator.Generator import Generator
-from FooterManager import FooterManager
+from FooterManager.FooterManager import FooterManager
 import time
 
 class EmbeddedCGenerator:
@@ -63,12 +63,8 @@ class EmbeddedCGenerator:
     def MainWindowMenuBar(self, parent):
         with dpg.menu_bar(tag="MAIN_WINDOW_MENU_BAR", parent=parent):
             with dpg.menu(label="Menu"):
-                dpg.add_text("This menu is just for show!")
-                dpg.add_menu_item(label="New")
-                dpg.add_menu_item(label="Open")
+                dpg.add_menu_item(label="Save", tag="MENU_SAVE_BUTTON", callback=self.SaveAll)
                 dpg.add_menu_item(label="Refresh", tag="MENU_REFRESH_BUTTON", callback=self.MenuBarRefreshButtonCallback)
-
-            dpg.add_button(label="Save", tag="MENU_SAVE_BUTTON", callback=self.SaveAll)
 
     def DesignButtonCallback(self, sender, app_data, user_data):
         #tab -> user_data
